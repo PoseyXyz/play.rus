@@ -4,8 +4,8 @@ import { Outlet } from 'react-router-dom';
 
 function Alt(props) {
     return (
-        <div>
-            ALT
+        <div className="col-span-7 bg-black-v2 rounded-3xl">
+            
         </div>
     );
 }

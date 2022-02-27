@@ -17,9 +17,9 @@ function MenuBar(props) {
 
 <div className="flex flex-col gap-8">
     <div className="menubar-link"><i><ImBooks/></i><h1>My Library</h1></div>
-    <div className="menubar-link"><i></i><h3>Collection</h3></div>
-    <div className="menubar-link"><i></i><h3>Bookmarks</h3></div>
-    <div className="menubar-link"><i></i><h3>Top rated</h3></div>
+    <div className="pl-16 text-typography-grey text-lg hover:text-typography-white cursor-pointer delay-75 duration-150"><i></i><h3>Collection</h3></div>
+    <div className="pl-16 text-typography-grey text-lg hover:text-typography-white cursor-pointer delay-75 duration-150"><i></i><h3>Bookmarks</h3></div>
+    <div className="pl-16 text-typography-grey text-lg hover:text-typography-white cursor-pointer delay-75 duration-150"><i></i><h3>Top rated</h3></div>
 </div>
 
 <hr className="mx-8 border-black-v3"></hr>
