@@ -14,9 +14,8 @@ function App() {
     <Routes>
       <Route path='/' element={<Layout />}>
         <Route path="explore" element={<Explore/>}/>
-        <Route index element={<Explore/>}/>
-        <Route path="alt" element={<Alt/>}/> 
-        <Route path="xbox" element={<Xbox/>}/>  
+        <Route index element={<Explore/>}/> 
+        <Route path="alt" element={<Alt/>}/>
       </Route>
 
       {/* loading

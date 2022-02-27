@@ -6,16 +6,14 @@ import Nav from '../components/Nav';
 
 function Layout(props) {
     return (
-        <div>
-            <Nav/>
-            <Link to="alt">ALT</Link>
-            <Link to="xbox">XBOX</Link>
+        <>
+           <header> <Nav/></header>
             <section>
                 <MenuBar/>
                 <Outlet/>
                 <FriendsBar/>
             </section>
-        </div>
+        </>
     );
 }
 

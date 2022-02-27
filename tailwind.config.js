@@ -10,7 +10,7 @@ module.exports = {
         'typography-white':'#ECF6FF',
         'typography-grey':'#78828B',
         'brand-black':'#141517',
-        'brand-light-black':'#1A1BAE'
+        'light-black':'#1A1B1E'
 
       }
     },
