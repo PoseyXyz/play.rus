@@ -9,6 +9,7 @@ module.exports = {
         'brand-green':'#92CD27',
         'typography-white':'#ECF6FF',
         'typography-grey':'#78828B',
+        'pure-black':'#151517',
         'black-v1':'#18191C',
         'black-v2':'#1A1B1E',
         'black-v3':'#202125'

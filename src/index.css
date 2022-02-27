@@ -12,6 +12,17 @@ body {
   font-family:Montserrat;
 }
 
+.menubar-link{
+  @apply flex gap-4 items-center pl-8 text-typography-grey text-lg hover:text-typography-white cursor-pointer delay-75 duration-150
+}
+
+.active{
+  @apply text-typography-white bg-black-v3 py-4
+}
+.active i{
+  @apply text-brand-purple
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
