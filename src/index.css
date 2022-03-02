@@ -13,7 +13,7 @@ body {
 }
 
 .menubar-link{
-  @apply flex gap-4 items-center pl-8 text-typography-grey text-lg hover:text-typography-white cursor-pointer delay-75 duration-150
+  @apply flex gap-3 lg:gap-4 items-center pl-4 lg:pl-8 text-typography-grey text-base lg:text-lg hover:text-typography-white cursor-pointer delay-75 duration-150
 }
 
 .active{

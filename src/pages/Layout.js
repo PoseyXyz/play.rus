@@ -6,9 +6,9 @@ import Nav from '../components/Nav';
 
 function Layout(props) {
     return (
-        <main className="bg-pure-black h-screen">
+        <main className="bg-pure-black">
            <header> <Nav/></header>
-            <section className="grid grid-cols-10 gap-8 mt-4">
+            <section className="grid grid-cols-10 gap-6 mt-4">
                 <MenuBar/>
                 <Outlet/>
                 <FriendsBar/>
