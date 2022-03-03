@@ -25,20 +25,21 @@ function Explore(props) {
     const {test} = useContext(GameContext)
     return (
         <div className="col-span-10 md:col-span-7 bg-black-v2 rounded-3xl p-4 text-typography-white">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 
                     {test.results.map(result=>{
-                        const {background_image, name, parent_platforms}=result
+                        const {background_image, name, parent_platforms, rating}=result
                         return (
                     <div className="card">
-                        <div className="rounded-t-xl">
+                        <div className="rounded-t-xl relative">
+                            <div></div>
                            <img className="rounded-t-xl w-screen" src={result.background_image}/>      
                         </div>
-                        <div className="text-center">
+                        <div className="flex flex-col justify-center items-center gap-4 py-4">
                             <h1 className="text-lg">{name}</h1>
                             
-                            <div className="flex gap-2 text-lg">
-                            {parent_platforms.map(platform=><div className="text-brand-purple">
+                            <div className="flex gap-3 text-xl">
+                            {parent_platforms.map(platform=><div className="text-typography-white">
                                 <i>{parsePlatform(platform.platform.name)}</i>
                                 </div>)}
                             </div>
