@@ -19,7 +19,7 @@ function Nav(props) {
     let title = ChangeTitle()
 
     return (
-        <nav className="grid grid-cols-10 bg-black-v1 px-6 text-white py-3 gap-4 items-center">
+        <nav className="grid grid-cols-10 bg-black-v1 px-6 text-white py-3 gap-4 items-center fixed mb-4 top-0 box-border rounded-r-lg">
             <div className="col-span-2 flex items-center justify-center"><img src={require('../images/logo.png')} className="w-2/5 md:w-1/4"/></div>
             <div className="col-span-5 md:col-span-7 px-4 pr-16 flex justify-center md:justify-between items-center border-r border-typography-grey">
                 <h3 className="text-typography-grey text-xl font-normal">{title}</h3>

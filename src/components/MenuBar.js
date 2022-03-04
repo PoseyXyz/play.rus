@@ -6,7 +6,7 @@ import {GiCrossedPistols} from  'react-icons/gi'
 
 function MenuBar(props) {
     return (
-        <aside className="bg-black-v1 hidden md:block col-span-2 text-white sticky top-0 h-screen box-border rounded-r-lg">
+        <aside className="bg-black-v1 hidden md:block col-span-2 text-white sticky top-24 menubar box-border rounded-r-lg">
             <div className="flex flex-col gap-8 py-8">
             
                 
