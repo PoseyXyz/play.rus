@@ -37,7 +37,7 @@ console.log(sideBarOpen);
                             
                         </div>
                     </div>
-                    <div><i><FaBell/></i></div>
+                    <div className="animate-bounce"><i><FaBell/></i></div>
                     
                 </div>
             </div>
