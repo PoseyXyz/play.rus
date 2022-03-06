@@ -20,7 +20,7 @@ function ChangeTitle() {
 function Nav(props) {
     const {sideBarOpen, setSideBarOpen} = useContext(GameContext)
     let title = ChangeTitle()
-
+console.log(sideBarOpen);
     return (
         <nav className="grid grid-cols-10 bg-black-v1 px-6 text-white py-3 gap-4 items-center fixed mb-4 top-0 box-border rounded-r-lg">
             <div className="col-span-2 flex items-center justify-center"><img src={require('../images/logo.png')} className="w-2/5 md:w-1/4"/></div>
@@ -43,10 +43,10 @@ function Nav(props) {
             </div>
             
             <div className="col-span-3 md:col-span-1 flex justify-center items-center gap-6"><img src={require('../images/profilehead.png')} className="w-2/5 md:w-1/3 border-4 border-t-0 border-r-0 border-brand-purple rounded-full p-1"/>
-            <button onClick={setSideBarOpen(true)} className="block md:hidden text-xl cursor-pointer"><FaBars/></button>
+            <button onClick={()=>setSideBarOpen(true)} className="block md:hidden text-xl cursor-pointer"><FaBars/></button>
             </div>
 
-            <Sidebar setSideBarOpen={setSideBarOpen} sideBarOpen={sideBarOpen}/>
+            <Sidebar sideBarOpen={sideBarOpen} setSideBarOpen={setSideBarOpen}/>
         </nav>
     );
 }

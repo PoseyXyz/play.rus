@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 const GameContext = React.createContext()
 
 const GameProvider = ({ children }) => {
-    const [sidebarOpen, setSideBarOpen] = useState(false)
+    const [sideBarOpen, setSideBarOpen] = useState(false)
     const [test] = useState({
         count: 694973,
         next: "https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&page=2",
@@ -9793,7 +9793,7 @@ const GameProvider = ({ children }) => {
     return (
         <GameContext.Provider value={{
             test,
-            sidebarOpen,
+            sideBarOpen,
             setSideBarOpen
         }}>
             {children}
