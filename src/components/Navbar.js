@@ -46,7 +46,6 @@ console.log(sideBarOpen);
             <button onClick={()=>setSideBarOpen(true)} className="block md:hidden text-xl cursor-pointer"><FaBars/></button>
             </div>
 
-            <Sidebar sideBarOpen={sideBarOpen} setSideBarOpen={setSideBarOpen}/>
         </nav>
     );
 }

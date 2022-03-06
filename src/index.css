@@ -24,6 +24,10 @@ body {
   @apply text-brand-purple
 }
 
+.sidebar-link{
+  @apply flex gap-3 lg:gap-4 items-center pl-4 lg:pl-8 text-typography-grey text-base lg:text-lg hover:text-typography-white cursor-pointer delay-75 duration-150 
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
