@@ -18,7 +18,7 @@ body {
 }
 
 .active{
-  @apply text-typography-white bg-black-v3 py-4
+  @apply text-typography-white bg-black-v3 py-6
 }
 .active i{
   @apply text-brand-purple

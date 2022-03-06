@@ -21,12 +21,12 @@ function parsePlatform(platform) {
     }
 }
 
-function parseRatingColour(color){
-    if(color<3){
+function parseRatingColour(color) {
+    if (color < 3) {
         return 'border-red-500 text-red-500'
-    }else if(color>=4){
+    } else if (color >= 4) {
         return 'border-green-500 text-green-500'
-    }else{
+    } else {
         return 'border-yellow-500 text-yellow-500'
     }
 }
@@ -35,7 +35,7 @@ function Explore(props) {
     const { test } = useContext(GameContext)
     return (
         <div className="col-span-10 md:col-span-7 bg-black-v2 rounded-3xl mt-20 p-4 text-typography-white">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
 
                 {test.results.map(result => {
                     const { background_image, name, parent_platforms, rating, released, playtime } = result
@@ -50,7 +50,7 @@ function Explore(props) {
                                         <h1 className="text-lg">{name}</h1>
                                         <div className={`${parseRatingColour(rating)} border-2 py-1 px-2 rounded-md text-green-500 text-sm`}><p className="font-semibold">{rating}</p></div>
                                     </div>
-                                    
+
 
                                     <div className="flex gap-3 text-lg">
                                         {parent_platforms.map(platform => <div className="text-typography-white">
@@ -80,7 +80,7 @@ function Explore(props) {
                                 </div>
 
                                 <div className="">
-                                    <button className="bg-brand-purple w-full group flex items-center font-medium text-base justify-center gap-2 text-white rounded-md p-4 hover:bg-typography-grey delay-75 duration-300"><p className="text-sm">Add to Library</p><i className="group-hover:animate-pulse"><FaPlus/></i></button>
+                                    <button className="bg-brand-purple w-full group flex items-center font-medium text-base justify-center gap-2 text-white rounded-md p-4 hover:bg-typography-grey delay-75 duration-300"><p className="text-sm">Add to Library</p><i className="group-hover:animate-pulse"><FaPlus /></i></button>
                                 </div>
                             </div>
                         </div>
