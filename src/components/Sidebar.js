@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { FaTimesCircle } from 'react-icons/fa';
+import { FaBell, FaTimesCircle, FaUserFriends } from 'react-icons/fa';
 import { FaCode, FaDownload, FaHistory, FaHome, FaSignOutAlt } from 'react-icons/fa'
 import { ImBooks } from 'react-icons/im'
 import { CgGames } from 'react-icons/cg'
@@ -31,6 +31,8 @@ function Sidebar({ sideBarOpen, setSideBarOpen }) {
                     <div className="sidebar-link"><i><FaHome /></i><h1>Explore</h1></div>
 
                     <div className="sidebar-link text-white"><i><FaHistory /></i><h1>Recents</h1></div>
+                    <div className="sidebar-link text-white"><i><FaUserFriends /></i><h1>Friends</h1></div>
+                    <div className="sidebar-link text-white"><i><FaBell /></i><h1>Notifications</h1></div>
 
 
                     <div className="flex flex-col gap-8">
