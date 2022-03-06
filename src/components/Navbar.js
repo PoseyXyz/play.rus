@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {FaBars, FaBell, FaHamburger} from 'react-icons/fa'
+import { GameContext } from '../Context';
+import Sidebar from './Sidebar';
 
 function ChangeTitle() {
     const location = useLocation()
@@ -16,6 +18,7 @@ function ChangeTitle() {
 }
 
 function Nav(props) {
+    const {sideBarOpen, setSideBarOpen} = useContext(GameContext)
     let title = ChangeTitle()
 
     return (
@@ -40,8 +43,10 @@ function Nav(props) {
             </div>
             
             <div className="col-span-3 md:col-span-1 flex justify-center items-center gap-6"><img src={require('../images/profilehead.png')} className="w-2/5 md:w-1/3 border-4 border-t-0 border-r-0 border-brand-purple rounded-full p-1"/>
-            <i className="block md:hidden text-xl cursor-pointer"><FaBars/></i>
+            <button onClick={setSideBarOpen(true)} className="block md:hidden text-xl cursor-pointer"><FaBars/></button>
             </div>
+
+            <Sidebar setSideBarOpen={setSideBarOpen} sideBarOpen={sideBarOpen}/>
         </nav>
     );
 }

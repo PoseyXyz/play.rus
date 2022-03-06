@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { FaTimesCircle } from 'react-icons/fa';
-import { GameContext } from '../Context';
 
-function Sidebar(props) {
-    const {sideBarOpen, setSideBarOpen} = useContext(GameContext)
+
+function Sidebar({setSideBarOpen, sideBarOpen}) {
+    
     return (
         <div className="bg-black">
-            <button className="text-white text-lg"><i><FaTimesCircle/></i></button>
+            <button className="text-white text-lg" onClick={setSideBarOpen(false)}><i><FaTimesCircle/></i></button>
         </div>
     );
 }
