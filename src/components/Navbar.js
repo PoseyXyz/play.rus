@@ -37,7 +37,7 @@ console.log(sideBarOpen);
                             
                         </div>
                     </div>
-                    <div className="animate-bounce"><i><FaBell/></i></div>
+                    <div className="animate-bounce"><div className="absolute rounded-full p-1 text-xs mr-8 mb-10 bg-brand-green"></div><i className="text-xl"><FaBell/></i></div>
                     
                 </div>
             </div>
