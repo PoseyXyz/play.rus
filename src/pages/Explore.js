@@ -42,7 +42,7 @@ function Explore(props) {
             
             {spinner ? <p className="text-white text-7xl">Please wait...</p>:
 <>
-            <h1>{currentPage}</h1>
+            <h1>{params.pageNumber}</h1>
            
             <button onClick={()=>{setCurrentPage(2); navigate(`/explore/${2}`)}}>Go to Page 2</button>
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -98,9 +98,15 @@ function Explore(props) {
                 })}
 
             </div>
-            <div className="flex gap-4">
-            {paginationRange.map(range=><button onClick={()=>{setCurrentPage(range); navigate(`/explore/${range}`)}} className="text-white text-lg p-4">{range}</button>)}
+           <div className="w-full flex items-center justify-center my-4 px-4">
+           <div className="flex gap-4">
+            {paginationRange.map(range=>{
+              return range === "..." ? <p className="text-white text-lg self-center">...</p>
+                :
+                <button onClick={()=>{setCurrentPage(range); navigate(`/explore/${range}`)}} className={`${currentPage===range?'text-white bg-brand-purple':'text-white'} text-lg py-2 px-4 rounded-lg hover:text-brand-purple duration-100`}>{range}</button>
+            })}
             </div>
+           </div>
             </>
 }
         </div>

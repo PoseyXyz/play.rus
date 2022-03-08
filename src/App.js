@@ -1,29 +1,31 @@
-import logo from './logo.svg';
+
 import './App.css';
-import { useContext } from 'react';
+import { useContext, lazy, Suspense } from 'react';
 import { GameContext } from './Context';
-import { Route, Router, Routes } from 'react-router-dom'
-import Explore from './pages/Explore';
-import Xbox from './pages/Xbox';
+import { Route, Routes } from 'react-router-dom'
 import Alt from './pages/Alt';
 import Layout from './pages/Layout';
+const Explore = lazy(()=>import('./pages/Explore'));
+
+
 
 function App() {
   const { test } = useContext(GameContext)
   return (
-    <Routes>
+    <Suspense fallback={<h1 className="text-green-700 text-7xl">Loading...</h1>}>
+      <Routes>
       <Route path='/' element={<Layout />}>
-        <Route path="explore" element={<Explore/>}>
-        
-          <Route path=":pageNumber" element={<Explore/>}/>
+      <Route index element={<Explore />} />
+        <Route path="explore/:pageNumber" element={ <Explore />}>
         </Route>
-        <Route index element={<Explore/>}/> 
-        <Route path="alt" element={<Alt/>}/>
+        
+        <Route path="alt" element={<Alt />} />
       </Route>
 
       {/* loading
      error page */}
     </Routes>
+    </Suspense>
   );
 }
 
