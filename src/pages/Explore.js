@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { FaAndroid, FaApple, FaAppStoreIos, FaCalendar, FaCheck, FaClock, FaLinux, FaPlaystation, FaPlus, FaPlusSquare, FaWindows, FaXbox } from 'react-icons/fa';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { GameContext } from '../Context';
 
 function parsePlatform(platform) {
@@ -36,6 +36,8 @@ function Explore(props) {
     const { test, currentPage, setCurrentPage, paginationRange, spinner } = useContext(GameContext)
     let params = useParams()
     let navigate = useNavigate()
+
+    
 
     return (
         <div className="col-span-10 md:col-span-7 bg-black-v2 rounded-3xl mt-20 p-4 text-typography-white">

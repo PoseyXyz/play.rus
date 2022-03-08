@@ -20,6 +20,7 @@ function App() {
         </Route>
         
         <Route path="alt" element={<Alt />} />
+        <Route path="*" element={<p>Not found</p>} />
       </Route>
 
       {/* loading

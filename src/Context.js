@@ -59,6 +59,8 @@ const GameProvider = ({ children }) => {
         setSpinner(false)
         console.log(searchResult);
     }
+
+    
     
 
     return (
