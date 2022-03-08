@@ -3,7 +3,40 @@ import React, { useEffect, useState } from 'react'
 const GameContext = React.createContext()
 
 const GameProvider = ({ children }) => {
+    const [paginationRange, setPaginationRange] = useState([])
+   function generatePageRange(currentPage, lastPage) {
+        const delta = 3;
+    
+        const range = [];
+        for (let i = Math.max(2, (currentPage - delta)); i <= Math.min((lastPage - 1), (currentPage + delta)); i += 1) {
+            range.push(i);
+        }
+    
+        if ((currentPage - delta) > 2) {
+            range.unshift('...');
+        }
+        if ((currentPage + delta) < (lastPage - 1)) {
+            range.push('...');
+        }
+    
+        range.unshift(1);
+        if (lastPage !== 1) range.push(lastPage);
+        
+        console.log(range);
+        return range;
+     
+    }
+    useEffect(()=>{
+        generatePageRange(30, 30)
+    }, [])
+    
+    
+    // for (let i = 1, l = 20; i <= l; i++)
+    //     console.log(`Selected page ${i}:`, pagination(i, l));
+
     const [sideBarOpen, setSideBarOpen] = useState(false)
+    const [currentPage, setCurrentPage] = useState(1)
+    
     const [test] = useState({
         count: 694973,
         next: "https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&page=2",
@@ -9779,11 +9812,18 @@ const GameProvider = ({ children }) => {
             "stores"
         ]
     })
+    const [loading, setLoading] = useState(false)
+
+    const [postsPerPage, setPostsPerPage] = useState(25)
+
+    const indexOfLastPost = currentPage * postsPerPage
+    const indexOfFirstPost = indexOfLastPost - postsPerPage
+    // const currentPosts = test.slice(indexOfFirstPost, indexOfLastPost)
     // useEffect(() => {
     //     getData()
-    // }, [])
+    // }, [currentPage])
     // const getData = async()=>{
-    //     const searchFetch= await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f`)
+    //     const searchFetch= await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&page=${currentPage}&page_size=${postsPerPage}`)
 
     //     let searchResult = await searchFetch.json()
     //     console.log(searchResult);
@@ -9794,7 +9834,9 @@ const GameProvider = ({ children }) => {
         <GameContext.Provider value={{
             test,
             sideBarOpen,
-            setSideBarOpen
+            setSideBarOpen,
+            currentPage, setCurrentPage,
+            paginationRange
         }}>
             {children}
         </GameContext.Provider>

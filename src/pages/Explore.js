@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { FaAndroid, FaApple, FaAppStoreIos, FaCalendar, FaCheck, FaClock, FaLinux, FaPlaystation, FaPlus, FaPlusSquare, FaWindows, FaXbox } from 'react-icons/fa';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { GameContext } from '../Context';
 
 function parsePlatform(platform) {
@@ -32,9 +33,16 @@ function parseRatingColour(color) {
 }
 
 function Explore(props) {
-    const { test } = useContext(GameContext)
+    const { test, currentPage, setCurrentPage, paginationRange } = useContext(GameContext)
+    let params = useParams()
+    let navigate = useNavigate()
+
     return (
         <div className="col-span-10 md:col-span-7 bg-black-v2 rounded-3xl mt-20 p-4 text-typography-white">
+            {paginationRange.map(range=><button className="bg-red-500 text-white text-xl">{range}</button>)}
+            <h1>{currentPage}</h1>
+           
+            <button onClick={()=>{setCurrentPage(2); navigate(`/explore/${2}`)}}>Go to Page 2</button>
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
 
                 {test.results.map(result => {

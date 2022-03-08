@@ -13,7 +13,10 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Layout />}>
-        <Route path="explore" element={<Explore/>}/>
+        <Route path="explore" element={<Explore/>}>
+        
+          <Route path=":pageNumber" element={<Explore/>}/>
+        </Route>
         <Route index element={<Explore/>}/> 
         <Route path="alt" element={<Alt/>}/>
       </Route>
