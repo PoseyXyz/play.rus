@@ -33,19 +33,21 @@ function parseRatingColour(color) {
 }
 
 function Explore(props) {
-    const { test, currentPage, setCurrentPage, paginationRange } = useContext(GameContext)
+    const { test, currentPage, setCurrentPage, paginationRange, spinner } = useContext(GameContext)
     let params = useParams()
     let navigate = useNavigate()
 
     return (
         <div className="col-span-10 md:col-span-7 bg-black-v2 rounded-3xl mt-20 p-4 text-typography-white">
-            {paginationRange.map(range=><button className="bg-red-500 text-white text-xl">{range}</button>)}
+            
+            {spinner && (<p className="text-white text-7xl">Please wait...</p>)}
+
             <h1>{currentPage}</h1>
            
             <button onClick={()=>{setCurrentPage(2); navigate(`/explore/${2}`)}}>Go to Page 2</button>
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
 
-                {test.results.map(result => {
+                {test && test.results.map(result => {
                     const { background_image, name, parent_platforms, rating, released, playtime } = result
                     return (
                         <div className="card bg-black-v3 rounded-xl">
@@ -56,7 +58,7 @@ function Explore(props) {
                                 <div className="flex flex-col gap-4">
                                     <div className="flex justify-between items-center">
                                         <h1 className="text-lg">{name}</h1>
-                                        <div className={`${parseRatingColour(rating)} border-2 py-1 px-2 rounded-md text-green-500 text-sm`}><p className="font-semibold">{rating}</p></div>
+                                        <div className={`${parseRatingColour(rating)} border-2 py-1 px-2 rounded-md text-sm`}><p className="font-semibold">{rating}</p></div>
                                     </div>
 
 
@@ -95,6 +97,9 @@ function Explore(props) {
                     )
                 })}
 
+            </div>
+            <div className="flex gap-4">
+            {paginationRange.map(range=><button onClick={()=>{setCurrentPage(range); navigate(`/explore/${range}`)}} className="text-white text-lg p-4">{range}</button>)}
             </div>
         </div>
     );
