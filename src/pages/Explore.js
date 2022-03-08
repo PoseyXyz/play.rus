@@ -40,8 +40,8 @@ function Explore(props) {
     return (
         <div className="col-span-10 md:col-span-7 bg-black-v2 rounded-3xl mt-20 p-4 text-typography-white">
             
-            {spinner && (<p className="text-white text-7xl">Please wait...</p>)}
-
+            {spinner ? <p className="text-white text-7xl">Please wait...</p>:
+<>
             <h1>{currentPage}</h1>
            
             <button onClick={()=>{setCurrentPage(2); navigate(`/explore/${2}`)}}>Go to Page 2</button>
@@ -101,6 +101,8 @@ function Explore(props) {
             <div className="flex gap-4">
             {paginationRange.map(range=><button onClick={()=>{setCurrentPage(range); navigate(`/explore/${range}`)}} className="text-white text-lg p-4">{range}</button>)}
             </div>
+            </>
+}
         </div>
     );
 }
