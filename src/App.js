@@ -5,6 +5,7 @@ import { GameContext } from './Context';
 import { Route, Routes } from 'react-router-dom'
 import Alt from './pages/Alt';
 import Layout from './pages/Layout';
+import NotFound from './components/NotFound';
 const Explore = lazy(()=>import('./pages/Explore'));
 
 
@@ -20,8 +21,8 @@ function App() {
         </Route>
         
         <Route path="alt" element={<Alt />} />
-        <Route path="*" element={<p>Not found</p>} />
       </Route>
+      <Route path="*" element={<NotFound/>} />
 
       {/* loading
      error page */}
