@@ -54,10 +54,10 @@ function Explore(props) {
                         {test && test.results.map(result => {
                             const { background_image, name, parent_platforms, rating, released, playtime } = result
                             return (
-                                <div className="card bg-black-v3 flex flex-col rounded-xl">
+                                <div className="card bg-black-v3 rounded-xl">
                                     <div className="overflow-hidden h-2/4">
                                         <LazyLoadImage
-                                            className="rounded-t-xl h-full"
+                                            className="rounded-t-xl h-full w-screen object-cover"
                                             height={'100%'}
                                             effect="blur"
                                             src={background_image} />
