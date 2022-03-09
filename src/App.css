@@ -49,3 +49,6 @@
 .friendsbar{
   height: 90vh;
 }
+.overlay{
+  background:rgba(0,0,0,0.6);
+}
