@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaCalendar, FaClock, FaPlus } from 'react-icons/fa';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import { GameContext } from '../Context';
 
 function Card({result, parsePlatform, parseRatingColour}) {
     const { background_image, name, parent_platforms, rating, released, playtime } = result
+    const {parseRecents} = useContext(GameContext)
     return (
         <div className="card bg-black-v3 rounded-xl">
         <div className="overflow-hidden h-2/4">
@@ -51,7 +53,7 @@ function Card({result, parsePlatform, parseRatingColour}) {
             </div>
 
             <div className="">
-                <button className="bg-brand-purple w-full group flex items-center font-medium text-base justify-center gap-2 text-white rounded-md p-4 hover:bg-typography-grey delay-75 duration-300"><p className="text-sm">Add to Library</p><i className="group-hover:animate-pulse"><FaPlus /></i></button>
+                <button onClick={()=>parseRecents(result)} className="bg-brand-purple w-full group flex items-center font-medium text-base justify-center gap-2 text-white rounded-md p-4 hover:bg-typography-grey delay-75 duration-300"><p className="text-sm">Add to Library</p><i className="group-hover:animate-pulse"><FaPlus /></i></button>
             </div>
         </div>
     </div>

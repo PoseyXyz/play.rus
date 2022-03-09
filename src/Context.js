@@ -29,6 +29,8 @@ const GameProvider = ({ children }) => {
         return range;
      
     }
+
+ 
    
     useEffect(()=>{
         generatePageRange(currentPage, 30)
@@ -18764,7 +18766,31 @@ const GameProvider = ({ children }) => {
 })
     const [spinner, setSpinner] = useState(false)
     
-
+       const [recents, setRecents] = useState([])
+    const parseRecents=(num)=>{
+        if(recents.length<10){
+            let tempArray = [...recents]
+            const insert = (arr, index, newItem)=>[
+                ...arr.slice(0, index),
+                newItem,
+                ...arr.slice(index)
+            ]
+            tempArray = insert(tempArray, 0, num)
+           setRecents(tempArray)
+           console.log(recents);
+        }else if(recents.length===10){
+            let tempArray = [...recents]
+            tempArray = tempArray.filter((number, i)=>number!==tempArray[tempArray.length-1])
+            const insert = (arr, index, newItem)=>[
+                ...arr.slice(0, index),
+                newItem,
+                ...arr.slice(index)
+            ]
+            tempArray = insert(tempArray, 0, num)
+           setRecents(tempArray)
+           console.log(recents);
+        }
+    }
    
     // useEffect(() => {
     //     
@@ -18790,7 +18816,7 @@ const GameProvider = ({ children }) => {
             setSideBarOpen,
             currentPage, setCurrentPage,
             paginationRange,
-            spinner
+            spinner, recents, parseRecents
         }}>
             {children}
         </GameContext.Provider>
