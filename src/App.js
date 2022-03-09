@@ -1,7 +1,6 @@
 
 import './App.css';
-import { useContext, lazy, Suspense } from 'react';
-import { GameContext } from './Context';
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom'
 import Alt from './pages/Alt';
 import Layout from './pages/Layout';
@@ -11,7 +10,7 @@ const Explore = lazy(()=>import('./pages/Explore'));
 
 
 function App() {
-  const { test } = useContext(GameContext)
+  
   return (
     <Suspense fallback={<h1 className="text-green-700 text-7xl">Loading...</h1>}>
       <Routes>
