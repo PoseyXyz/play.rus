@@ -1,6 +1,9 @@
 import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
-function Card(props) {
+function Card({result}) {
+    const { background_image, name, parent_platforms, rating, released, playtime } = result
     return (
         <div className="card bg-black-v3 rounded-xl">
         <div className="overflow-hidden h-2/4">
