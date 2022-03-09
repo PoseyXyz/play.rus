@@ -53,7 +53,7 @@ function Explore(props) {
                         {test && test.results.map(result => {
                            
                             return (
-                                    <Card result={result}/>
+                                    <Card result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour}/>
                                 )
                         })}
 
