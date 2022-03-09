@@ -7,12 +7,12 @@ import Sidebar from './Sidebar';
 function ChangeTitle() {
     const location = useLocation()
     switch (location.pathname) {
-        case '/':
-            return 'Explore';
+        case '/recents':
+            return 'Recents';
         case '/alt':
             return 'Admin';
         default:
-            return 'Dashboard';
+            return 'Explore';
     }
 
 }

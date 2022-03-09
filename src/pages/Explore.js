@@ -1,40 +1,11 @@
 import React, { useContext, useEffect } from 'react';
-import { FaAndroid, FaApple, FaAppStoreIos, FaCalendar, FaCheck, FaClock, FaLinux, FaPlaystation, FaPlus, FaPlusSquare, FaWindows, FaXbox } from 'react-icons/fa';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { GameContext } from '../Context';
 import Card from '../components/Card';
 
-function parsePlatform(platform) {
-
-    if (platform === "PC") {
-        return <FaWindows />
-    } else if (platform === "PlayStation") {
-        return <FaPlaystation />
-    } else if (platform === "Apple Macintosh") {
-        return <FaApple />
-    } else if (platform === "Linux") {
-        return <FaLinux />
-    } else if (platform === "Android") {
-        return <FaAndroid />
-    } else if (platform === "iOS") {
-        return <FaAppStoreIos />
-    } else if (platform === "Xbox") {
-        return <FaXbox />
-    }
-}
-
-function parseRatingColour(color) {
-    if (color < 3) {
-        return 'border-red-500 text-red-500'
-    } else if (color >= 4) {
-        return 'border-green-500 text-green-500'
-    } else {
-        return 'border-yellow-500 text-yellow-500'
-    }
-}
 
 function Explore(props) {
-    const { test, currentPage, setCurrentPage, paginationRange, spinner } = useContext(GameContext)
+    const { test, currentPage, setCurrentPage, paginationRange, spinner, parsePlatform, parseRatingColour } = useContext(GameContext)
     let params = useParams()
     let navigate = useNavigate()
 
