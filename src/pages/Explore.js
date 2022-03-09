@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { GameContext } from '../Context';
 import Card from '../components/Card';
@@ -9,6 +9,7 @@ function Explore(props) {
     let params = useParams()
     let navigate = useNavigate()
 
+    const [showLibraryOptions, setShowLibraryOptions] = useState(false)
 
 
     return (
@@ -24,7 +25,7 @@ function Explore(props) {
                         {test && test.results.map(result => {
                            
                             return (
-                                    <Card result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour}/>
+                                    <Card result={result} showLibraryOptions={showLibraryOptions} setShowLibraryOptions={setShowLibraryOptions} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour}/>
                                 )
                         })}
 
