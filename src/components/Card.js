@@ -9,7 +9,7 @@ function Card({result, parsePlatform, parseRatingColour}) {
     const { id, background_image, name, parent_platforms, rating, released, playtime } = result
     const {parseRecents, addToLibrary, sections} = useContext(GameContext)
     return (
-        <div className="card bg-black-v3 rounded-xl">
+        <div className="card bg-black-v3 rounded-xl relative">
         <div className="overflow-hidden h-2/4">
             <LazyLoadImage
                 className="rounded-t-xl h-full w-screen object-cover"
@@ -56,6 +56,10 @@ function Card({result, parsePlatform, parseRatingColour}) {
             <div className="">
                 <button onClick={()=>addToLibrary(id, 'completed')}  className="bg-brand-purple w-full group flex items-center font-medium text-base justify-center gap-2 text-white rounded-md p-4 hover:bg-typography-grey delay-75 duration-300"><p className="text-sm">Add to Library</p><i className="group-hover:animate-pulse"><FaPlus /></i></button>
             </div>
+        </div>
+        <div className="absolute bg-white z-20 text-black flex flex-col w-full rounded-lg -bottom-24">
+            {Object.keys(sections).map((key, index)=>(<button className="capitalize text-left py-4 px-4 text-sm w-full border-b rounded-lg hover:bg-gray-100 border-gray-200">{key}</button>))}
+            <button className="capitalize text-left py-4 px-4 text-sm w-full border-b rounded-lg hover:bg-gray-100 border-gray-200">Delete from Library</button>
         </div>
     </div>
 
