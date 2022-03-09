@@ -18836,9 +18836,36 @@ const GameProvider = ({ children }) => {
     //     setSpinner(false)
     //     console.log(searchResult);
     // }
+    const [sections, setSections] = useState({
+        uncategorized:[],
+        currently_playing:[],
+        completed:[],
+        played:[],
+        not_played:[]
+    })
 
+    const getItem=(id)=>{
+        const item = test.results.find(result=>result.id===id)
+        return item
+    }
 
+    const addToLibrary=(id, section)=>{
+        const tempArray = {...test}
+        const index = tempArray.results.indexOf(getItem(id))
+        const game = tempArray.results[index]
 
+        let tempSections = {...sections}
+        let tempElement =tempSections[section]
+        tempElement = [...tempElement, game]
+        tempSections[section] = tempElement 
+
+       
+        setSections(tempSections)
+       
+    }
+    useEffect(()=>{
+        console.log(sections);
+    }, [sections])
 
     return (
         <GameContext.Provider value={{
@@ -18847,7 +18874,8 @@ const GameProvider = ({ children }) => {
             setSideBarOpen,
             currentPage, setCurrentPage,
             paginationRange,
-            spinner, recents, parseRecents, parsePlatform, parseRatingColour
+            spinner, recents, parseRecents, parsePlatform, parseRatingColour,
+            addToLibrary, sections
         }}>
             {children}
         </GameContext.Provider>
