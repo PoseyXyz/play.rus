@@ -3,6 +3,7 @@ import { FaCode, FaDownload, FaHistory, FaHome, FaSignOutAlt } from 'react-icons
 import { ImBooks } from 'react-icons/im'
 import { CgGames } from 'react-icons/cg'
 import { GiCrossedPistols } from 'react-icons/gi'
+import { Link } from 'react-router-dom';
 
 function MenuBar(props) {
     return (
@@ -10,9 +11,9 @@ function MenuBar(props) {
             <div className="flex flex-col gap-8 py-12">
 
 
-                <div className="menubar-link active"><i><FaHome /></i><h1>Explore</h1></div>
+                <Link to='/' className="menubar-link active"><i><FaHome /></i><h1>Explore</h1></Link>
 
-                <div className="menubar-link text-white"><i><FaHistory /></i><h1>Recents</h1></div>
+                <Link to='/recents' className="menubar-link text-white"><i><FaHistory /></i><h1>Recents</h1></Link>
 
                 <hr className="mx-8 border-black-v3"></hr>
 

@@ -35,7 +35,7 @@ function parseRatingColour(color) {
 
 
 function Alt(props) {
-    const {recents} = useContext(GameContext)
+    const { recents } = useContext(GameContext)
     // const [recents, setRecents] = useState([1,2,3,4,5,6,7,8,9])
     // const parseRecents=(num)=>{
     //     if(recents.length<10){
@@ -62,17 +62,19 @@ function Alt(props) {
     //     }
     // }
 
-    
-    
-  
+
+
+
     return (
         <div className="col-span-7 bg-black-v2 rounded-3xl mt-24 text-white">
-             {recents.results.map(result => {
-                           
-                           return (
-                                   <Card result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour}/>
-                               )
-                       })}
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                {recents.map(result => {
+
+                    return (
+                        <Card result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour} />
+                    )
+                })}
+            </div>
         </div>
     );
 }
