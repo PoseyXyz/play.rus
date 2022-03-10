@@ -18825,9 +18825,7 @@ const GameProvider = ({ children }) => {
         }
     }
 
-    useEffect(() => {
-        
-    }, [currentPage])
+   
     const getData = async()=>{
         setSpinner(true)
         const searchFetch= await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&page=${currentPage}&page_size=40`)

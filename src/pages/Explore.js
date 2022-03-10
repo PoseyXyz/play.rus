@@ -9,7 +9,6 @@ function Explore(props) {
     let params = useParams()
     let navigate = useNavigate()
 
-    const [showLibraryOptions, setShowLibraryOptions] = useState(false)
 
 
     return (
@@ -25,7 +24,7 @@ function Explore(props) {
                         {test && test.results.map(result => {
                            
                             return (
-                                    <Card result={result} showLibraryOptions={showLibraryOptions} setShowLibraryOptions={setShowLibraryOptions} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour}/>
+                                    <Card result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour}/>
                                 )
                         })}
 
