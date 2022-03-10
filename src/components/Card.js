@@ -5,12 +5,13 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import { GameContext } from '../Context';
 
 
-function Card({result, parsePlatform, parseRatingColour, showLibraryOptions, setShowLibraryOptions}) {
-    const { id, background_image, name, parent_platforms, rating, released, playtime } = result
+function Card({result, parsePlatform, parseRatingColour}) {
+    const { id, background_image, name, parent_platforms, rating, released, playtime, libraryOptionsOpen } = result
     const {parseRecents, addToLibrary, sections} = useContext(GameContext)
     
     return (
         <div className="card bg-black-v3 rounded-xl relative">
+            <h1 className="text-white">{libraryOptionsOpen} hello</h1>
         <div className="overflow-hidden h-2/4">
             <LazyLoadImage
                 className="rounded-t-xl h-full w-screen object-cover"
@@ -55,14 +56,15 @@ function Card({result, parsePlatform, parseRatingColour, showLibraryOptions, set
             </div>
 
             <div className="">
-                <button onClick={()=>setShowLibraryOptions(!showLibraryOptions)}  className="bg-brand-purple w-full group flex items-center font-medium text-base justify-center gap-2 text-white rounded-md p-4 hover:bg-typography-grey delay-75 duration-300"><p className="text-sm">Add to Library</p><i className="group-hover:animate-pulse"><FaPlus /></i></button>
+                <button className="bg-brand-purple w-full group flex items-center font-medium text-base justify-center gap-2 text-white rounded-md p-4 hover:bg-typography-grey delay-75 duration-300"><p className="text-sm">Add to Library</p><i className="group-hover:animate-pulse"><FaPlus /></i></button>
             </div>
         </div>
-        <div className={`${showLibraryOptions?'flex':'hidden'} absolute bg-white z-20 text-black flex-col w-full rounded-lg -bottom-24`}>
+        <div className={`${libraryOptionsOpen?'flex':'hidden'} absolute bg-white z-20 text-black flex-col w-full rounded-lg -bottom-24`}>
         <button className="text-left text-red-500 font-semibold py-3 px-6 text-base justify-self-end self-end border-b rounded-lg border-gray-200"><FaTimesCircle/></button>
             {Object.keys(sections).map((key, index)=>(<button onClick={()=>addToLibrary(id, key)} className="capitalize text-left py-3.5 px-6 text-sm w-full border-b rounded-lg duration-300 delay-75 hover:bg-gray-100 border-gray-200">{key}</button>))}
             <button className="text-left text-red-500 font-semibold py-4 px-6 text-sm w-full border-b rounded-lg border-gray-200">Remove from Library</button>
         </div>
+
     </div>
 
     );

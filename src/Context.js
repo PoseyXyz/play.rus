@@ -65,7 +65,7 @@ const GameProvider = ({ children }) => {
 
     useEffect(() => {
         generatePageRange(currentPage, 30)
-        // getData()
+        getData()
     }, [currentPage])
 
 
@@ -18795,6 +18795,8 @@ const GameProvider = ({ children }) => {
             "stores"
         ]
     })
+   
+
     const [spinner, setSpinner] = useState(false)
 
     const [recents, setRecents] = useState([])
@@ -18823,19 +18825,24 @@ const GameProvider = ({ children }) => {
         }
     }
 
-    // useEffect(() => {
-    //     
-    // }, [currentPage])
-    // const getData = async()=>{
-    //     setSpinner(true)
-    //     const searchFetch= await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&page=${currentPage}&page_size=40`)
+    useEffect(() => {
+        
+    }, [currentPage])
+    const getData = async()=>{
+        setSpinner(true)
+        const searchFetch= await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&page=${currentPage}&page_size=40`)
 
-    //     let searchResult = await searchFetch.json()
-
-    //     setTest(searchResult)
-    //     setSpinner(false)
-    //     console.log(searchResult);
-    // }
+        let searchResult = await searchFetch.json()
+        let tempResults = searchResult.results
+        tempResults =  tempResults.map(result=>{
+            return {...result, libraryOptionsOpen:false}
+        })
+        searchResult.results = tempResults
+        
+        setTest(searchResult)
+        setSpinner(false)
+        console.log(searchResult);
+    }
     const [sections, setSections] = useState({
         uncategorized:[],
         currently_playing:[],
@@ -18866,6 +18873,8 @@ const GameProvider = ({ children }) => {
     useEffect(()=>{
         console.log(sections);
     }, [sections])
+
+    
 
     return (
         <GameContext.Provider value={{
