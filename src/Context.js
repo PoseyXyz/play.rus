@@ -50,7 +50,7 @@ const GameProvider = ({ children }) => {
             return <FaXbox />
         }
     }
-    
+
     function parseRatingColour(color) {
         if (color < 3) {
             return 'border-red-500 text-red-500'
@@ -18795,7 +18795,7 @@ const GameProvider = ({ children }) => {
             "stores"
         ]
     })
-   
+
 
     const [spinner, setSpinner] = useState(false)
 
@@ -18825,7 +18825,7 @@ const GameProvider = ({ children }) => {
         }
     }
 
-   
+
     // const getData = async()=>{
     //     setSpinner(true)
     //     const searchFetch= await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&page=${currentPage}&page_size=40`)
@@ -18836,41 +18836,41 @@ const GameProvider = ({ children }) => {
     //         return {...result, libraryOptionsOpen:false}
     //     })
     //     searchResult.results = tempResults
-        
+
     //     setTest(searchResult)
     //     setSpinner(false)
     //     console.log(searchResult);
     // }
     const [librarySections, setLibrarySections] = useState({
-        uncategorized:[],
-        currently_playing:[],
-        completed:[],
-        played:[],
-        not_played:[]
+        uncategorized: [],
+        currently_playing: [],
+        completed: [],
+        played: [],
+        not_played: []
     })
 
-    const getItem=(id)=>{
-        const item = test.results.find(result=>result.id===id)
+    const getItem = (id) => {
+        const item = test.results.find(result => result.id === id)
         return item
     }
 
-    const addToLibrary=(id, section)=>{
-        const tempArray = {...test}
+    const addToLibrary = (id, section) => {
+        const tempArray = { ...test }
         const index = tempArray.results.indexOf(getItem(id))
         let game = tempArray.results[index]
-        game = {...game, section, inLibrary:true}
+        game = { ...game, section, inLibrary: true }
         tempArray.results[index] = game
 
-        let tempSections = {...librarySections}
-        let tempElement =tempSections[section]
+        let tempSections = { ...librarySections }
+        let tempElement = tempSections[section]
         tempElement = [...tempElement, tempArray.results[index]]
-        tempSections[section] = tempElement 
+        tempSections[section] = tempElement
 
         setLibrarySections(tempSections)
     }
 
-    const toggleLibraryOptions=(id)=>{
-        const tempResults = {...test}
+    const toggleLibraryOptions = (id) => {
+        const tempResults = { ...test }
         const index = tempResults.results.indexOf(getItem(id))
         const game = tempResults.results[index]
 
@@ -18878,29 +18878,29 @@ const GameProvider = ({ children }) => {
         setTest(tempResults)
     }
 
-    const removeFromLibrary = (id, section)=>{
-        let tempSections = {...librarySections}
+    const removeFromLibrary = (id, section) => {
+        let tempSections = { ...librarySections }
         let sectionWhereGameExists = tempSections[section]
 
-        let index = sectionWhereGameExists.indexOf(sectionWhereGameExists.find(game=>game.id===id))
-        tempSections[section][index].inLibrary=false
+        let index = sectionWhereGameExists.indexOf(sectionWhereGameExists.find(game => game.id === id))
+        tempSections[section][index].inLibrary = false
         console.log(tempSections[section][index].inLibrary);
 
-        sectionWhereGameExists = sectionWhereGameExists.filter(game=>game.id!==id)
-        
+        sectionWhereGameExists = sectionWhereGameExists.filter(game => game.id !== id)
+
         tempSections[section] = sectionWhereGameExists
         setLibrarySections(tempSections)
     }
 
 
 
-    useEffect(()=>{
-        
-          
+    useEffect(() => {
+
+
         console.log(librarySections);
     }, [librarySections])
 
-    
+
 
     return (
         <GameContext.Provider value={{
