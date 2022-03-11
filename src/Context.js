@@ -18864,9 +18864,16 @@ const GameProvider = ({ children }) => {
         tempElement = [...tempElement, game]
         tempSections[section] = tempElement 
 
-       
         setSections(tempSections)
-       
+    }
+
+    const toggleLibraryOptions=(id)=>{
+        const tempResults = {...test}
+        const index = tempResults.results.indexOf(getItem(id))
+        const game = tempResults.results[index]
+
+        game.libraryOptionsOpen = !game.libraryOptionsOpen
+        setTest(tempResults)
     }
     useEffect(()=>{
         console.log(sections);
@@ -18882,7 +18889,8 @@ const GameProvider = ({ children }) => {
             currentPage, setCurrentPage,
             paginationRange,
             spinner, recents, parseRecents, parsePlatform, parseRatingColour,
-            addToLibrary, sections
+            addToLibrary, sections,
+            toggleLibraryOptions
         }}>
             {children}
         </GameContext.Provider>
