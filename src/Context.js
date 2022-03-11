@@ -18892,11 +18892,18 @@ const GameProvider = ({ children }) => {
         setLibrarySections(tempSections)
     }
 
+    
+    //Sort logic 
+    const sortGames=(selected)=>{
+        const tempArray = {...test}
+        const tempResults = tempArray.results
+        tempResults = tempResults.sort((a,b)=>(a[selected] > b[selected]?1 :-1))
+        tempArray.results = tempResults
+        setTest(tempArray)
+    }
 
 
     useEffect(() => {
-
-
         console.log(librarySections);
     }, [librarySections])
 
@@ -18911,7 +18918,9 @@ const GameProvider = ({ children }) => {
             paginationRange,
             spinner, recents, parseRecents, parsePlatform, parseRatingColour,
             addToLibrary, librarySections,
-            toggleLibraryOptions, removeFromLibrary
+            toggleLibraryOptions, removeFromLibrary,
+
+            sortGames
         }}>
             {children}
         </GameContext.Provider>
