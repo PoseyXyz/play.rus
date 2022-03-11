@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { FaCalendar, FaClock, FaExclamationCircle, FaPlus, FaTimesCircle, FaWindowClose } from 'react-icons/fa';
+import React, { useContext, } from 'react';
+import { FaCalendar, FaClock, FaPlus, FaTimesCircle } from 'react-icons/fa';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { GameContext } from '../Context';
@@ -49,6 +49,7 @@ function Card({result, parsePlatform, parseRatingColour}) {
                     <div className="flex gap-2 items-center text-sm"><i className="text-brand-purple text-lg"><FaClock /></i>
                         <div className="flex flex-col">
                             <p className="text-typography-grey">Playtime:</p>
+                            
                             <p className="text-white">{playtime} hrs</p>
                         </div>
                     </div>
