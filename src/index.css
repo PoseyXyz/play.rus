@@ -28,6 +28,10 @@ body {
   @apply flex gap-4 items-center text-typography-grey text-xl hover:text-typography-white cursor-pointer delay-75 duration-150 
 }
 
+.outlet-layout{
+  @apply col-span-10 md:col-span-7 bg-black-v2 rounded-3xl mt-20 p-4 text-typography-white
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

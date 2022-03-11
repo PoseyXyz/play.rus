@@ -37,7 +37,7 @@ function Alt(props) {
 
 
     return (
-        <div className="col-span-7 bg-black-v2 rounded-3xl mt-24 text-white">
+        <div className="outlet-layout">
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                 {recents.map(result => {
 

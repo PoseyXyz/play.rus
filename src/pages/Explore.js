@@ -12,7 +12,7 @@ function Explore(props) {
 
 
     return (
-        <div className="col-span-10 md:col-span-7 bg-black-v2 rounded-3xl mt-20 p-4 text-typography-white">
+        <div className="outlet-layout">
 
             {spinner ? <p className="text-white text-7xl">Please wait...</p> :
                 <>

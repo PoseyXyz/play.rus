@@ -2,7 +2,7 @@ import React from 'react';
 
 function Library(props) {
     return (
-        <div>
+        <div className="outlet-layout">
             
         </div>
     );
