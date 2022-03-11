@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { GameContext } from '../Context';
 import Card from '../components/Card';
+import Sort from '../components/Sort';
 
 
 function Explore(props) {
@@ -17,6 +18,7 @@ function Explore(props) {
             {spinner ? <p className="text-white text-7xl">Please wait...</p> :
                 <>
                     <h1>{params.pageNumber}</h1>
+                    <Sort/>
 
                     <button onClick={() => { setCurrentPage(2); navigate(`/explore/${2}`) }}>Go to Page 2</button>
                     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
