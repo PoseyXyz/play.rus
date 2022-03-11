@@ -18858,7 +18858,7 @@ const GameProvider = ({ children }) => {
         const tempArray = {...test}
         const index = tempArray.results.indexOf(getItem(id))
         let game = tempArray.results[index]
-        game = {...game, section}
+        game = {...game, section, inLibrary:true}
         tempArray.results[index] = game
 
         let tempSections = {...sections}
@@ -18881,7 +18881,13 @@ const GameProvider = ({ children }) => {
     const removeFromLibrary = (id, section)=>{
         let tempSections = {...sections}
         let sectionWhereGameExists = tempSections[section]
+
+        let index = sectionWhereGameExists.indexOf(sectionWhereGameExists.find(game=>game.id===id))
+        tempSections[section][index].inLibrary=false
+        console.log(tempSections[section][index].inLibrary);
+
         sectionWhereGameExists = sectionWhereGameExists.filter(game=>game.id!==id)
+        
         tempSections[section] = sectionWhereGameExists
         setSections(tempSections)
     }

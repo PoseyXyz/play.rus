@@ -6,7 +6,7 @@ import { GameContext } from '../Context';
 
 
 function Card({result, parsePlatform, parseRatingColour}) {
-    const { id, background_image, name, parent_platforms, rating, released, playtime, libraryOptionsOpen, section } = result
+    const { id, background_image, name, parent_platforms, rating, released, playtime, libraryOptionsOpen, section, inLibrary } = result
     const {parseRecents, addToLibrary, sections, toggleLibraryOptions, removeFromLibrary} = useContext(GameContext)
     
     return (
@@ -61,7 +61,7 @@ function Card({result, parsePlatform, parseRatingColour}) {
         </div>
         <div className={`${libraryOptionsOpen?'flex':'hidden'} absolute bg-white z-20 text-black flex-col w-full rounded-lg -bottom-24`}>
         <button onClick={()=>toggleLibraryOptions(id)} className="text-left text-red-500 font-semibold py-3 px-6 text-base justify-self-end self-end border-b rounded-lg border-gray-200"><FaTimesCircle/></button>
-            {Object.keys(sections).map((key, index)=>(<button key={index} onClick={()=>{addToLibrary(id, key); toggleLibraryOptions(id)}} className="capitalize text-left py-3.5 px-6 text-sm w-full border-b rounded-lg duration-300 delay-75 hover:bg-gray-100 border-gray-200">{key}</button>))}
+            {Object.keys(sections).map((key, index)=>(<button key={index} onClick={()=>{addToLibrary(id, key); toggleLibraryOptions(id)}} className={`${inLibrary ? 'hidden':'block'} capitalize text-left py-3.5 px-6 text-sm w-full border-b rounded-lg duration-300 delay-75 hover:bg-gray-100 border-gray-200`}>{key}</button>))}
             <button onClick={()=>removeFromLibrary(id, section)} className="text-left text-red-500 font-semibold py-4 px-6 text-sm w-full border-b rounded-lg border-gray-200">Remove from Library {section}</button>
         </div>
 
