@@ -65,7 +65,7 @@ const GameProvider = ({ children }) => {
 
     useEffect(() => {
         generatePageRange(currentPage, 30)
-        getData()
+        // getData()
     }, [currentPage])
 
 
@@ -18826,21 +18826,21 @@ const GameProvider = ({ children }) => {
     }
 
    
-    const getData = async()=>{
-        setSpinner(true)
-        const searchFetch= await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&page=${currentPage}&page_size=40`)
+    // const getData = async()=>{
+    //     setSpinner(true)
+    //     const searchFetch= await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&page=${currentPage}&page_size=40`)
 
-        let searchResult = await searchFetch.json()
-        let tempResults = searchResult.results
-        tempResults =  tempResults.map(result=>{
-            return {...result, libraryOptionsOpen:false}
-        })
-        searchResult.results = tempResults
+    //     let searchResult = await searchFetch.json()
+    //     let tempResults = searchResult.results
+    //     tempResults =  tempResults.map(result=>{
+    //         return {...result, libraryOptionsOpen:false}
+    //     })
+    //     searchResult.results = tempResults
         
-        setTest(searchResult)
-        setSpinner(false)
-        console.log(searchResult);
-    }
+    //     setTest(searchResult)
+    //     setSpinner(false)
+    //     console.log(searchResult);
+    // }
     const [sections, setSections] = useState({
         uncategorized:[],
         currently_playing:[],
@@ -18857,11 +18857,13 @@ const GameProvider = ({ children }) => {
     const addToLibrary=(id, section)=>{
         const tempArray = {...test}
         const index = tempArray.results.indexOf(getItem(id))
-        const game = tempArray.results[index]
+        let game = tempArray.results[index]
+        game = {...game, section}
+        tempArray.results[index] = game
 
         let tempSections = {...sections}
         let tempElement =tempSections[section]
-        tempElement = [...tempElement, game]
+        tempElement = [...tempElement, tempArray.results[index]]
         tempSections[section] = tempElement 
 
         setSections(tempSections)
@@ -18875,7 +18877,20 @@ const GameProvider = ({ children }) => {
         game.libraryOptionsOpen = !game.libraryOptionsOpen
         setTest(tempResults)
     }
+
+    const removeFromLibrary = (id, section)=>{
+        let tempSections = {...sections}
+        let sectionWhereGameExists = tempSections[section]
+        sectionWhereGameExists = sectionWhereGameExists.filter(game=>game.id!==id)
+        tempSections[section] = sectionWhereGameExists
+        setSections(tempSections)
+    }
+
+
+
     useEffect(()=>{
+        
+          
         console.log(sections);
     }, [sections])
 
@@ -18890,7 +18905,7 @@ const GameProvider = ({ children }) => {
             paginationRange,
             spinner, recents, parseRecents, parsePlatform, parseRatingColour,
             addToLibrary, sections,
-            toggleLibraryOptions
+            toggleLibraryOptions, removeFromLibrary
         }}>
             {children}
         </GameContext.Provider>
