@@ -1,41 +1,29 @@
 import React, { useContext, useState } from 'react';
 import Card from '../components/Card';
 import { GameContext } from '../Context';
+import svg from '../images/notfound/emoji.svg'
 
 
 
 function Library(props) {
-    const { librarySections, recents, parseRatingColour, parsePlatform } = useContext(GameContext)
+    const { librarySections, parseRatingColour, parsePlatform } = useContext(GameContext)
     const [currentKey, setCurrentKey] = useState('uncategorized')
 
-    const ParseTab=(librarySection)=> {
-        const { librarySections, parseRatingColour, parsePlatform } = useContext(GameContext)
-        if (librarySection === 'uncategorized') {
-             librarySections[librarySection].map(result => {return <Card result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour} />}) 
-             console.log('hello');
-        }else if(librarySection==='currently_playing'){
-            librarySections[librarySection].map(result => {return <Card result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour} />}) 
-    
-        }else if(librarySection === "completed"){
-            librarySections[librarySection].map(result => {return <Card result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour} />}) 
-    
-        }else if(librarySection==='played'){
-            librarySections[librarySection].map(result => {return <Card result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour} />}) 
-    
-        }else if(librarySection==='not_played'){
-            librarySections[librarySection].map(result => {return <Card result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour} />}) 
-    
-        }
-    }
+   
     return (
         <div className="outlet-layout">
-            <div className="flex gap-6 py-6">
-                {Object.keys(librarySections).map(key => <button onClick={()=>{setCurrentKey(key); ParseTab(key)}} className="text-lg capitalize text-typography-grey hover:text-white delay-75 duration-200">{key}</button>)}
+            <div className="flex gap-6 py-4 flex-wrap">
+                {Object.keys(librarySections).map(key => <button onClick={() => { setCurrentKey(key) }} className={`${currentKey === key ? 'text-white border-b-2 border-white' : 'border-b-2 border-transparent'} text-lg py-2 capitalize text-typography-grey hover:text-white delay-75 duration-200`}>{key}</button>)}
             </div>
-            <div className='grid grid-cols-3 gap-4'>
-            {librarySections[currentKey].map(result => <Card result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour} />)} 
+            {
+                librarySections[currentKey].length === 0 ? <div className='flex justify-center flex-col my-4 items-center lg:text-lg'>
+                    <img src={svg} className="h-1/3 w-1/3" alt="Not found in library emoji" />
+                    <p>Seems like there are no games here</p>
+                </div> : <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6'>
+                    {librarySections[currentKey].map((result) => <Card key={result.id} result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour} />)}
 
-            </div>
+                </div>
+            }
         </div>
     );
 }

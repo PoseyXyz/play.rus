@@ -1,5 +1,5 @@
 import React, { useContext, } from 'react';
-import { FaCalendar, FaClock, FaPlus, FaTimesCircle } from 'react-icons/fa';
+import { FaCalendar, FaClock, FaPlus, FaTimesCircle, FaCheck } from 'react-icons/fa';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { GameContext } from '../Context';
@@ -57,13 +57,13 @@ function Card({ result, parsePlatform, parseRatingColour }) {
                 </div>
 
                 <div className="">
-                    <button onClick={() => toggleLibraryOptions(id)} className="bg-brand-purple w-full group flex items-center font-medium text-base justify-center gap-2 text-white rounded-md p-4 hover:bg-typography-grey delay-75 duration-300"><p className="text-sm">Add to Library</p><i className="group-hover:animate-pulse"><FaPlus /></i></button>
+                    <button onClick={() => toggleLibraryOptions(id)} className={`${inLibrary?'bg-brand-green':'bg-brand-purple'} w-full group flex items-center font-medium text-base justify-center gap-2 text-white rounded-md p-4 hover:bg-typography-grey delay-75 duration-300`}><p className="text-sm">{inLibrary?'Added to Library': "Add to Library"}</p>{inLibrary?<i className="group-hover:animate-pulse"><FaCheck /></i>: <i className="group-hover:animate-pulse"><FaPlus /></i>}</button>
                 </div>
             </div>
             <div className={`${libraryOptionsOpen ? 'flex' : 'hidden'} absolute bg-white z-20 text-black flex-col w-full rounded-lg -bottom-24`}>
                 <button onClick={() => toggleLibraryOptions(id)} className="text-left text-red-500 font-semibold py-3 px-6 text-base justify-self-end self-end border-b rounded-lg border-gray-200"><FaTimesCircle /></button>
                 {Object.keys(librarySections).map((key, index) => (<button key={index} onClick={() => { addToLibrary(id, key); toggleLibraryOptions(id) }} className={`${inLibrary ? 'hidden' : 'block'} capitalize text-left py-3.5 px-6 text-sm w-full border-b rounded-lg duration-300 delay-75 hover:bg-gray-100 border-gray-200`}>{key}</button>))}
-                <button onClick={() => removeFromLibrary(id, section)} className="text-left text-red-500 font-semibold py-4 px-6 text-sm w-full border-b rounded-lg border-gray-200">Remove from Library {section}</button>
+                <button onClick={() => {removeFromLibrary(id, section); toggleLibraryOptions(id)}} className="text-left text-red-500 font-semibold py-4 px-6 text-sm w-full border-b rounded-lg border-gray-200">Remove from Library {section}</button>
             </div>
 
         </div>
