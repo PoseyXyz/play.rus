@@ -17,10 +17,10 @@ function MenuBar(props) {
 
                 <hr className="mx-8 border-black-v3"></hr>
 
-                <div className="flex flex-col gap-8">
+                <Link to='/library' className="flex flex-col gap-8">
                     <div className="menubar-link"><i><ImBooks /></i><h1>My Library</h1></div>
 
-                </div>
+                </Link>
 
                 <hr className="mx-8 border-black-v3"></hr>
 

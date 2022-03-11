@@ -18841,7 +18841,7 @@ const GameProvider = ({ children }) => {
     //     setSpinner(false)
     //     console.log(searchResult);
     // }
-    const [sections, setSections] = useState({
+    const [librarySections, setLibrarySections] = useState({
         uncategorized:[],
         currently_playing:[],
         completed:[],
@@ -18861,12 +18861,12 @@ const GameProvider = ({ children }) => {
         game = {...game, section, inLibrary:true}
         tempArray.results[index] = game
 
-        let tempSections = {...sections}
+        let tempSections = {...librarySections}
         let tempElement =tempSections[section]
         tempElement = [...tempElement, tempArray.results[index]]
         tempSections[section] = tempElement 
 
-        setSections(tempSections)
+        setLibrarySections(tempSections)
     }
 
     const toggleLibraryOptions=(id)=>{
@@ -18879,7 +18879,7 @@ const GameProvider = ({ children }) => {
     }
 
     const removeFromLibrary = (id, section)=>{
-        let tempSections = {...sections}
+        let tempSections = {...librarySections}
         let sectionWhereGameExists = tempSections[section]
 
         let index = sectionWhereGameExists.indexOf(sectionWhereGameExists.find(game=>game.id===id))
@@ -18889,7 +18889,7 @@ const GameProvider = ({ children }) => {
         sectionWhereGameExists = sectionWhereGameExists.filter(game=>game.id!==id)
         
         tempSections[section] = sectionWhereGameExists
-        setSections(tempSections)
+        setLibrarySections(tempSections)
     }
 
 
@@ -18897,8 +18897,8 @@ const GameProvider = ({ children }) => {
     useEffect(()=>{
         
           
-        console.log(sections);
-    }, [sections])
+        console.log(librarySections);
+    }, [librarySections])
 
     
 
@@ -18910,7 +18910,7 @@ const GameProvider = ({ children }) => {
             currentPage, setCurrentPage,
             paginationRange,
             spinner, recents, parseRecents, parsePlatform, parseRatingColour,
-            addToLibrary, sections,
+            addToLibrary, librarySections,
             toggleLibraryOptions, removeFromLibrary
         }}>
             {children}
