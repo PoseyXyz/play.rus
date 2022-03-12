@@ -11,7 +11,9 @@ const GameProvider = ({ children }) => {
     const [formData, setFormData] = useState({
         searchString:''
     })
-    const [searchResults, setSearchResults] = useState({})
+    const [searchResults, setSearchResults] = useState()
+    const [spinner, setSpinner] = useState(false)
+
     const onChange=(e)=>{
         const name = e.currentTarget.name
         const value = e.currentTarget.value
@@ -23,7 +25,7 @@ const GameProvider = ({ children }) => {
     useEffect(()=>{
         const delayDebounceFn = setTimeout(()=>{
             getSearchData()
-        }, 5000)
+        }, 600)
         return ()=>clearTimeout(delayDebounceFn)
     }, [formData.searchString])
 
@@ -18818,7 +18820,7 @@ const GameProvider = ({ children }) => {
     })
 
 
-    const [spinner, setSpinner] = useState(false)
+
 
     const [recents, setRecents] = useState([])
     const parseRecents = (num) => {
@@ -18932,10 +18934,13 @@ const GameProvider = ({ children }) => {
     }
 
     //search logic
+    const [searchSpinner, setSearchSpinner] = useState(false)
     const getSearchData=async()=>{
+        setSearchSpinner(true)
         const data = await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&search=${formData.searchString}`)
         let res = await data.json()
         setSearchResults(res)
+        setSearchSpinner(false)
         console.log(searchResults);
     }
 
@@ -18958,7 +18963,8 @@ const GameProvider = ({ children }) => {
             toggleLibraryOptions, removeFromLibrary,
 
             sortGames,
-            onChange, formData, searchResults
+            //search states
+            onChange, formData, searchResults, searchSpinner
         }}>
             {children}
         </GameContext.Provider>
