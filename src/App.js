@@ -7,7 +7,7 @@ import NotFound from './components/NotFound';
 const Explore = lazy(() => import('./pages/Explore'));
 const Recents = lazy(()=>import('./pages/Recents'));
 const Library = lazy(()=>import('./pages/Library'))
-
+const Search = lazy(()=>import('./pages/Search'))
 
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
           <Route path="explore/:pageNumber" element={<Explore />} />
           <Route path="recents" element={<Recents />} />
           <Route path="library" element={<Library/>}/>
+          <Route path="search" element={<Search/>}/>
         </Route>
         <Route path="*" element={<NotFound />} />
 
