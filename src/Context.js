@@ -8,6 +8,27 @@ const GameProvider = ({ children }) => {
     const [paginationRange, setPaginationRange] = useState([])
     const [sideBarOpen, setSideBarOpen] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
+    const [formData, setFormData] = useState({
+        searchString:''
+    })
+    const [searchResults, setSearchResults] = useState({})
+    const onChange=(e)=>{
+        const name = e.currentTarget.name
+        const value = e.currentTarget.value
+        setFormData({
+            ...formData,
+            [name]:value
+        })
+    }
+    useEffect(()=>{
+        const delayDebounceFn = setTimeout(()=>{
+            getSearchData()
+        }, 5000)
+        return ()=>clearTimeout(delayDebounceFn)
+    }, [formData.searchString])
+
+
+
     function generatePageRange(currentPage, lastPage) {
         const delta = 3;
 
@@ -18841,6 +18862,7 @@ const GameProvider = ({ children }) => {
     //     setSpinner(false)
     //     console.log(searchResult);
     // }
+   
     const [librarySections, setLibrarySections] = useState({
         uncategorized: [],
         currently_playing: [],
@@ -18909,6 +18931,14 @@ const GameProvider = ({ children }) => {
         setTest(tempArray)
     }
 
+    //search logic
+    const getSearchData=async()=>{
+        const data = await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&search=${formData.searchString}`)
+        let res = await data.json()
+        setSearchResults(res)
+        console.log(searchResults);
+    }
+
 
     useEffect(() => {
         console.log(librarySections);
@@ -18927,7 +18957,8 @@ const GameProvider = ({ children }) => {
             addToLibrary, librarySections,
             toggleLibraryOptions, removeFromLibrary,
 
-            sortGames
+            sortGames,
+            onChange, formData, searchResults
         }}>
             {children}
         </GameContext.Provider>
