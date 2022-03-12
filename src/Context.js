@@ -18896,7 +18896,7 @@ const GameProvider = ({ children }) => {
     //Sort logic 
     const sortGames=(selected)=>{
         const tempArray = {...test}
-        const tempResults = tempArray.results
+        let tempResults = tempArray.results
         tempResults = tempResults.sort((a,b)=>(a[selected] > b[selected]?1 :-1))
         tempArray.results = tempResults
         setTest(tempArray)
