@@ -14,11 +14,11 @@ body {
 
 
 .menubar-link{
-  @apply flex gap-3 lg:gap-4 items-center pl-4 lg:pl-8 text-typography-grey text-base lg:text-lg hover:text-typography-white cursor-pointer delay-75 duration-150 
+  @apply flex gap-3 py-4 lg:gap-4 items-center pl-4 lg:pl-8 text-typography-grey text-base lg:text-lg hover:text-typography-white cursor-pointer delay-75 duration-150 
 }
 
 .active{
-  @apply text-typography-white bg-black-v3 py-6
+  @apply text-typography-white bg-black-v3 
 }
 .active i{
   @apply text-brand-purple

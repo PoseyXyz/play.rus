@@ -32,15 +32,20 @@ function Sort(props) {
         sortGames(data.sortValue)
     }, [data])
     return (
-        <div className='text-red-500'>
-            <select name='sortValue' onChange={(e)=>{onChange(e)}}>
-                <option selected disabled>Relevance</option>
-                {options.map(option=><option
+        <div className='flex items-center my-4 text-lg'>
+           <div className='form-group flex gap-3 items-center'>
+                <label className="font-light">
+                    Sort By:
+                </label>
+                <select className='bg-black-v3 outline-none font-semibold py-2 pl-2 pr-5 rounded-lg' name='sortValue' onChange={(e)=>{onChange(e)}}>
+                <option value="relevance">Relevance</option>
+                {options.map(option=><option 
+                className='p-4 bg-white text-black'
                 key={option.title}
                 value={option.value}
             >{option.title}</option>)}
             </select>
-            <p>{data.sortValue}</p>
+           </div>
         </div>
     );
 }

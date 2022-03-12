@@ -18897,8 +18897,15 @@ const GameProvider = ({ children }) => {
     const sortGames=(selected)=>{
         const tempArray = {...test}
         let tempResults = tempArray.results
-        tempResults = tempResults.sort((a,b)=>(a[selected] > b[selected]?1 :-1))
+        if(selected==='relevance'){
+            // getData()
+        }else if(selected==="name"){
+            tempResults = tempResults.sort((a,b)=>(a[selected] > b[selected]?1 :-1))
         tempArray.results = tempResults
+        }else{
+            tempResults = tempResults.sort((a,b)=>(b[selected] > a[selected]?1 :-1))
+            tempArray.results = tempResults
+        }
         setTest(tempArray)
     }
 
