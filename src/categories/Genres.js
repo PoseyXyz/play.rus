@@ -1,5 +1,6 @@
 import React, {useEffect, useContext, setState } from 'react';
 import { GameContext } from '../Context';
+import MiniCard from './MiniCard';
 
 function Genres(props) {
     const {getGenres, genres} = useContext(GameContext)
@@ -8,11 +9,11 @@ function Genres(props) {
     }, [])
     return (
         <div className='outlet-layout'>
-           {genres && genres.results.map(genre=><div>
-            <h1>{genre.name}</h1>
-            <p>{genre.games_count}</p>
-            <img src={genre.image_background}/>
-           </div>)} 
+            <div className='grid grid-cols-3 gap-4'>
+            {genres && genres.results.map(genre=>(
+               <MiniCard result={genre}/>
+           ))} 
+            </div>
         </div>
     );
 }
