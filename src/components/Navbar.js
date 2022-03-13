@@ -25,7 +25,7 @@ console.log(sideBarOpen);
     return (
         <nav className="grid grid-cols-10 bg-black-v1 px-4 text-white py-3 gap-4 items-center fixed z-10 mb-4 top-0 box-border rounded-r-lg">
             <div className="col-span-2 flex items-center justify-center"><img src={require('../images/logo.png')} className="w-2/5 md:w-1/4"/></div>
-            <div className="col-span-6 md:col-span-7 px-3 gap-4 md:pr-12 flex justify-center md:justify-between items-center border-r border-typography-grey">
+            <div className="col-span-6 pr-2 md:col-span-7 gap-4 md:pr-12 flex justify-center md:justify-between items-center border-r border-typography-grey">
                 {/* <h3 className="text-typography-grey text-xl font-bold">{title}</h3> */}
                 <Search/>
                 <div className="md:flex gap-12 items-center hidden">

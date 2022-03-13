@@ -20,7 +20,7 @@ function Search(props) {
     const { formData, onChange, searchResults, parsePlatform, parseRatingColour, searchSpinner } = useContext(GameContext)
 
     return (
-        <div className='w-full relative'>
+        <div className={`${formData.searchString.length===0?'relative':' absolute left-0 lg:relative z-20'} w-full`}>
             <div className='form-group flex justify-center w-full'>
                 <div className='relative flex w-full'>
                     <input name="searchString"
@@ -36,11 +36,11 @@ function Search(props) {
             <div className={`${formData.searchString.length === 0 ? 'hidden' : 'flex'} bg-black-v3 w-full absolute my-2 rounded-xl p-4 flex-col gap-2`}>
                 {searchSpinner ? <p className="text-white text-xl">Please wait...</p> : searchResults ? searchResults.results.map(result => {
                     const { id, background_image, name, parent_platforms } = result
-                    return <div key={id} className='flex gap-3 py-2 items-center'>
-                        <div className='w-16 h-full'><img className='rounded-md' src={background_image}/></div>
-                        <div className='self-start'>
-                            <h1 className="text-lg">{name}</h1>
-                            <div className="flex gap-3 text-lg">
+                    return <div key={id} className='flex gap-3 py-2 items-center bg-red-500'>
+                        <div className=''><img className='rounded-md w-16 h-16' src={background_image}/></div>
+                        <div className='flex flex-col gap-2'>
+                            <h1 className="">{name}</h1>
+                            <div className="flex gap-3">
                                 {parent_platforms.map(platform => <i className='text-typography-white'>{parsePlatform(platform.platform.name)}</i>)}
                             </div>
                         </div>

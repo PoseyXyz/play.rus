@@ -23,10 +23,10 @@ const GameProvider = ({ children }) => {
         })
     }
     useEffect(()=>{
-        const delayDebounceFn = setTimeout(()=>{
+        
             getSearchData()
-        }, 600)
-        return ()=>clearTimeout(delayDebounceFn)
+        
+        
     }, [formData.searchString])
 
 
