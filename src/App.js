@@ -22,7 +22,7 @@ function App() {
           <Route path="recents" element={<Recents />} />
           <Route path="library" element={<Library/>}/>
           <Route path="search" element={<Search/>}/>
-          
+          <Route path='genres' element={<Genres/>}/>
         </Route>
         <Route path="*" element={<NotFound />} />
 
