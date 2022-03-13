@@ -8,6 +8,7 @@ const Explore = lazy(() => import('./pages/Explore'));
 const Recents = lazy(()=>import('./pages/Recents'));
 const Library = lazy(()=>import('./pages/Library'))
 const Search = lazy(()=>import('./pages/Search'))
+const Genres = lazy(()=>import('./categories/Genres'))
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="recents" element={<Recents />} />
           <Route path="library" element={<Library/>}/>
           <Route path="search" element={<Search/>}/>
+          
         </Route>
         <Route path="*" element={<NotFound />} />
 
