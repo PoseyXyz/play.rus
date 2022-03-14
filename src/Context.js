@@ -18945,14 +18945,16 @@ const GameProvider = ({ children }) => {
     }
 
     const [genres, setGenres] = useState()
+    const [gameCategory, setGameCategory] = useState()
     const getGenres=async()=>{
-        setSpinner(true)
-        const data = await fetch(`https://api.rawg.io/api/genres?key=9df1bae5b88947458cc8431730fbfd9f`)
+        
+        const data = await fetch(`https://api.rawg.io/api${gameCategory}?key=9df1bae5b88947458cc8431730fbfd9f`)
         let res = await data.json()
         setGenres(res)
-        setSpinner(false)
+        
         console.log(res);
     }
+
 
 
     useEffect(() => {
@@ -18977,7 +18979,7 @@ const GameProvider = ({ children }) => {
             onChange, formData, searchResults, searchSpinner,
 
             //genres
-            genres, setGenres, getGenres
+            genres, setGenres, getGenres, gameCategory, setGameCategory
         }}>
             {children}
         </GameContext.Provider>

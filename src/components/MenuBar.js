@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { FaCode, FaDownload, FaHistory, FaHome, FaSignOutAlt } from 'react-icons/fa'
 import { ImBooks } from 'react-icons/im'
 import { CgGames } from 'react-icons/cg'
 import { GiCrossedPistols } from 'react-icons/gi'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { GameContext } from '../Context';
+
 
 function MenuBar(props) {
+    const {gameCategory, setGameCategory} = useContext(GameContext)
+    let navigate = useNavigate()
     return (
         <aside className="bg-black-v1 hidden md:block col-span-2 text-white sticky top-24 menubar box-border rounded-r-lg">
             <div className="flex flex-col gap-4 py-12">
@@ -26,7 +30,7 @@ function MenuBar(props) {
 
                 <hr className="mx-8 border-black-v3"></hr>
 
-                <Link to='genres' className="menubar-link"><i><GiCrossedPistols /></i><h1>Genres</h1></Link>
+                <button onClick={()=>{setGameCategory('/genres'); navigate('/genres')}} className="menubar-link"><i><GiCrossedPistols /></i><h1>Genres</h1></button>
                 <div className="menubar-link"><i><FaCode /></i><h1>Developers</h1></div>
                 <div className="menubar-link"><i><CgGames /></i><h1>Platforms</h1></div>
                 <div className="menubar-link"><i><FaDownload /></i><h1>Stores</h1></div>
