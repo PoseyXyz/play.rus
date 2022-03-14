@@ -9,7 +9,7 @@ function Genres(props) {
     }, [])
     return (
         <div className='outlet-layout'>
-            <div className='grid grid-cols-3 gap-4'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
             {genres && genres.results.map(genre=>(
                <MiniCard result={genre}/>
            ))} 

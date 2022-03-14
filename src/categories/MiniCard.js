@@ -5,7 +5,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 function MiniCard({ result }) {
     const { name, games_count, image_background } = result
     return (
-        <div className='relative'>
+        <div className='relative mini-card'>
             <div className='absolute w-full h-full z-10 flex flex-col items-center justify-center overlay'>
                 <div className='flex flex-col gap-2 text-center'>
                     <h1 className='text-xl font-sans font-bold'>{name}</h1>
@@ -21,6 +21,7 @@ function MiniCard({ result }) {
                 <LazyLoadImage
                     className="rounded-lg h-full object-cover"
                     height={'100%'}
+                    width={'100%'}
                     effect="blur"
                     src={image_background} />
             </div>
