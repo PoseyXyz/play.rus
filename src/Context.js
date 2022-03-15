@@ -18997,7 +18997,7 @@ const GameProvider = ({ children }) => {
             onChange, formData, searchResults, searchSpinner,
 
             //genres
-            categoryList, setCategoryList, fetchGenres
+            categoryList, setCategoryList, fetchGenres,
 
             //developers
             fetchDevelopers
