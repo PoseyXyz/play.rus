@@ -11,7 +11,7 @@ const Search = lazy(()=>import('./pages/Search'))
 const Genres = lazy(()=>import('./categories/Genres'))
 const Developers = lazy(()=>import('./categories/Developers'))
 const Stores = lazy(()=>import('./categories/Stores'))
-const Platforms = lazy(()=>import('./categories/Stores'))
+const Platforms = lazy(()=>import('./categories/Platforms'))
 
 
 function App() {
