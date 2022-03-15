@@ -29,7 +29,7 @@ function App() {
           <Route path='developers' element={<Developers />} />
           <Route path="stores" element={<Stores />} />
           <Route path='platforms' element={<Platforms />} />
-          <Route path="/:type/:category" element={<GamesList />} />
+          <Route path="/games/:category" element={<GamesList />} />
         </Route>
         <Route path="*" element={<NotFound />} />
 
