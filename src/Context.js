@@ -18946,7 +18946,9 @@ const GameProvider = ({ children }) => {
 
     const [categoryList, setCategoryList] = useState({
         genres:[],
-        developers:[]
+        developers:[],
+        stores:[],
+        platforms:[]
     })
     
     const fetchGenres=async()=>{
