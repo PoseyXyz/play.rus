@@ -18,7 +18,6 @@ function MenuBar(props) {
 
                 <Link to='/recents' className="menubar-link text-white"><i><FaHistory /></i><h1>Recents</h1></Link>
 
-                <Link to='/search' className="menubar-link text-white"><i><FaHistory /></i><h1>Search</h1></Link>
 
                 <hr className="mx-8 border-black-v3"></hr>
 
