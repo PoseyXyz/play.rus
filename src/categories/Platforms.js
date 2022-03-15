@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+import { GameContext } from '../Context';
+import MiniCard from './MiniCard';
 
 function Platforms(props) {
+    const { fetchPlatforms, categoryList: { platforms } } = useContext(GameContext)
+    useEffect(() => {
+        fetchPlatforms()
+    }, [])
     return (
-        <div>
-            
+        <div className='outlet-layout'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
+                {platforms && platforms.map(genre => (
+                    <MiniCard result={genre} />
+                ))}
+            </div>
         </div>
     );
 }
