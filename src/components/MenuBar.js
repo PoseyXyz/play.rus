@@ -31,8 +31,8 @@ function MenuBar(props) {
 
                 <Link to="/genres" className="menubar-link"><i><GiCrossedPistols /></i><h1>Genres</h1></Link>
                 <Link to='/developers' className="menubar-link"><i><FaCode /></i><h1>Developers</h1></Link>
-                <Link to='/stores' className="menubar-link"><i><CgGames /></i><h1>Platforms</h1></Link>
-                <div className="menubar-link"><i><FaDownload /></i><h1>Stores</h1></div>
+                <Link to='' className="menubar-link"><i><CgGames /></i><h1>Platforms</h1></Link>
+                <Link to='stores' className="menubar-link"><i><FaDownload /></i><h1>Stores</h1></Link>
 
                 <hr className="mx-8 border-black-v3"></hr>
 
