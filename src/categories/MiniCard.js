@@ -1,15 +1,17 @@
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import { useNavigate } from 'react-router-dom';
 
-function MiniCard({ result }) {
+function MiniCard({ result, fetchGamesList }) {
     const { name, games_count, image_background, slug } = result
+    let navigate = useNavigate()
     return (
         <div className='relative mini-card'>
             <div className='absolute w-full h-full z-10 flex flex-col items-center justify-center overlay'>
                 <div className='flex flex-col gap-2 text-center'>
                     <h1 className='text-xl font-sans font-bold'>{name} {slug}</h1>
-                    <button className='py-2.5 px-4 btn-overlay rounded-lg hover:bg-white hover:text-black duration-150 delay-75 font-semibold'>View Games</button>
+                    <button onClick={()=>{fetchGamesList(slug); navigate(slug)}} className='py-2.5 px-4 btn-overlay self-center rounded-lg hover:bg-white hover:text-black duration-150 delay-75 font-semibold'>View Games</button>
                 </div>
                 <div className='flex justify-between border-b absolute w-11/12 bottom-4 pb-2 text-sm'>
                 <p className='font-semibold'>Game Count:</p>

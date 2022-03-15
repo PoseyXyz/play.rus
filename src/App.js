@@ -5,13 +5,13 @@ import { Route, Routes } from 'react-router-dom'
 import Layout from './pages/Layout';
 import NotFound from './components/NotFound';
 const Explore = lazy(() => import('./pages/Explore'));
-const Recents = lazy(()=>import('./pages/Recents'));
-const Library = lazy(()=>import('./pages/Library'))
-const Genres = lazy(()=>import('./categories/Genres'))
-const Developers = lazy(()=>import('./categories/Developers'))
-const Stores = lazy(()=>import('./categories/Stores'))
-const Platforms = lazy(()=>import('./categories/Platforms'))
-const GamesList = lazy(()=>import('./categories/GamesList'))
+const Recents = lazy(() => import('./pages/Recents'));
+const Library = lazy(() => import('./pages/Library'))
+const Genres = lazy(() => import('./categories/Genres'))
+const Developers = lazy(() => import('./categories/Developers'))
+const Stores = lazy(() => import('./categories/Stores'))
+const Platforms = lazy(() => import('./categories/Platforms'))
+const GamesList = lazy(() => import('./categories/GamesList'))
 
 
 function App() {
@@ -23,13 +23,12 @@ function App() {
           <Route index element={<Explore />} />
           <Route path="explore/:pageNumber" element={<Explore />} />
           <Route path="recents" element={<Recents />} />
-          <Route path="library" element={<Library/>}/>
-          <Route path='genres' element={<Genres/>}>
-            <Route path='games' element={<GamesList/>}/>
-          </Route>
-          <Route path='developers' element={<Developers/>}/>
-          <Route path="stores" element={<Stores/>}> </Route>
-          <Route path='platforms' element={<Platforms/>}></Route>
+          <Route path="library" element={<Library />} />
+          <Route path='genres' element={<Genres />}></Route>
+          <Route path="/genres/:category" element={<GamesList />} />
+          <Route path='developers' element={<Developers />} />
+          <Route path="stores" element={<Stores />} />
+          <Route path='platforms' element={<Platforms />} />
         </Route>
         <Route path="*" element={<NotFound />} />
 

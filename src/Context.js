@@ -18995,8 +18995,8 @@ const GameProvider = ({ children }) => {
 
 const fetchGamesList =async(input)=>{
     let data = await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&genres=${input}`)
-    let res = data.json()
-    setGamesList(res)
+    let res = await data.json()
+    setGamesList(res.results)
     console.log(gamesList);
 }
 
@@ -19032,7 +19032,10 @@ const fetchGamesList =async(input)=>{
             fetchStores,
 
             //platforms
-            fetchPlatforms
+            fetchPlatforms,
+
+            //obtain gamesList
+            gamesList, fetchGamesList
         }}>
             {children}
         </GameContext.Provider>
