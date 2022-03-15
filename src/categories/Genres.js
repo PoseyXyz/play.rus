@@ -12,7 +12,7 @@ function Genres(props) {
         <div className='outlet-layout'>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
                 {genres && genres.map(genre => (
-                    <MiniCard result={genre} />
+                    <MiniCard key={genre.id} result={genre} />
                 ))}
             </div>
         </div>

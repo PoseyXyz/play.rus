@@ -21,7 +21,7 @@ function ChangeTitle() {
 function Nav(props) {
     const { sideBarOpen, setSideBarOpen } = useContext(GameContext)
     let title = ChangeTitle()
-    console.log(sideBarOpen);
+    
     return (
         <nav className="grid grid-cols-10 bg-black-v1 px-4 text-white py-3 gap-4 items-center fixed z-20 mb-4 top-0 box-border rounded-r-lg">
             <div className="col-span-2 flex items-center justify-center"><img src={require('../images/logo.png')} className="w-2/5 md:w-1/4" /></div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 function GamesList(props) {
     return (
-        <div>
+        <div className='outlet-layout'>
             
         </div>
     );
