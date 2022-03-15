@@ -18985,7 +18985,7 @@ const GameProvider = ({ children }) => {
             onChange, formData, searchResults, searchSpinner,
 
             //genres
-            categoryList, setCategoryList, fetchGenres, gameCategory, setGameCategory
+            categoryList, setCategoryList, fetchGenres
         }}>
             {children}
         </GameContext.Provider>
