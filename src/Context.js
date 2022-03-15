@@ -18971,7 +18971,7 @@ const GameProvider = ({ children }) => {
         })
     }
 
-    const fetchStoress=async()=>{
+    const fetchStores=async()=>{
         
         const data = await fetch(`https://api.rawg.io/api/stores?key=9df1bae5b88947458cc8431730fbfd9f`)
         let res = await data.json()
