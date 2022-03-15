@@ -18981,6 +18981,16 @@ const GameProvider = ({ children }) => {
         })
     }
 
+    const fetchPlatforms=async()=>{
+        
+        const data = await fetch(`https://api.rawg.io/api/platforms?key=9df1bae5b88947458cc8431730fbfd9f`)
+        let res = await data.json()
+        setCategoryList({
+            ...categoryList,
+            platforms:res.results
+        })
+    }
+
  
 
 
@@ -19013,7 +19023,10 @@ const GameProvider = ({ children }) => {
             fetchDevelopers,
 
             //stores
-            fetchStores
+            fetchStores,
+
+            //platforms
+            fetchPlatforms
         }}>
             {children}
         </GameContext.Provider>
