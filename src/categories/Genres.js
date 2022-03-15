@@ -10,13 +10,9 @@ function Genres(props) {
     }, [])
     return (
         <div className='outlet-layout'>
-            <Link to='games'>
-            Got to the fucking page
-            </Link>
-            <Outlet/>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
                 {genres && genres.map(genre => (
-                    <MiniCard key={genre.id} result={genre} fetchGamesList={fetchGamesList} />
+                    <MiniCard key={genre.id} result={genre} fetchGamesList={fetchGamesList} type={'genres'} />
                 ))}
             </div>
         </div>

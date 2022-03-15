@@ -18993,8 +18993,8 @@ const GameProvider = ({ children }) => {
 
  const [gamesList, setGamesList] = useState()
 
-const fetchGamesList =async(input)=>{
-    let data = await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&genres=${input}`)
+const fetchGamesList =async(type, category)=>{
+    let data = await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&${type}=${category}`)
     let res = await data.json()
     setGamesList(res.results)
     console.log(gamesList);

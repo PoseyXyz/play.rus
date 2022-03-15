@@ -25,10 +25,11 @@ function App() {
           <Route path="recents" element={<Recents />} />
           <Route path="library" element={<Library />} />
           <Route path='genres' element={<Genres />}></Route>
-          <Route path="/genres/:category" element={<GamesList />} />
+         
           <Route path='developers' element={<Developers />} />
           <Route path="stores" element={<Stores />} />
           <Route path='platforms' element={<Platforms />} />
+          <Route path="/:type/:category" element={<GamesList />} />
         </Route>
         <Route path="*" element={<NotFound />} />
 
