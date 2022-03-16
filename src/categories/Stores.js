@@ -3,9 +3,10 @@ import { GameContext } from '../Context';
 import MiniCard from './MiniCard';
 
 function Stores(props) {
-    const { fetchStores, categoryList: { stores }, fetchGamesList } = useContext(GameContext)
+    const { fetchStores, categoryList: { stores }, fetchGamesList, setPageType } = useContext(GameContext)
     useEffect(() => {
         fetchStores()
+        setPageType('stores')
     }, [])
     return (
         <div className='outlet-layout'>

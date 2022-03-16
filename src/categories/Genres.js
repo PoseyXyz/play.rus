@@ -1,12 +1,12 @@
 import React, { useEffect, useContext, setState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
 import { GameContext } from '../Context';
 import MiniCard from './MiniCard';
 
 function Genres(props) {
-    const { fetchGenres, categoryList: { genres }, fetchGamesList } = useContext(GameContext)
+    const { fetchGenres, categoryList: { genres }, fetchGamesList, setPageType } = useContext(GameContext)
     useEffect(() => {
         fetchGenres()
+        setPageType('genres')
     }, [])
     return (
         <div className='outlet-layout'>

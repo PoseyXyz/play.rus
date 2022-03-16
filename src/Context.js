@@ -88,12 +88,10 @@ const GameProvider = ({ children }) => {
 
     useEffect(() => {
         generatePageRange(currentPage, 30)
-        // getData()
+        getData()
     }, [currentPage])
 
 
-    // for (let i = 1, l = 20; i <= l; i++)
-    //     console.log(`Selected page ${i}:`, pagination(i, l));
 
 
 
@@ -18849,21 +18847,21 @@ const GameProvider = ({ children }) => {
     }
 
 
-    // const getData = async()=>{
-    //     setSpinner(true)
-    //     const searchFetch= await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&page=${currentPage}&page_size=40`)
+    const getData = async()=>{
+        setSpinner(true)
+        const searchFetch= await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&page=${currentPage}&page_size=40`)
 
-    //     let searchResult = await searchFetch.json()
-    //     let tempResults = searchResult.results
-    //     tempResults =  tempResults.map(result=>{
-    //         return {...result, libraryOptionsOpen:false}
-    //     })
-    //     searchResult.results = tempResults
+        let searchResult = await searchFetch.json()
+        let tempResults = searchResult.results
+        tempResults =  tempResults.map(result=>{
+            return {...result, libraryOptionsOpen:false}
+        })
+        searchResult.results = tempResults
 
-    //     setTest(searchResult)
-    //     setSpinner(false)
-    //     console.log(searchResult);
-    // }
+        setTest(searchResult)
+        setSpinner(false)
+        console.log(searchResult);
+    }
    
     const [librarySections, setLibrarySections] = useState({
         uncategorized: [],
@@ -18994,16 +18992,15 @@ const GameProvider = ({ children }) => {
  const [gamesList, setGamesList] = useState()
 
 const fetchGamesList =async(type, category)=>{
-    let data = await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&${type}=${category}`)
+    let data = await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&${type}=${category}&page=${currentPage}`)
     let res = await data.json()
     setGamesList(res.results)
     console.log(gamesList);
 }
 
+const [pageType, setPageType] = useState()
 
-    useEffect(() => {
-        console.log(librarySections);
-    }, [librarySections])
+
 
 
 
@@ -19035,7 +19032,10 @@ const fetchGamesList =async(type, category)=>{
             fetchPlatforms,
 
             //obtain gamesList
-            gamesList, fetchGamesList
+            gamesList, fetchGamesList,
+
+            //
+            pageType, setPageType
         }}>
             {children}
         </GameContext.Provider>

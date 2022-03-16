@@ -10,6 +10,12 @@ function Explore(props) {
     let params = useParams()
     let navigate = useNavigate()
 
+    useEffect(()=>{
+        setCurrentPage(1)
+    }, [])
+
+   
+
 
 
     return (

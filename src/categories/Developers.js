@@ -3,9 +3,10 @@ import { GameContext } from '../Context';
 import MiniCard from './MiniCard';
 
 function Developers(props) {
-    const { fetchDevelopers, categoryList: { developers }, fetchGamesList } = useContext(GameContext)
+    const { fetchDevelopers, categoryList: { developers }, fetchGamesList, setPageType } = useContext(GameContext)
     useEffect(() => {
         fetchDevelopers()
+        setPageType('developers')
     }, [])
     return (
         <div className='outlet-layout'>
