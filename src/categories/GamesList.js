@@ -20,8 +20,7 @@ function GamesList(props) {
                 spinner ? <p>Please wait</p>
                 :
                 <>
-                <div>{pageType}</div>
-                <div>{`/games/${category}/`}</div>
+            
                 <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6'>
                 {gamesList && gamesList.map(result => <Card result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour} />)}
             </div>
