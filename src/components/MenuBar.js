@@ -3,7 +3,7 @@ import { FaCode, FaDownload, FaHistory, FaHome, FaSignOutAlt } from 'react-icons
 import { ImBooks } from 'react-icons/im'
 import { CgGames } from 'react-icons/cg'
 import { GiCrossedPistols } from 'react-icons/gi'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 
 
@@ -13,10 +13,10 @@ function MenuBar(props) {
         <aside className="bg-black-v1 hidden md:block col-span-2 text-white sticky top-24 menubar box-border rounded-r-lg">
             <div className="flex flex-col gap-4 py-12">
 
-
+                
                 <Link to='/' className="menubar-link active"><i><FaHome /></i><h1>Explore</h1></Link>
 
-                <Link to='/recents' className="menubar-link text-white"><i><FaHistory /></i><h1>Recents</h1></Link>
+                <NavLink to='/recents' className={`menubar-link text-white ${({isActive})=>(isActive ? 'active':'')}`}><i><FaHistory /></i><h1>Recents</h1></NavLink>
 
 
                 <hr className="mx-8 border-black-v3"></hr>
