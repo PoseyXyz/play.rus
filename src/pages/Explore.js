@@ -24,7 +24,7 @@ function Explore(props) {
         }else{
             setCurrentPage(1)
         }
-    }, [params])
+    }, [params.pageNumber])
 
    
 
