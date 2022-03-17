@@ -2,16 +2,17 @@ import React, { useContext, } from 'react';
 import { FaCalendar, FaClock, FaPlus, FaTimesCircle, FaCheck } from 'react-icons/fa';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import { Link } from 'react-router-dom';
 import { GameContext } from '../Context';
 
 
 function Card({ result, parsePlatform, parseRatingColour }) {
-    const { id, background_image, name, parent_platforms, rating, released, playtime, libraryOptionsOpen, section, inLibrary } = result
+    const { id, slug, background_image, name, parent_platforms, rating, released, playtime, libraryOptionsOpen, section, inLibrary } = result
     const { parseRecents, addToLibrary, librarySections, toggleLibraryOptions, removeFromLibrary } = useContext(GameContext)
 
     return (
         <div className="card bg-black-v3 rounded-xl relative">
-
+            
             <div className="overflow-hidden h-2/4">
                 <LazyLoadImage
                     className="rounded-t-xl h-full w-screen object-cover"
@@ -23,7 +24,7 @@ function Card({ result, parsePlatform, parseRatingColour }) {
             <div className="flex flex-col gap-5 px-6 py-4 bottom">
                 <div className="flex flex-col gap-4">
                     <div className="flex justify-between items-center">
-                        <h1 className="text-lg">{name}</h1>
+                        <Link to={`/details/${slug}`} onClick={()=>parseRecents(result)} className="text-lg hover:text-typography-grey duration-100">{name}</Link>
                         <div className={`${parseRatingColour(rating)} border-2 py-1 px-2 rounded-md text-sm`}><p className="font-semibold">{rating}</p></div>
                     </div>
 
