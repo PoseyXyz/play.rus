@@ -12,6 +12,7 @@ const Developers = lazy(() => import('./categories/Developers'))
 const Stores = lazy(() => import('./categories/Stores'))
 const Platforms = lazy(() => import('./categories/Platforms'))
 const GamesList = lazy(() => import('./categories/GamesList'))
+const Details = lazy(()=>import('./pages/Details'))
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="stores" element={<Stores />} />
           <Route path='platforms' element={<Platforms />} />
           <Route path="/games/:category/:pageNumber" element={<GamesList />} />
+          <Route path='/details/:slug' element={<Details/>}/>
         </Route>
         <Route path="*" element={<NotFound />} />
 
