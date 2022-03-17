@@ -12,7 +12,19 @@ function Explore(props) {
 
     useEffect(()=>{
         setCurrentPage(1)
+
+        return ()=>{
+            setCurrentPage(1)
+        }
     }, [])
+
+    useEffect(()=>{
+        if (params.pageNumber){
+            setCurrentPage(parseInt(params.pageNumber))
+        }else{
+            setCurrentPage(1)
+        }
+    }, [params])
 
    
 

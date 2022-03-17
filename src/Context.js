@@ -87,8 +87,9 @@ const GameProvider = ({ children }) => {
 
 
     useEffect(() => {
-        generatePageRange(currentPage, 30)
+        
         getData()
+        generatePageRange(currentPage, 30)
     }, [currentPage])
 
 
