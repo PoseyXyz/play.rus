@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import { FaCode, FaDownload, FaHistory, FaHome, FaSignOutAlt } from 'react-icons/fa'
 import { ImBooks } from 'react-icons/im'
 import { CgGames } from 'react-icons/cg'
@@ -14,24 +14,24 @@ function MenuBar(props) {
             <div className="flex flex-col gap-4 py-12">
 
                 
-                <Link to='/' className="menubar-link active"><i><FaHome /></i><h1>Explore</h1></Link>
+                <NavLink to='/' className={`menubar-link ${({isActive})=>(isActive?'active':'')}`}><i><FaHome /></i><h1>Explore</h1></NavLink>
 
-                <NavLink to='/recents' className={`menubar-link text-white ${({isActive})=>(isActive ? 'active':'')}`}><i><FaHistory /></i><h1>Recents</h1></NavLink>
+                <NavLink to='/recents' className={`menubar-link ${({isActive})=>(isActive ? 'active':'')}`}><i><FaHistory /></i><h1>Recents</h1></NavLink>
 
+
+                <hr className="mx-8 border-black-v3"></hr>
+                <NavLink to='library' className={`menubar-link ${({isActive})=>(isActive?'active':'')}`}><i><ImBooks /></i><h1>My Library</h1></NavLink>
+                {/* <Link to='/library' className="flex flex-col gap-8">
+                    
+
+                </Link> */}
 
                 <hr className="mx-8 border-black-v3"></hr>
 
-                <Link to='/library' className="flex flex-col gap-8">
-                    <div className="menubar-link"><i><ImBooks /></i><h1>My Library</h1></div>
-
-                </Link>
-
-                <hr className="mx-8 border-black-v3"></hr>
-
-                <Link to="/genres" className="menubar-link"><i><GiCrossedPistols /></i><h1>Genres</h1></Link>
-                <Link to='/developers' className="menubar-link"><i><FaCode /></i><h1>Developers</h1></Link>
-                <Link to='/platforms' className="menubar-link"><i><CgGames /></i><h1>Platforms</h1></Link>
-                <Link to='/stores' className="menubar-link"><i><FaDownload /></i><h1>Stores</h1></Link>
+                <NavLink to="/genres" className={`menubar-link ${({isActive})=>(isActive?'active':'')}`}><i><GiCrossedPistols /></i><h1>Genres</h1></NavLink>
+                <NavLink to='/developers' className={`menubar-link ${({isActive})=>(isActive?'active':'')}`}><i><FaCode /></i><h1>Developers</h1></NavLink>
+                <NavLink to='/platforms' className={`menubar-link ${({isActive})=>(isActive?'active':'')}`}><i><CgGames /></i><h1>Platforms</h1></NavLink>
+                <NavLink to='/stores' className={`menubar-link ${({isActive})=>(isActive?'active':'')}`}><i><FaDownload /></i><h1>Stores</h1></NavLink>
 
                 <hr className="mx-8 border-black-v3"></hr>
 
