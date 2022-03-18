@@ -4,6 +4,29 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { GameContext } from '../Context';
 
+function parseReactions(reactionTitle, reactionPercentage){
+    if (reactionTitle==='recommended'){
+        return `${reactionPercentage}%`
+    }else if(reactionTitle==='exceptional'){
+        return `${reactionPercentage}%`
+    }else if(reactionTitle==='meh'){
+        return `${reactionPercentage}%`
+    }else if(reactionTitle==='skip'){
+        return `${reactionPercentage}%`
+    }
+}
+
+// function parseReactionsColor(reactionTitle){
+//     if (reactionTitle==='recommended'){
+//         return `${reactionPercentage}%`
+//     }else if(reactionTitle==='exceptional'){
+//         return `${reactionPercentage}%`
+//     }else if(reactionTitle==='meh'){
+//         return `${reactionPercentage}%`
+//     }else if(reactionTitle==='skip'){
+//         return `${reactionPercentage}%`
+//     }
+// }
 
 
 function Details(props) {
@@ -23,6 +46,7 @@ function Details(props) {
     }, [])
     const { name, reddit_description, reddit_name, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores, ratings } = result
     const { parsePlatform, parseStore } = useContext(GameContext)
+
 
 
     return (
@@ -132,6 +156,13 @@ function Details(props) {
 
             </div>
             
+            <div className='details_section-div'>
+                <h2 className='text-2xl font-bold'>Reactions</h2>
+                    <div className='bg-red-500 h-8 w-full'>
+                        {ratings && ratings.map(rating=><div style={{width:parseReactions(rating.title, rating.percent)}} className='bg-green-500'>{rating.title}</div>)}
+                    </div>
+
+            </div>
 
             {result && result.platforms && result.platforms.map(platform => <p>{platform.requirements.recommended}</p>)}
             <button onClick={fetchDetails}>Click me</button>
