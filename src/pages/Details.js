@@ -16,17 +16,17 @@ function parseReactions(reactionTitle, reactionPercentage){
     }
 }
 
-// function parseReactionsColor(reactionTitle){
-//     if (reactionTitle==='recommended'){
-//         return `${reactionPercentage}%`
-//     }else if(reactionTitle==='exceptional'){
-//         return `${reactionPercentage}%`
-//     }else if(reactionTitle==='meh'){
-//         return `${reactionPercentage}%`
-//     }else if(reactionTitle==='skip'){
-//         return `${reactionPercentage}%`
-//     }
-// }
+function parseReactionsColor(reactionTitle){
+    if (reactionTitle==='recommended'){
+        return `bg-blue-500`
+    }else if(reactionTitle==='exceptional'){
+        return `bg-green-500`
+    }else if(reactionTitle==='meh'){
+        return `bg-orange-500`
+    }else if(reactionTitle==='skip'){
+        return `bg-red-500`
+    }
+}
 
 
 function Details(props) {
@@ -156,10 +156,11 @@ function Details(props) {
 
             </div>
             
+            {/* reactions */}
             <div className='details_section-div'>
                 <h2 className='text-2xl font-bold'>Reactions</h2>
                     <div className='bg-red-500 h-8 w-full'>
-                        {ratings && ratings.map(rating=><div style={{width:parseReactions(rating.title, rating.percent)}} className='bg-green-500'>{rating.title}</div>)}
+                        {ratings && ratings.map(rating=><div style={{width:parseReactions(rating.title, rating.percent)}} className={`${parseReactionsColor(rating.title)}`}>{rating.title}</div>)}
                     </div>
 
             </div>
