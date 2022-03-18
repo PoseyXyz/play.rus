@@ -4,6 +4,8 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { GameContext } from '../Context';
 
+
+
 function Details(props) {
     const [result, setResult] = useState({})
 
@@ -19,7 +21,7 @@ function Details(props) {
         fetchDetails()
 
     }, [])
-    const { name, reddit_description, reddit_name, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores } = result
+    const { name, reddit_description, reddit_name, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores, ratings } = result
     const { parsePlatform, parseStore } = useContext(GameContext)
 
 
@@ -129,6 +131,7 @@ function Details(props) {
                 </div>
 
             </div>
+            
 
             {result && result.platforms && result.platforms.map(platform => <p>{platform.requirements.recommended}</p>)}
             <button onClick={fetchDetails}>Click me</button>
