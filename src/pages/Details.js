@@ -163,10 +163,14 @@ function Details(props) {
                         {ratings && ratings.map(rating=><div style={{width:parseReactions(rating.title, rating.percent)}} className={`${parseReactionsColor(rating.title)} p-4`}></div>)}
                         
                     </div>
-                    <div className='flex justify-around'>
-                    {ratings && ratings.map(rating=><div className={`p-4 flex items-center gap-2 capitalize`}>
+                    <div className='flex flex-col md:flex-row justify-around'>
+                    {ratings && ratings.map(rating=><div className={`p-4 flex flex-col md:items-center gap-2 capitalize`}>
+                       
+                        <p className='text-sm text-typography-grey'>{rating.count} ({rating.percent}%)</p>
+                        <div className='flex items-center gap-2'>
                         <span className={`${parseReactionsColor(rating.title)} rounded-full w-2 h-2`}></span>
                         <p>{rating.title}</p>
+                        </div>
                         </div>)}
                     </div>
 
