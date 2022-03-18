@@ -29,7 +29,7 @@ function Details(props) {
             <div className='flex flex-col relative items-center justify-center'>
                 {/* <p>{result.genres[0].name}</p> */}
                 <LazyLoadImage
-                    className="rounded-t-xl object-cover self-center"
+                    className="rounded-xl object-cover self-center"
                     effect="blur"
                     src={background_image} />
                 <div className='absolute top-0 right-0  w-full h-full roounded-t-xl'></div>
@@ -85,19 +85,19 @@ function Details(props) {
             </div>
 
             {/* //description */}
-            <div className='bg-black-v3 p-4 lg:p-8 lg:m-8 rounded-xl'>
+            <div className='details_section-div'>
                 <h2 className='text-2xl font-bold'>About</h2>
                 <div className='flex gap-4 my-6'>
                     {genres && genres.map(genre => (
-                        <div className='rounded-2xl text-brand-purple text-sm font-semibold overlay-lighter py-2.5 px-6'>{genre.name}</div>
+                        <div className='rounded-lg text-white text-sm border border-brand-purple py-2.5 px-6'>{genre.name}</div>
                     ))}
                 </div>
-                <p className='leading-relaxed tracking-wide'>{description_raw}</p>
+                <p className='leading-relaxed text-typography-grey tracking-wide'>{description_raw}</p>
             </div>
 
 
             {/* screenshotes */}
-            <div className='bg-black-v3 p-4 lg:p-8 lg:m-8 rounded-xl'>
+            <div className='details_section-div'>
                 <h2 className='text-2xl font-bold'>Stores</h2>
                 <div className='flex gap-4 my-6 flex-wrap'>
                     {stores && stores.map(store => (

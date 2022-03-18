@@ -32,6 +32,10 @@ body {
   @apply col-span-10 md:col-span-7 bg-black-v2 rounded-3xl mt-20 p-4 text-typography-white
 }
 
+.details_section-div{
+  @apply bg-black-v3 p-4 lg:p-8 lg:mx-8 rounded-xl;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
