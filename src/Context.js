@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { FaAndroid, FaApple, FaAppStoreIos, FaLinux, FaPlaystation, FaWindows, FaXbox, FaSteam } from 'react-icons/fa';
-import {SiEpicgames} from 'react-icons/si'
+import {SiEpicgames, SiGogdotcom} from 'react-icons/si'
 
 const GameContext = React.createContext()
 
@@ -82,6 +82,8 @@ const GameProvider = ({ children }) => {
             return <FaXbox/>
         }else if(storeSlug==='epic-games'){
             return <SiEpicgames/>
+        }else if(storeSlug==='gog'){
+            return <SiGogdotcom/>
         }
     }
 

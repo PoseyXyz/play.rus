@@ -20,7 +20,7 @@ function Details(props) {
 
     }, [])
     const { name, reddit_description, reddit_name, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores } = result
-    const { parsePlatform } = useContext(GameContext)
+    const { parsePlatform, parseStore } = useContext(GameContext)
 
 
     return (
@@ -88,27 +88,30 @@ function Details(props) {
             <div className='bg-black-v3 p-4 lg:p-8 lg:m-8 rounded-xl'>
                 <h2 className='text-2xl font-bold'>About</h2>
                 <div className='flex gap-4 my-6'>
-                {genres && genres.map(genre=>(
-                    <div className='rounded-2xl text-brand-purple text-sm font-semibold overlay-lighter py-2.5 px-6'>{genre.name}</div>
-                ))}
+                    {genres && genres.map(genre => (
+                        <div className='rounded-2xl text-brand-purple text-sm font-semibold overlay-lighter py-2.5 px-6'>{genre.name}</div>
+                    ))}
                 </div>
                 <p className='leading-relaxed tracking-wide'>{description_raw}</p>
             </div>
-            
+
 
             {/* screenshotes */}
             <div className='bg-black-v3 p-4 lg:p-8 lg:m-8 rounded-xl'>
                 <h2 className='text-2xl font-bold'>Stores</h2>
                 <div className='flex gap-4 my-6 flex-wrap'>
-                {stores && stores.map(store=>(
-                    <>
-                    <div className='rounded-2xl text-brand-purple text-sm font-semibold overlay-lighter py-2.5 px-6'>{store.store.name}</div>
-               
-                    </>
-                ))}
+                    {stores && stores.map(store => (
+                        <>
+                            <div className='rounded-lg text-brand-purple text-sm font-semibold overlay-lighter py-2.5 px-6 flex gap-4 items-center'>
+                                <i>{parseStore(store.store.slug)}</i>
+                                <p>{store.store.name} {store.store.slug}</p>
+                            </div>
+
+                        </>
+                    ))}
                 </div>
 
-            </div>    
+            </div>
 
             {result && result.platforms && result.platforms.map(platform => <p>{platform.requirements.recommended}</p>)}
             <button onClick={fetchDetails}>Click me</button>
