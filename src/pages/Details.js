@@ -159,8 +159,15 @@ function Details(props) {
             {/* reactions */}
             <div className='details_section-div'>
                 <h2 className='text-2xl font-bold'>Reactions</h2>
-                    <div className='bg-red-500 h-8 w-full'>
-                        {ratings && ratings.map(rating=><div style={{width:parseReactions(rating.title, rating.percent)}} className={`${parseReactionsColor(rating.title)}`}>{rating.title}</div>)}
+                    <div className='bg-red-500 h-12 w-full flex '>
+                        {ratings && ratings.map(rating=><div style={{width:parseReactions(rating.title, rating.percent)}} className={`${parseReactionsColor(rating.title)} p-4`}></div>)}
+                        
+                    </div>
+                    <div className='flex justify-around'>
+                    {ratings && ratings.map(rating=><div className={`p-4 flex items-center gap-2 capitalize`}>
+                        <span className={`${parseReactionsColor(rating.title)} rounded-full w-2 h-2`}></span>
+                        <p>{rating.title}</p>
+                        </div>)}
                     </div>
 
             </div>
