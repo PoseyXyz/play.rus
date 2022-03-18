@@ -4,26 +4,26 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { GameContext } from '../Context';
 
-function parseReactions(reactionTitle, reactionPercentage){
-    if (reactionTitle==='recommended'){
+function parseReactions(reactionTitle, reactionPercentage) {
+    if (reactionTitle === 'recommended') {
         return `${reactionPercentage}%`
-    }else if(reactionTitle==='exceptional'){
+    } else if (reactionTitle === 'exceptional') {
         return `${reactionPercentage}%`
-    }else if(reactionTitle==='meh'){
+    } else if (reactionTitle === 'meh') {
         return `${reactionPercentage}%`
-    }else if(reactionTitle==='skip'){
+    } else if (reactionTitle === 'skip') {
         return `${reactionPercentage}%`
     }
 }
 
-function parseReactionsColor(reactionTitle){
-    if (reactionTitle==='recommended'){
+function parseReactionsColor(reactionTitle) {
+    if (reactionTitle === 'recommended') {
         return `bg-blue-500`
-    }else if(reactionTitle==='exceptional'){
+    } else if (reactionTitle === 'exceptional') {
         return `bg-green-500`
-    }else if(reactionTitle==='meh'){
+    } else if (reactionTitle === 'meh') {
         return `bg-orange-500`
-    }else if(reactionTitle==='skip'){
+    } else if (reactionTitle === 'skip') {
         return `bg-red-500`
     }
 }
@@ -44,7 +44,7 @@ function Details(props) {
         fetchDetails()
 
     }, [])
-    const { name, reddit_description, reddit_name, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores, ratings } = result
+    const { name, reddit_description, reddit_name, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores, ratings, tags } = result
     const { parsePlatform, parseStore } = useContext(GameContext)
 
 
@@ -138,7 +138,7 @@ function Details(props) {
                 </div>
 
             </div>
-            
+
             {/* platforms */}
             <div className='details_section-div'>
                 <h2 className='text-2xl font-bold'>Platforms</h2>
@@ -155,25 +155,32 @@ function Details(props) {
                 </div>
 
             </div>
-            
+
             {/* reactions */}
             <div className='details_section-div'>
                 <h2 className='text-2xl font-bold'>Reactions</h2>
-                    <div className='bg-red-500 h-12 w-full flex '>
-                        {ratings && ratings.map(rating=><div style={{width:parseReactions(rating.title, rating.percent)}} className={`${parseReactionsColor(rating.title)} p-4`}></div>)}
-                        
-                    </div>
-                    <div className='flex flex-col md:flex-row justify-around'>
-                    {ratings && ratings.map(rating=><div className={`p-4 flex flex-col md:items-center gap-2 capitalize`}>
-                       
+                <div className='bg-red-500 h-12 w-full flex '>
+                    {ratings && ratings.map(rating => <div style={{ width: parseReactions(rating.title, rating.percent) }} className={`${parseReactionsColor(rating.title)} p-4`}></div>)}
+
+                </div>
+                <div className='flex flex-col md:flex-row justify-around'>
+                    {ratings && ratings.map(rating => <div className={`p-4 flex flex-col md:items-center gap-2 capitalize`}>
+
                         <p className='text-sm text-typography-grey'>{rating.count} ({rating.percent}%)</p>
                         <div className='flex items-center gap-2'>
-                        <span className={`${parseReactionsColor(rating.title)} rounded-full w-2 h-2`}></span>
-                        <p>{rating.title}</p>
+                            <span className={`${parseReactionsColor(rating.title)} rounded-full w-2 h-2`}></span>
+                            <p>{rating.title}</p>
                         </div>
-                        </div>)}
-                    </div>
+                    </div>)}
+                </div>
 
+            </div>
+
+            <div className='details_section-div'>
+                <h2 className='text-2xl font-bold'>Tags</h2>
+                <div className='flex gap-2 flex-wrap'>
+                    {tags && tags.map(tag => <p className='underline text-xs'>{tag.name},</p>)}
+                </div>
             </div>
 
             {result && result.platforms && result.platforms.map(platform => <p>{platform.requirements.recommended}</p>)}
