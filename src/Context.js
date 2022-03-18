@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { FaAndroid, FaApple, FaAppStoreIos, FaLinux, FaPlaystation, FaWindows, FaXbox, FaSteam } from 'react-icons/fa';
+import { FaAndroid, FaApple, FaAppStoreIos, FaLinux, FaPlaystation, FaWindows, FaXbox, FaSteam, FaGooglePlay } from 'react-icons/fa';
 import { SiEpicgames, SiGogdotcom, SiNintendoswitch } from 'react-icons/si'
+import {GrAppleAppStore} from 'react-icons/gr'
 
 const GameContext = React.createContext()
 
@@ -90,6 +91,10 @@ const GameProvider = ({ children }) => {
         return <SiGogdotcom />
     }else if(storeSlug==='nintendo'){
         return <SiNintendoswitch/>
+    }else if(storeSlug==='apple-appstore'){
+        return <GrAppleAppStore/>
+    }else if(storeSlug==='google-play'){
+        return <FaGooglePlay/>
     }
 }
 

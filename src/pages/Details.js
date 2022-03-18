@@ -102,9 +102,9 @@ function Details(props) {
                 <div className='flex gap-4 my-6 flex-wrap'>
                     {stores && stores.map(store => (
                         <>
-                            <div className='rounded-lg text-brand-purple text-sm font-semibold overlay-lighter py-2.5 px-6 flex gap-4 items-center'>
-                                <i>{parseStore(store.store.slug)}</i>
-                                <p>{store.store.name} {store.store.slug}</p>
+                            <div className='rounded-lg text-white text-sm md:text-base border border-brand-purple  overlay-lighter py-2.5 px-6 flex gap-4 items-center'>
+                                <i className='text-brand-purple'>{parseStore(store.store.slug)}</i>
+                                <p>{store.store.name}</p>
                             </div>
 
                         </>
