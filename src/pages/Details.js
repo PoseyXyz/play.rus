@@ -19,12 +19,13 @@ function Details(props) {
         fetchDetails()
 
     }, [])
-    const { name, description, reddit_description, reddit_name, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms } = result
+    const { name, reddit_description, reddit_name, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores } = result
     const { parsePlatform } = useContext(GameContext)
 
 
     return (
-        <div className='outlet-layout px-12'>
+        <div className='outlet-layout px-12 flex gap-4 flex-col'>
+            <h1 className='text-white font-bold text-3xl my-3'>{name}</h1>
             <div className='flex flex-col relative items-center justify-center'>
                 {/* <p>{result.genres[0].name}</p> */}
                 <LazyLoadImage
@@ -42,14 +43,14 @@ function Details(props) {
                     </div>
                 </div>
             </div>
-            <button onClick={() => console.log(result)}>Click</button>
-            <div className='bg-black-v3 p-8 m-8 rounded-lg'>
+            {/* <button onClick={() => console.log(result)}>Click</button> */}
+            <div className='bg-black-v3 p-8 m-8 rounded-xl'>
                 <div className='flex gap-4 justify-around'>
-                    <span className='flex flex-col items-center gap-2'>
+                    <span className='flex flex-col items-center gap-2 text-center'>
                         <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-t-0 border-l-0 border-brand-purple">
                             {rating}
                         </span>
-                        <span>
+                        <span className='max-w-prose'>
                             Avg Rating
                         </span>
                     </span>
@@ -69,7 +70,7 @@ function Details(props) {
                             Playtime
                         </span>
                     </span>
-                    {parent_platforms && result.parent_platforms.map(platform => <span className='flex flex-col items-center gap-2'>
+                    {parent_platforms && result.parent_platforms.map(platform => <span className='flex flex-col items-center gap-2 text-center'>
 
                         <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
                             {parsePlatform(platform.platform.name)}
@@ -82,8 +83,32 @@ function Details(props) {
 
                 </div>
             </div>
+
+            {/* //description */}
+            <div className='bg-black-v3 p-4 lg:p-8 lg:m-8 rounded-xl'>
+                <h2 className='text-2xl font-bold'>About</h2>
+                <div className='flex gap-4 my-6'>
+                {genres && genres.map(genre=>(
+                    <div className='rounded-2xl text-brand-purple text-sm font-semibold overlay-lighter py-2.5 px-6'>{genre.name}</div>
+                ))}
+                </div>
+                <p className='leading-relaxed tracking-wide'>{description_raw}</p>
+            </div>
             
 
+            {/* screenshotes */}
+            <div className='bg-black-v3 p-4 lg:p-8 lg:m-8 rounded-xl'>
+                <h2 className='text-2xl font-bold'>Stores</h2>
+                <div className='flex gap-4 my-6 flex-wrap'>
+                {stores && stores.map(store=>(
+                    <>
+                    <div className='rounded-2xl text-brand-purple text-sm font-semibold overlay-lighter py-2.5 px-6'>{store.store.name}</div>
+               
+                    </>
+                ))}
+                </div>
+
+            </div>    
 
             {result && result.platforms && result.platforms.map(platform => <p>{platform.requirements.recommended}</p>)}
             <button onClick={fetchDetails}>Click me</button>

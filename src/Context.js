@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { FaAndroid, FaApple, FaAppStoreIos, FaLinux, FaPlaystation, FaWindows, FaXbox } from 'react-icons/fa';
-
+import { FaAndroid, FaApple, FaAppStoreIos, FaLinux, FaPlaystation, FaWindows, FaXbox, FaSteam } from 'react-icons/fa';
+import {SiEpicgames} from 'react-icons/si'
 
 const GameContext = React.createContext()
 
@@ -71,6 +71,17 @@ const GameProvider = ({ children }) => {
             return <FaAppStoreIos />
         } else if (platform === "Xbox") {
             return <FaXbox />
+        }
+    }
+    function parseStore(storeSlug){
+        if (storeSlug==='playstation-store'){
+            return <FaPlaystation/>
+        }else if(storeSlug==='steam'){
+            return <FaSteam/>
+        }else if(storeSlug==='xbox-store'){
+            return <FaXbox/>
+        }else if(storeSlug==='epic-games'){
+            return <SiEpicgames/>
         }
     }
 
@@ -19036,7 +19047,10 @@ const [pageType, setPageType] = useState()
             gamesList, fetchGamesList,
 
             //
-            pageType, setPageType
+            pageType, setPageType,
+
+            //parseStoreIcon
+            parseStore
         }}>
             {children}
         </GameContext.Provider>
