@@ -87,7 +87,7 @@ function Details(props) {
             {/* //description */}
             <div className='details_section-div'>
                 <h2 className='text-2xl font-bold'>About</h2>
-                <div className='flex gap-4 my-6'>
+                <div className='flex gap-4 my-6 flex-wrap'>
                     {genres && genres.map(genre => (
                         <div className='rounded-lg text-white text-sm border border-brand-purple py-2.5 px-6'>{genre.name}</div>
                     ))}
@@ -96,7 +96,7 @@ function Details(props) {
             </div>
 
 
-            {/* screenshotes */}
+            {/* stores */}
             <div className='details_section-div'>
                 <h2 className='text-2xl font-bold'>Stores</h2>
                 <div className='flex gap-4 my-6 flex-wrap'>
@@ -105,6 +105,23 @@ function Details(props) {
                             <div className='rounded-lg text-white text-sm md:text-base border border-brand-purple  overlay-lighter py-2.5 px-6 flex gap-4 items-center'>
                                 <i className='text-brand-purple'>{parseStore(store.store.slug)}</i>
                                 <p>{store.store.name}</p>
+                            </div>
+
+                        </>
+                    ))}
+                </div>
+
+            </div>
+            
+            {/* platforms */}
+            <div className='details_section-div'>
+                <h2 className='text-2xl font-bold'>Platforms</h2>
+                <div className='flex gap-4 my-6 flex-wrap'>
+                    {parent_platforms && parent_platforms.map(platform => (
+                        <>
+                            <div className='rounded-lg text-white text-sm md:text-base border border-brand-purple  overlay-lighter py-2.5 px-6 flex gap-4 items-center'>
+                                <i className='text-brand-purple'>{parsePlatform(platform.platform.name)}</i>
+                                <p>{platform.platform.name}</p>
                             </div>
 
                         </>
