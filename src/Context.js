@@ -10,7 +10,8 @@ const GameProvider = ({ children }) => {
     const [sideBarOpen, setSideBarOpen] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [formData, setFormData] = useState({
-        searchString: ''
+        searchString: '',
+        review:''
     })
     const [searchResults, setSearchResults] = useState()
     const [spinner, setSpinner] = useState(false)
