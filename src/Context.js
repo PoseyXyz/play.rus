@@ -11,7 +11,8 @@ const GameProvider = ({ children }) => {
     const [currentPage, setCurrentPage] = useState(1)
     const [formData, setFormData] = useState({
         searchString: '',
-        review:''
+        review:'',
+        starSlider:1
     })
     const [searchResults, setSearchResults] = useState()
     const [spinner, setSpinner] = useState(false)
@@ -19064,7 +19065,9 @@ return (
         pageType, setPageType,
 
         //parseStoreIcon
-        parseStore
+        parseStore,
+
+        setFormData
     }}>
         {children}
     </GameContext.Provider>

@@ -41,18 +41,22 @@ function Details(props) {
             id: 1,
             name: 'Uzumaki',
             imageUrl:image2,
+            no_of_stars:5,
             comment: 'Velit pariatur duis reprehenderit pariatur non nulla velit labore deserunt. Est nostrud ut do aliqua. Tempor id laboris laborum ut occaecat fugiat excepteur ea quis consequat ut fugiat. Esse ea proident velit ipsum laboris. Minim nulla dolore consequat tempor. Veniam proident excepteur culpa in tempor nostrud.'
         },
         {
             id: 2,
             name: 'Jonas',
             imageUrl:image1,
+            no_of_stars:5,
             comment: 'Et in ullamco minim consequat culpa officia officia consequat laborum pariatur nisi. Adipisicing est nostrud laboris nisi eu occaecat aliquip. Sint cillum duis deserunt eu eiusmod commodo nostrud pariatur cupidatat occaecat. Incididunt amet cillum quis reprehenderit pariatur nisi. Ea ex esse nulla proident sunt pariatur ad dolore voluptate eiusmod nulla nisi deserunt fugiat. Esse magna est tempor ullamco eu aliqua exercitation ipsum sint consectetur sit Lorem cillum aliqua.'
+           
         },
         {
             id: 3,
             name: 'Jones',
             imageUrl:image3,
+            no_of_stars:5,
             comment: 'Eiusmod aliqua ipsum ut magna duis amet exercitation labore. Cupidatat magna enim do quis proident Lorem. Esse et sunt ut esse incididunt mollit cupidatat. Irure ex fugiat nisi id laborum dolore deserunt aute minim excepteur reprehenderit. Consequat minim magna laboris tempor proident magna dolor et officia non amet cillum eiusmod. Nisi reprehenderit incididunt ea eiusmod minim excepteur nisi aliqua elit ex. Velit id ullamco aliqua tempor excepteur nostrud nulla dolore laborum excepteur non cillum consectetur.'
         }
     ])
@@ -65,24 +69,25 @@ function Details(props) {
         console.log(result);
     }
 
-    const postReview=(reviewPost)=>{
-        let tempReviews = [...reviews]
-        let newReview={
-            id:tempReviews.length+1,
-            name:'You',
-            imageUrl:image2,
-            comment:reviewPost
-
-        }
-        setReviews([...reviews, newReview])
-    }
-
+   
     useEffect(() => {
         fetchDetails()
     }, [])
     const { name, reddit_description, reddit_name, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores, ratings, tags, publishers, developers } = result
     const { parsePlatform, parseStore, onChange, formData } = useContext(GameContext)
 
+    const postReview=(reviewPost)=>{
+        let tempReviews = [...reviews]
+        let newReview={
+            id:tempReviews.length+1,
+            name:'You',
+            imageUrl:image2,
+            no_of_stars:parseInt(reviewPost.starSlider),
+            comment:reviewPost.review
+
+        }
+        setReviews([...reviews, newReview])
+    }
 
 
     return (
@@ -294,24 +299,25 @@ function Details(props) {
 
                     <div className='flex flex-col gap-6 py-4 rounded-md'>
                         {reviews.map(review => {
-                            const { id, name, comment, imageUrl } = review
+                            const { id, name, comment, imageUrl, no_of_stars } = review
                             return (
                                 <div className='flex flex-col lg:flex-row gap-4' key={id}>
                                     <img src={imageUrl} className='rounded-full w-12 h-12' />
                                     <div className='flex flex-col'>
-                                        <span className='flex gap-2 items-center'><span className='font-medium'>{name}</span><span className='flex text-brand-purple text-xs'><i><FaStar /></i><i><FaStar /></i><i><FaStar /></i><i><FaStar /></i><i><FaStar /></i></span></span>
+                                        <span className='flex gap-2 items-center'><span className='font-medium'>{name}</span><span className='flex text-brand-purple text-xs'>{Array(no_of_stars).fill().map(() => <i><FaStar /></i>)}</span></span>
                                         <p className='text-typography-grey text-sm leading-6'>{comment}</p>
                                     </div>
+                                    {no_of_stars}
                                 </div>
                             )
                         })}
 
                         <div className='rounded-xl bg-black-v2 p-6 flex flex-col gap-4'>
                         <h4 className='text-white'>Your review</h4>
-                        <input type='range'/>
-                        <input placeholder={`Tell us what you think of ${name}`} className='bg-transparent outline-none w-full border-b-2 py-3 focus:border-brand-purple delay-100 duration-300' name='review' onChange={(e)=>onChange(e)} />
-                        {formData.review}
-                        <button className='bg-brand-purple py-3 px-6 rounded-xl' onClick={()=>postReview(formData.review)}>Post</button>
+                        <input type='range' max={5} value={formData.starSlider} name="starSlider" onChange={(e)=>onChange(e)}/>
+                        <input placeholder={`Tell us what you think of ${name}`} className='bg-transparent text-sm lg:text-base outline-none w-full border-b-2 py-3 focus:border-brand-purple delay-100 duration-300' name='review' value={formData.review} onChange={(e)=>onChange(e)} />
+                        {formData.starSlider}
+                        <button className='bg-brand-purple py-3 px-6 rounded-xl' onClick={()=>postReview(formData)}>Post</button>
 
                         </div>
 
