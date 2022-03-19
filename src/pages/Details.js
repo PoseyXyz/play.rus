@@ -100,7 +100,7 @@ function Details(props) {
                     effect="blur"
                     src={background_image} />
                 <div className='absolute top-0 right-0  w-full h-full roounded-t-xl'></div>
-                <div className='rounded-md bg-black-v3 flex gap-3 absolute bottom-8 z-10 w-5/6 h-1/5 px-12 '>
+                <div className='rounded-md overlay-lighter flex gap-3 absolute bottom-8 z-10 w-5/6 h-1/5 px-12 '>
                     <div className='flex flex-col gap-2 justify-center'>
                         <h3 className='text-white font-bold text-2xl'>{name}</h3>
                         <p className='text-typography-grey max-w-2xl text-sm'>{reddit_description}</p>
@@ -312,7 +312,7 @@ function Details(props) {
                             )
                         })}
 
-                        <div className='rounded-xl bg-black-v2 p-6 flex flex-col gap-4'>
+                        <div className='rounded-xl post-box p-6 flex flex-col gap-4'>
                         <h4 className='text-white'>Your review</h4>
                         <label htmlFor='sliderValue' className='text-typography-grey text-xs'>No of Stars: {formData.sliderValue}</label>
                         <input type='range' max={5} value={formData.sliderValue} min={1} name="sliderValue" onChange={(e)=>onChange(e)}/>

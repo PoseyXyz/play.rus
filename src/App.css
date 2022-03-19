@@ -11,14 +11,17 @@
   background:rgba(0,0,0,0.6);
 }
 .overlay-lighter{
-  background:rgba(0,0,0,0.3);
+  /* background:rgba(0,0,0,0.3); */
+  background: rgba(39, 40, 46, 0.7);
 }
 .btn-overlay{
   background:rgba(255,255,255,0.3);
 }
 .mini-card{
-  height: calc(100vh/2.1);
-  
+  height: calc(100vh/2.1); 
+}
+.post-box{
+  background: #27282e;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
