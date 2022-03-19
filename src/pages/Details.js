@@ -33,6 +33,16 @@ function parseReactionsColor(reactionTitle) {
     }
 }
 
+function parseMetacriticRating(rating) {
+    if (rating < 50) {
+        return 'text-red-500 border-red-500'
+    } else if (rating >= 50 && rating < 70) {
+        return 'text-orange-500 border-orange-500'
+    } else if (rating >= 70) {
+        return 'text-green-500 border-green-500'
+    }
+}
+
 
 function Details(props) {
     const [result, setResult] = useState({})
@@ -40,23 +50,23 @@ function Details(props) {
         {
             id: 1,
             name: 'Uzumaki',
-            imageUrl:image2,
-            no_of_stars:5,
+            imageUrl: image2,
+            no_of_stars: 5,
             comment: 'Velit pariatur duis reprehenderit pariatur non nulla velit labore deserunt. Est nostrud ut do aliqua. Tempor id laboris laborum ut occaecat fugiat excepteur ea quis consequat ut fugiat. Esse ea proident velit ipsum laboris. Minim nulla dolore consequat tempor. Veniam proident excepteur culpa in tempor nostrud.'
         },
         {
             id: 2,
             name: 'Jonas',
-            imageUrl:image1,
-            no_of_stars:5,
+            imageUrl: image1,
+            no_of_stars: 5,
             comment: 'Et in ullamco minim consequat culpa officia officia consequat laborum pariatur nisi. Adipisicing est nostrud laboris nisi eu occaecat aliquip. Sint cillum duis deserunt eu eiusmod commodo nostrud pariatur cupidatat occaecat. Incididunt amet cillum quis reprehenderit pariatur nisi. Ea ex esse nulla proident sunt pariatur ad dolore voluptate eiusmod nulla nisi deserunt fugiat. Esse magna est tempor ullamco eu aliqua exercitation ipsum sint consectetur sit Lorem cillum aliqua.'
-           
+
         },
         {
             id: 3,
             name: 'Jones',
-            imageUrl:image3,
-            no_of_stars:5,
+            imageUrl: image3,
+            no_of_stars: 5,
             comment: 'Eiusmod aliqua ipsum ut magna duis amet exercitation labore. Cupidatat magna enim do quis proident Lorem. Esse et sunt ut esse incididunt mollit cupidatat. Irure ex fugiat nisi id laborum dolore deserunt aute minim excepteur reprehenderit. Consequat minim magna laboris tempor proident magna dolor et officia non amet cillum eiusmod. Nisi reprehenderit incididunt ea eiusmod minim excepteur nisi aliqua elit ex. Velit id ullamco aliqua tempor excepteur nostrud nulla dolore laborum excepteur non cillum consectetur.'
         }
     ])
@@ -69,21 +79,21 @@ function Details(props) {
         console.log(result);
     }
 
-   
+
     useEffect(() => {
         fetchDetails()
     }, [])
-    const { name, reddit_description, reddit_name, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores, ratings, tags, publishers, developers } = result
-    const { parsePlatform, parseStore, onChange, formData } = useContext(GameContext)
+    const { name, released, reddit_description, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores, ratings, tags, publishers, developers } = result
+    const { parsePlatform, parseStore, onChange, formData, parseRatingColour } = useContext(GameContext)
 
-    const postReview=(reviewPost)=>{
+    const postReview = (reviewPost) => {
         let tempReviews = [...reviews]
-        let newReview={
-            id:tempReviews.length+1,
-            name:'You',
-            imageUrl:image2,
-            no_of_stars:parseInt(reviewPost.sliderValue),
-            comment:reviewPost.review
+        let newReview = {
+            id: tempReviews.length + 1,
+            name: 'You',
+            imageUrl: image2,
+            no_of_stars: parseInt(reviewPost.sliderValue),
+            comment: reviewPost.review
 
         }
         setReviews([...reviews, newReview])
@@ -92,27 +102,56 @@ function Details(props) {
 
     return (
         <section className='outlet-layout px-12 flex gap-4 flex-col'>
-            <h1 className='text-white font-bold text-3xl my-3'>{name}</h1>
-            <div className='flex flex-col relative items-center justify-center'>
+          
+            
+            <div className='flex flex-col justify-center relative items-center'>
                 {/* <p>{result.genres[0].name}</p> */}
                 <LazyLoadImage
                     className="rounded-xl object-cover self-center"
                     effect="blur"
                     src={background_image} />
-                <div className='absolute top-0 right-0  w-full h-full roounded-t-xl'></div>
-                <div className='rounded-md overlay-lighter flex gap-3 absolute bottom-8 z-10 w-5/6 h-1/5 px-12 '>
+                <div className='absolute top-0 right-0 overlay-lighter w-full h-full roounded-t-xl'></div>
+                <div className='absolute items-center justify-center z-10 w-full '>
+                <h1 className='text-white font-bold text-3xl my-3 text-center tracking-wide underline'>{name}</h1>
+                </div>
+                {/* <div className='rounded-md overlay-lighter flex gap-3 absolute bottom-8 z-10 w-5/6 h-1/5 px-12 '>
                     <div className='flex flex-col gap-2 justify-center'>
                         <h3 className='text-white font-bold text-2xl'>{name}</h3>
-                        <p className='text-typography-grey max-w-2xl text-sm'>{reddit_description}</p>
-                    </div>
-                    <div className='flex justify-center items-center'>
-                        <a href={website} className="bg-brand-purple rounded-full px-8 py-4">Visit website</a>
-                    </div>
+                        <div className='flex gap-6'>
+                <div className='flex flex-col gap-2'>
+                    <span className='text-typography-grey text-sm'>Metacritic:</span>
+                    <p className={`${parseMetacriticRating(metacritic)} self-center border-2 py-2 px-4 rounded-lg`}>{metacritic}</p>
                 </div>
+                <div className='flex flex-col gap-2'>
+                    <span className='text-typography-grey text-sm'>Release date:</span>
+                    <p>{released}</p>
+                </div>
+                <div className='flex flex-col gap-2'>
+                    <span className='text-typography-grey text-sm'>Average Rating:</span>
+                    <p className={`${parseRatingColour(rating)} border-2 self-start py-2 px-4 rounded-lg`}>{rating}</p>
+                </div>
+                <div className='flex flex-col gap-2'>
+                    <span className='text-typography-grey text-sm'>Playtime:</span>
+                    <p>{playtime} hrs</p>
+                </div>
+                
+            </div>
+                
+            <div className='flex'>
+                        <a href={website} className="bg-brand-purple rounded-xl px-4 py-3">Visit website</a>
+                    </div>
+                    </div>
+                   
+                </div> */}
             </div>
             {/* <button onClick={() => console.log(result)}>Click</button> */}
-            <div className='bg-black-v3 p-8 mx-8 rounded-xl'>
-                <div className='flex gap-4 justify-around'>
+           
+
+            <section className='lg:px-8 flex gap-4 flex-col'>
+
+                {/* minor info */}
+            <div className='details_section-div'>
+                <div className='flex flex-wrap items-center gap-4 justify-around'>
                     <span className='flex flex-col items-center gap-2 text-center'>
                         <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-t-0 border-l-0 border-brand-purple">
                             {rating}
@@ -187,7 +226,7 @@ function Details(props) {
                 </div>
             </div>
 
-            <section className='lg:px-8 flex gap-4 flex-col'>
+
                 {/* //description */}
                 <div className='details_section-div'>
                     <h2 className='text-2xl font-bold'>About</h2>
@@ -241,7 +280,7 @@ function Details(props) {
                 {/* reactions */}
                 <div className='details_section-div'>
                     <h2 className='text-2xl font-bold'>Reactions</h2>
-                    <div className='bg-red-500 h-12 w-full flex '>
+                    <div className='bg-red-500 my-6 h-12 w-full flex '>
                         {ratings && ratings.map(rating => <div style={{ width: parseReactions(rating.title, rating.percent) }} className={`${parseReactionsColor(rating.title)} p-4`}></div>)}
 
                     </div>
@@ -261,12 +300,14 @@ function Details(props) {
                 {/* Additional information             */}
                 <div className='details_section-div flex flex-col gap-4'>
                     <h2 className='text-2xl font-bold'>Additional Information</h2>
+                   
                     <div>
                         <h4 className='text-typography-grey text-sm'>Publishers</h4>
                         <div className='flex gap-4 flex-wrap'>
                             {publishers && publishers.map(publisher => <p>{publisher.name}</p>)}
                         </div>
                     </div>
+                    
                     <div>
                         <h4 className='text-typography-grey text-sm'>Developers</h4>
                         <div className='flex gap-2 flex-wrap'>
@@ -304,21 +345,21 @@ function Details(props) {
                                 <div className='flex flex-col lg:flex-row gap-4' key={id}>
                                     <img src={imageUrl} className='rounded-full w-12 h-12' />
                                     <div className='flex flex-col'>
-                                        <span className='flex gap-2 items-center'><span className='font-medium'>{name}</span><span className='flex text-xs'>{Array(no_of_stars).fill().map(() => <i className='text-brand-purple'><FaStar /></i>)}{Array(5-no_of_stars).fill().map(() => <i className='text-white'><FaStar /></i>)}</span></span>
+                                        <span className='flex gap-2 items-center'><span className='font-medium'>{name}</span><span className='flex text-xs'>{Array(no_of_stars).fill().map(() => <i className='text-brand-purple'><FaStar /></i>)}{Array(5 - no_of_stars).fill().map(() => <i className='text-white'><FaStar /></i>)}</span></span>
                                         <p className='text-typography-grey text-sm leading-6'>{comment}</p>
                                     </div>
-                              
+
                                 </div>
                             )
                         })}
 
                         <div className='rounded-xl post-box p-6 flex flex-col gap-4'>
-                        <h4 className='text-white'>Your review</h4>
-                        <label htmlFor='sliderValue' className='text-typography-grey text-xs'>No of Stars: {formData.sliderValue}</label>
-                        <input type='range' max={5} value={formData.sliderValue} min={1} name="sliderValue" onChange={(e)=>onChange(e)}/>
-                        
-                        <input placeholder={`Tell us what you think of ${name}`} className='bg-transparent text-sm lg:text-base outline-none w-full border-b-2 py-3 focus:border-brand-purple delay-100 duration-300' name='review' value={formData.review} onChange={(e)=>onChange(e)} />
-                        <button className='bg-brand-purple py-3 px-6 rounded-xl' onClick={()=>postReview(formData)}>Post</button>
+                            <h4 className='text-white'>Your review</h4>
+                            <label htmlFor='sliderValue' className='text-typography-grey text-xs'>No of Stars: {formData.sliderValue}</label>
+                            <input type='range' max={5} value={formData.sliderValue} min={1} name="sliderValue" onChange={(e) => onChange(e)} />
+
+                            <input placeholder={`Tell us what you think of ${name}`} className='bg-transparent text-sm lg:text-base outline-none w-full border-b-2 py-3 focus:border-brand-purple delay-100 duration-300' name='review' value={formData.review} onChange={(e) => onChange(e)} />
+                            <button className='bg-brand-purple py-3 px-6 rounded-xl' onClick={() => postReview(formData)}>Post</button>
 
                         </div>
 
