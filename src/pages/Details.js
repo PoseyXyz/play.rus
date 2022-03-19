@@ -65,9 +65,20 @@ function Details(props) {
         console.log(result);
     }
 
+    const postReview=(reviewPost)=>{
+        let tempReviews = [...reviews]
+        let newReview={
+            id:tempReviews.length+1,
+            name:'You',
+            imageUrl:image2,
+            comment:reviewPost
+
+        }
+        setReviews([...reviews, newReview])
+    }
+
     useEffect(() => {
         fetchDetails()
-
     }, [])
     const { name, reddit_description, reddit_name, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores, ratings, tags, publishers, developers } = result
     const { parsePlatform, parseStore, onChange, formData } = useContext(GameContext)
@@ -300,7 +311,7 @@ function Details(props) {
                         <input type='range'/>
                         <input placeholder={`Tell us what you think of ${name}`} className='bg-transparent outline-none w-full border-b-2 py-3 focus:border-brand-purple delay-100 duration-300' name='review' onChange={(e)=>onChange(e)} />
                         {formData.review}
-                        <button className='bg-brand-purple py-3 px-6 rounded-xl'>Post</button>
+                        <button className='bg-brand-purple py-3 px-6 rounded-xl' onClick={()=>postReview(formData.review)}>Post</button>
 
                         </div>
 
