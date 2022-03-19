@@ -44,7 +44,7 @@ function Details(props) {
         fetchDetails()
 
     }, [])
-    const { name, reddit_description, reddit_name, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores, ratings, tags } = result
+    const { name, reddit_description, reddit_name, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores, ratings, tags, publishers, developers } = result
     const { parsePlatform, parseStore } = useContext(GameContext)
 
 
@@ -176,15 +176,45 @@ function Details(props) {
 
             </div>
 
+            {/* tags             */}
+            <div className='details_section-div flex flex-col gap-4'>
+                <h2 className='text-2xl font-bold'>Additional Information</h2>
+                <div>
+                    <h4 className='text-typography-grey text-sm'>Publishers</h4>
+                    <div className='flex gap-4 flex-wrap'>
+                        {publishers && publishers.map(publisher => <p>{publisher.name}</p>)}
+                    </div>
+                </div>
+                <div>
+                    <h4 className='text-typography-grey text-sm'>Developers</h4>
+                    <div className='flex gap-2 flex-wrap'>
+                        {developers && developers.map(developer => <p>{developer.name}</p>)}
+                    </div>
+                </div>
+                <div>
+                    <h4 className='text-typography-grey text-sm'>Tags</h4>
+                    <div className='flex gap-2 flex-wrap'>
+                        {tags && tags.map(tag => <p className='underline'>{tag.name},</p>)}
+                    </div>
+                </div>
+            </div>
+
+            {/* <div className='details_section-div'>
+                <h2 className='text-2xl font-bold'>Publishers</h2>
+                <div>
+                    {publishers && publishers.map(publisher => <p>{publisher.name}</p>)}
+                </div>
+            </div>
+
             <div className='details_section-div'>
-                <h2 className='text-2xl font-bold'>Tags</h2>
-                <div className='flex gap-2 flex-wrap'>
-                    {tags && tags.map(tag => <p className='underline text-xs'>{tag.name},</p>)}
+                <h2 className='text-2xl font-bold'>Developers</h2>
+                <div>
+                    {developers && developers.map(developer => <p>{developer.name}</p>)}
                 </div>
             </div>
 
             {result && result.platforms && result.platforms.map(platform => <p>{platform.requirements.recommended}</p>)}
-            <button onClick={fetchDetails}>Click me</button>
+            <button onClick={fetchDetails}>Click me</button> */}
 
 
 
