@@ -3,7 +3,10 @@ import { useParams } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { GameContext } from '../Context';
-import {FaStar} from 'react-icons/fa'
+import { FaStar } from 'react-icons/fa'
+import image1 from '../images/friends/one.png'
+import image2 from '../images/friends/two.png'
+import image3 from '../images/friends/three.png'
 
 
 function parseReactions(reactionTitle, reactionPercentage) {
@@ -33,6 +36,26 @@ function parseReactionsColor(reactionTitle) {
 
 function Details(props) {
     const [result, setResult] = useState({})
+    const [reviews, setReviews] = useState([
+        {
+            id: 1,
+            name: 'Uzumaki',
+            imageUrl:image2,
+            comment: 'Velit pariatur duis reprehenderit pariatur non nulla velit labore deserunt. Est nostrud ut do aliqua. Tempor id laboris laborum ut occaecat fugiat excepteur ea quis consequat ut fugiat. Esse ea proident velit ipsum laboris. Minim nulla dolore consequat tempor. Veniam proident excepteur culpa in tempor nostrud.'
+        },
+        {
+            id: 2,
+            name: 'Jonas',
+            imageUrl:image1,
+            comment: 'Et in ullamco minim consequat culpa officia officia consequat laborum pariatur nisi. Adipisicing est nostrud laboris nisi eu occaecat aliquip. Sint cillum duis deserunt eu eiusmod commodo nostrud pariatur cupidatat occaecat. Incididunt amet cillum quis reprehenderit pariatur nisi. Ea ex esse nulla proident sunt pariatur ad dolore voluptate eiusmod nulla nisi deserunt fugiat. Esse magna est tempor ullamco eu aliqua exercitation ipsum sint consectetur sit Lorem cillum aliqua.'
+        },
+        {
+            id: 3,
+            name: 'Jones',
+            imageUrl:image3,
+            comment: 'Eiusmod aliqua ipsum ut magna duis amet exercitation labore. Cupidatat magna enim do quis proident Lorem. Esse et sunt ut esse incididunt mollit cupidatat. Irure ex fugiat nisi id laborum dolore deserunt aute minim excepteur reprehenderit. Consequat minim magna laboris tempor proident magna dolor et officia non amet cillum eiusmod. Nisi reprehenderit incididunt ea eiusmod minim excepteur nisi aliqua elit ex. Velit id ullamco aliqua tempor excepteur nostrud nulla dolore laborum excepteur non cillum consectetur.'
+        }
+    ])
 
     let { slug } = useParams()
     const fetchDetails = async () => {
@@ -258,14 +281,28 @@ function Details(props) {
                         <p className='text-typography-grey'>View All</p>
                     </div>
 
-                    <div className='flex flex-col gap-4'>
-                        <div className='flex gap-3'>
-                            <img src={require('../images/friends/two.png')} className='rounded-full w-12 h-12'/>
-                            <div className='flex flex-col'>
-                                <span className='flex gap-2 items-center'><span className='font-medium'>Uzumaki</span><span className='flex text-brand-purple text-xs'><i><FaStar/></i><i><FaStar/></i><i><FaStar/></i><i><FaStar/></i><i><FaStar/></i></span></span>
-                                <p className='text-typography-grey'>Pariatur do proident ipsum dolor qui. Est consectetur reprehenderit eiusmod nisi minim excepteur. Irure Lorem exercitation sint do Lorem commodo nisi velit non reprehenderit voluptate commodo.</p>
-                            </div>
+                    <div className='flex flex-col gap-6 py-4 rounded-md'>
+                        {reviews.map(review => {
+                            const { id, name, comment, imageUrl } = review
+                            return (
+                                <div className='flex flex-col lg:flex-row gap-4' key={id}>
+                                    <img src={imageUrl} className='rounded-full w-12 h-12' />
+                                    <div className='flex flex-col'>
+                                        <span className='flex gap-2 items-center'><span className='font-medium'>{name}</span><span className='flex text-brand-purple text-xs'><i><FaStar /></i><i><FaStar /></i><i><FaStar /></i><i><FaStar /></i><i><FaStar /></i></span></span>
+                                        <p className='text-typography-grey text-sm leading-6'>{comment}</p>
+                                    </div>
+                                </div>
+                            )
+                        })}
+
+                        <div className='rounded-xl bg-black-v2 p-6 flex flex-col gap-4'>
+                        <h4 className='text-white'>Your review</h4>
+                        <input type='range'/>
+                        <input placeholder={`Tell us what you think of ${name}`} className='bg-transparent outline-none w-full border-b-2 py-3 focus:border-brand-purple delay-100 duration-300'/>
+                        <button className='bg-brand-purple py-3 px-6 rounded-xl'>Post</button>
+
                         </div>
+
                     </div>
                 </div>
 
