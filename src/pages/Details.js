@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { GameContext } from '../Context';
+import {FaStar} from 'react-icons/fa'
+
 
 function parseReactions(reactionTitle, reactionPercentage) {
     if (reactionTitle === 'recommended') {
@@ -99,7 +101,7 @@ function Details(props) {
 
                     <span className='flex flex-col items-center gap-2'>
                         <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
-                            {parent_platforms&&parent_platforms.length}
+                            {parent_platforms && parent_platforms.length}
                         </span>
                         <span>
                             Platforms
@@ -108,7 +110,7 @@ function Details(props) {
 
                     <span className='flex flex-col items-center gap-2'>
                         <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
-                            {stores&&stores.length}
+                            {stores && stores.length}
                         </span>
                         <span>
                             Stores
@@ -117,7 +119,7 @@ function Details(props) {
 
                     <span className='flex flex-col items-center gap-2'>
                         <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
-                            {publishers&&publishers.length}
+                            {publishers && publishers.length}
                         </span>
                         <span>
                             Publishers
@@ -126,7 +128,7 @@ function Details(props) {
 
                     <span className='flex flex-col items-center gap-2'>
                         <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
-                            {developers&&developers.length}
+                            {developers && developers.length}
                         </span>
                         <span>
                             Developers
@@ -217,7 +219,7 @@ function Details(props) {
 
                 </div>
 
-                {/* tags             */}
+                {/* Additional information             */}
                 <div className='details_section-div flex flex-col gap-4'>
                     <h2 className='text-2xl font-bold'>Additional Information</h2>
                     <div>
@@ -234,9 +236,9 @@ function Details(props) {
                     </div>
                     <div>
                         <h4 className='text-typography-grey text-sm'>Website</h4>
-                        
-                            <a href={website} target="_blank" className='underline hover:text-typography-grey duration-75'>{website}</a>
-                       
+
+                        <a href={website} target="_blank" className='underline hover:text-typography-grey duration-75'>{website}</a>
+
                     </div>
                     <div>
                         <h4 className='text-typography-grey text-sm'>Tags</h4>
@@ -245,6 +247,28 @@ function Details(props) {
                         </div>
                     </div>
                 </div>
+
+                {/* reviews */}
+                <div className='details_section-div'>
+                    <div className='flex justify-between'>
+                        <div className='flex gap-2 items-center'>
+                            <h2 className='text-2xl font-bold'>Reviews</h2>
+                            <p className='text-sm text-typography-grey'>45</p>
+                        </div>
+                        <p className='text-typography-grey'>View All</p>
+                    </div>
+
+                    <div className='flex flex-col gap-4'>
+                        <div className='flex gap-3'>
+                            <img src={require('../images/friends/two.png')} className='rounded-full w-12 h-12'/>
+                            <div className='flex flex-col'>
+                                <span className='flex gap-2 items-center'><span className='font-medium'>Uzumaki</span><span className='flex text-brand-purple text-xs'><i><FaStar/></i><i><FaStar/></i><i><FaStar/></i><i><FaStar/></i><i><FaStar/></i></span></span>
+                                <p className='text-typography-grey'>Pariatur do proident ipsum dolor qui. Est consectetur reprehenderit eiusmod nisi minim excepteur. Irure Lorem exercitation sint do Lorem commodo nisi velit non reprehenderit voluptate commodo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
                 {/* <div className='details_section-div'>
                 <h2 className='text-2xl font-bold'>Publishers</h2>
