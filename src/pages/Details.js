@@ -50,7 +50,7 @@ function Details(props) {
 
 
     return (
-        <div className='outlet-layout px-12 flex gap-4 flex-col'>
+        <section className='outlet-layout px-12 flex gap-4 flex-col'>
             <h1 className='text-white font-bold text-3xl my-3'>{name}</h1>
             <div className='flex flex-col relative items-center justify-center'>
                 {/* <p>{result.genres[0].name}</p> */}
@@ -70,7 +70,7 @@ function Details(props) {
                 </div>
             </div>
             {/* <button onClick={() => console.log(result)}>Click</button> */}
-            <div className='bg-black-v3 p-8 m-8 rounded-xl'>
+            <div className='bg-black-v3 p-8 mx-8 rounded-xl'>
                 <div className='flex gap-4 justify-around'>
                     <span className='flex flex-col items-center gap-2 text-center'>
                         <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-t-0 border-l-0 border-brand-purple">
@@ -96,7 +96,43 @@ function Details(props) {
                             Playtime
                         </span>
                     </span>
-                    {parent_platforms && result.parent_platforms.map(platform => <span className='flex flex-col items-center gap-2 text-center'>
+
+                    <span className='flex flex-col items-center gap-2'>
+                        <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
+                            {parent_platforms&&parent_platforms.length}
+                        </span>
+                        <span>
+                            Platforms
+                        </span>
+                    </span>
+
+                    <span className='flex flex-col items-center gap-2'>
+                        <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
+                            {stores&&stores.length}
+                        </span>
+                        <span>
+                            Stores
+                        </span>
+                    </span>
+
+                    <span className='flex flex-col items-center gap-2'>
+                        <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
+                            {publishers&&publishers.length}
+                        </span>
+                        <span>
+                            Publishers
+                        </span>
+                    </span>
+
+                    <span className='flex flex-col items-center gap-2'>
+                        <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
+                            {developers&&developers.length}
+                        </span>
+                        <span>
+                            Developers
+                        </span>
+                    </span>
+                    {/* {parent_platforms && result.parent_platforms.map(platform => <span className='flex flex-col items-center gap-2 text-center'>
 
                         <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
                             {parsePlatform(platform.platform.name)}
@@ -104,102 +140,113 @@ function Details(props) {
                         <span>
                             {platform.platform.name}
                         </span>
-                    </span>)}
+                    </span>)} */}
 
 
                 </div>
             </div>
 
-            {/* //description */}
-            <div className='details_section-div'>
-                <h2 className='text-2xl font-bold'>About</h2>
-                <div className='flex gap-4 my-6 flex-wrap'>
-                    {genres && genres.map(genre => (
-                        <div className='rounded-lg text-white text-sm border border-brand-purple py-2.5 px-6'>{genre.name}</div>
-                    ))}
-                </div>
-                <p className='leading-relaxed text-typography-grey tracking-wide'>{description_raw}</p>
-            </div>
-
-
-            {/* stores */}
-            <div className='details_section-div'>
-                <h2 className='text-2xl font-bold'>Stores</h2>
-                <div className='flex gap-4 my-6 flex-wrap'>
-                    {stores && stores.map(store => (
-                        <>
-                            <div className='rounded-lg text-white text-sm md:text-base border border-brand-purple  overlay-lighter py-2.5 px-6 flex gap-4 items-center'>
-                                <i className='text-brand-purple'>{parseStore(store.store.slug)}</i>
-                                <p>{store.store.name}</p>
-                            </div>
-
-                        </>
-                    ))}
+            <section className='lg:px-8 flex gap-4 flex-col'>
+                {/* //description */}
+                <div className='details_section-div'>
+                    <h2 className='text-2xl font-bold'>About</h2>
+                    <div className='flex gap-4 my-6 flex-wrap'>
+                        {genres && genres.map(genre => (
+                            <div className='rounded-lg text-white text-sm border border-brand-purple py-2.5 px-6'>{genre.name}</div>
+                        ))}
+                    </div>
+                    <p className='leading-relaxed text-typography-grey tracking-wide'>{description_raw}</p>
                 </div>
 
-            </div>
 
-            {/* platforms */}
-            <div className='details_section-div'>
-                <h2 className='text-2xl font-bold'>Platforms</h2>
-                <div className='flex gap-4 my-6 flex-wrap'>
-                    {parent_platforms && parent_platforms.map(platform => (
-                        <>
-                            <div className='rounded-lg text-white text-sm md:text-base border border-brand-purple  overlay-lighter py-2.5 px-6 flex gap-4 items-center'>
-                                <i className='text-brand-purple'>{parsePlatform(platform.platform.name)}</i>
-                                <p>{platform.platform.name}</p>
-                            </div>
+                <div className='flex flex-col lg:flex-row gap-4'>
 
-                        </>
-                    ))}
-                </div>
+                    {/* platforms */}
+                    <div className='details_section-div flex-auto'>
+                        <h2 className='text-2xl font-bold'>Platforms</h2>
+                        <div className='flex gap-4 my-6 flex-wrap'>
+                            {parent_platforms && parent_platforms.map(platform => (
+                                <>
+                                    <div className='rounded-lg text-white text-sm md:text-base border border-brand-purple  overlay-lighter py-2.5 px-6 flex gap-4 items-center'>
+                                        <i className='text-brand-purple'>{parsePlatform(platform.platform.name)}</i>
+                                        <p>{platform.platform.name}</p>
+                                    </div>
 
-            </div>
-
-            {/* reactions */}
-            <div className='details_section-div'>
-                <h2 className='text-2xl font-bold'>Reactions</h2>
-                <div className='bg-red-500 h-12 w-full flex '>
-                    {ratings && ratings.map(rating => <div style={{ width: parseReactions(rating.title, rating.percent) }} className={`${parseReactionsColor(rating.title)} p-4`}></div>)}
-
-                </div>
-                <div className='flex flex-col md:flex-row justify-around'>
-                    {ratings && ratings.map(rating => <div className={`p-4 flex flex-col md:items-center gap-2 capitalize`}>
-
-                        <p className='text-sm text-typography-grey'>{rating.count} ({rating.percent}%)</p>
-                        <div className='flex items-center gap-2'>
-                            <span className={`${parseReactionsColor(rating.title)} rounded-full w-2 h-2`}></span>
-                            <p>{rating.title}</p>
+                                </>
+                            ))}
                         </div>
-                    </div>)}
+
+                    </div>
+                    {/* stores */}
+                    <div className='details_section-div flex-auto'>
+                        <h2 className='text-2xl font-bold'>Stores</h2>
+                        <div className='flex gap-4 my-6 flex-wrap'>
+                            {stores && stores.map(store => (
+                                <>
+                                    <div className='rounded-lg text-white text-sm md:text-base border border-brand-purple  overlay-lighter py-2.5 px-6 flex gap-4 items-center'>
+                                        <i className='text-brand-purple'>{parseStore(store.store.slug)}</i>
+                                        <p>{store.store.name}</p>
+                                    </div>
+
+                                </>
+                            ))}
+                        </div>
+
+                    </div>
+
+
                 </div>
 
-            </div>
+                {/* reactions */}
+                <div className='details_section-div'>
+                    <h2 className='text-2xl font-bold'>Reactions</h2>
+                    <div className='bg-red-500 h-12 w-full flex '>
+                        {ratings && ratings.map(rating => <div style={{ width: parseReactions(rating.title, rating.percent) }} className={`${parseReactionsColor(rating.title)} p-4`}></div>)}
 
-            {/* tags             */}
-            <div className='details_section-div flex flex-col gap-4'>
-                <h2 className='text-2xl font-bold'>Additional Information</h2>
-                <div>
-                    <h4 className='text-typography-grey text-sm'>Publishers</h4>
-                    <div className='flex gap-4 flex-wrap'>
-                        {publishers && publishers.map(publisher => <p>{publisher.name}</p>)}
                     </div>
-                </div>
-                <div>
-                    <h4 className='text-typography-grey text-sm'>Developers</h4>
-                    <div className='flex gap-2 flex-wrap'>
-                        {developers && developers.map(developer => <p>{developer.name}</p>)}
-                    </div>
-                </div>
-                <div>
-                    <h4 className='text-typography-grey text-sm'>Tags</h4>
-                    <div className='flex gap-2 flex-wrap'>
-                        {tags && tags.map(tag => <p className='underline'>{tag.name},</p>)}
-                    </div>
-                </div>
-            </div>
+                    <div className='flex flex-col md:flex-row justify-around'>
+                        {ratings && ratings.map(rating => <div className={`p-4 flex flex-col md:items-center gap-2 capitalize`}>
 
-            {/* <div className='details_section-div'>
+                            <p className='text-sm text-typography-grey'>{rating.count} ({rating.percent}%)</p>
+                            <div className='flex items-center gap-2'>
+                                <span className={`${parseReactionsColor(rating.title)} rounded-full w-2 h-2`}></span>
+                                <p>{rating.title}</p>
+                            </div>
+                        </div>)}
+                    </div>
+
+                </div>
+
+                {/* tags             */}
+                <div className='details_section-div flex flex-col gap-4'>
+                    <h2 className='text-2xl font-bold'>Additional Information</h2>
+                    <div>
+                        <h4 className='text-typography-grey text-sm'>Publishers</h4>
+                        <div className='flex gap-4 flex-wrap'>
+                            {publishers && publishers.map(publisher => <p>{publisher.name}</p>)}
+                        </div>
+                    </div>
+                    <div>
+                        <h4 className='text-typography-grey text-sm'>Developers</h4>
+                        <div className='flex gap-2 flex-wrap'>
+                            {developers && developers.map(developer => <p>{developer.name}</p>)}
+                        </div>
+                    </div>
+                    <div>
+                        <h4 className='text-typography-grey text-sm'>Website</h4>
+                        
+                            <a href={website} target="_blank" className='underline hover:text-typography-grey duration-75'>{website}</a>
+                       
+                    </div>
+                    <div>
+                        <h4 className='text-typography-grey text-sm'>Tags</h4>
+                        <div className='flex gap-2 flex-wrap'>
+                            {tags && tags.map(tag => <p className='underline'>{tag.name},</p>)}
+                        </div>
+                    </div>
+                </div>
+
+                {/* <div className='details_section-div'>
                 <h2 className='text-2xl font-bold'>Publishers</h2>
                 <div>
                     {publishers && publishers.map(publisher => <p>{publisher.name}</p>)}
@@ -216,10 +263,11 @@ function Details(props) {
             {result && result.platforms && result.platforms.map(platform => <p>{platform.requirements.recommended}</p>)}
             <button onClick={fetchDetails}>Click me</button> */}
 
+            </section>
 
 
 
-        </div>
+        </section>
     );
 }
 

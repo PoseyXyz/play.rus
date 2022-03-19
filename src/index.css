@@ -33,7 +33,7 @@ body {
 }
 
 .details_section-div{
-  @apply bg-black-v3 p-4 lg:p-8 lg:mx-8 rounded-xl;
+  @apply bg-black-v3 p-4 lg:p-8 rounded-xl;
 }
 
 code {
