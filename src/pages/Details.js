@@ -304,19 +304,18 @@ function Details(props) {
                                 <div className='flex flex-col lg:flex-row gap-4' key={id}>
                                     <img src={imageUrl} className='rounded-full w-12 h-12' />
                                     <div className='flex flex-col'>
-                                        <span className='flex gap-2 items-center'><span className='font-medium'>{name}</span><span className='flex text-brand-purple text-xs'>{Array(no_of_stars).fill().map(() => <i><FaStar /></i>)}</span></span>
+                                        <span className='flex gap-2 items-center'><span className='font-medium'>{name}</span><span className='flex text-xs'>{Array(no_of_stars).fill().map(() => <i className='text-brand-purple'><FaStar /></i>)}{Array(5-no_of_stars).fill().map(() => <i className='text-white'><FaStar /></i>)}</span></span>
                                         <p className='text-typography-grey text-sm leading-6'>{comment}</p>
                                     </div>
-                                    {no_of_stars}
+                              
                                 </div>
                             )
                         })}
 
                         <div className='rounded-xl bg-black-v2 p-6 flex flex-col gap-4'>
                         <h4 className='text-white'>Your review</h4>
-                        <input type='range' max={5} value={formData.starSlider} name="starSlider" onChange={(e)=>onChange(e)}/>
+                        <input type='range' max={5} value={formData.starSlider} min={1} name="starSlider" onChange={(e)=>onChange(e)}/>
                         <input placeholder={`Tell us what you think of ${name}`} className='bg-transparent text-sm lg:text-base outline-none w-full border-b-2 py-3 focus:border-brand-purple delay-100 duration-300' name='review' value={formData.review} onChange={(e)=>onChange(e)} />
-                        {formData.starSlider}
                         <button className='bg-brand-purple py-3 px-6 rounded-xl' onClick={()=>postReview(formData)}>Post</button>
 
                         </div>
