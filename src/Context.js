@@ -12,7 +12,7 @@ const GameProvider = ({ children }) => {
     const [formData, setFormData] = useState({
         searchString: '',
         review:'',
-        starSlider:1
+        sliderValue:1
     })
     const [searchResults, setSearchResults] = useState()
     const [spinner, setSpinner] = useState(false)
