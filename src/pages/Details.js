@@ -314,7 +314,9 @@ function Details(props) {
 
                         <div className='rounded-xl bg-black-v2 p-6 flex flex-col gap-4'>
                         <h4 className='text-white'>Your review</h4>
+                        <label htmlFor='starSlider' className='text-typography-grey text-xs'>No of Stars: {formData.starSlider}</label>
                         <input type='range' max={5} value={formData.starSlider} min={1} name="starSlider" onChange={(e)=>onChange(e)}/>
+                        
                         <input placeholder={`Tell us what you think of ${name}`} className='bg-transparent text-sm lg:text-base outline-none w-full border-b-2 py-3 focus:border-brand-purple delay-100 duration-300' name='review' value={formData.review} onChange={(e)=>onChange(e)} />
                         <button className='bg-brand-purple py-3 px-6 rounded-xl' onClick={()=>postReview(formData)}>Post</button>
 
