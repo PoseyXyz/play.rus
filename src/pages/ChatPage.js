@@ -2,7 +2,7 @@ import React from 'react';
 
 function ChatPage(props) {
     return (
-        <div>
+        <div className='outlet-layout'>
             
         </div>
     );
