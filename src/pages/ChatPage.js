@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaSearch, FaUserFriends, FaHamburger } from 'react-icons/fa'
+import { FaSearch, FaUserFriends, FaHamburger, FaPaperPlane, FaPhotoVideo, FaSmile } from 'react-icons/fa'
 import image1 from '../images/friends/one.png'
 import image2 from '../images/friends/two.png'
 import image3 from '../images/friends/three.png'
@@ -167,12 +167,12 @@ function ChatPage(props) {
                     {
                         chats.filter(chat => chat.id === currentChat).map(chat => {
                             const { id, name, online, imageUrl, chatHistory } = chat
-                            const chatItem = chatHistory.map(historyItem=>{
-                                const {id, user, message} = historyItem
-                                return(
-                                    <div className={`${user?'bg-brand-purple self-end':'post-box self-start'} flex items-center gap-4 rounded-full px-4 py-3`} key={id}>
+                            const chatItem = chatHistory.map(historyItem => {
+                                const { id, user, message } = historyItem
+                                return (
+                                    <div className={`${user ? 'bg-brand-purple self-end' : 'post-box self-start'} flex items-center gap-4 rounded-lg px-4 py-3`} key={id}>
                                         <p>{message}</p>
-                                        <span className={`${user?'text-typography-white':'text-typography-grey'} text-xs font-light`}>22:02</span>
+                                        <span className={`${user ? 'text-typography-white' : 'text-typography-grey'} text-xs font-light`}>22:02</span>
                                     </div>
                                 )
                             })
@@ -202,8 +202,27 @@ function ChatPage(props) {
 
                                     {/* chat */}
                                     <div className='flex flex-col gap-4'>
-                                       {chatItem}
+                                        {chatItem}
                                     </div>
+
+
+                                    <div className='flex justify-between'>
+                                        <div className='relative flex w-5/6'>
+                                            <i className='absolute self-center right-4 text-sm'><FaPaperPlane /></i>
+                                            <input placeholder='Type your message' className='rounded-3xl post-box w-full py-3 px-4 outline-none text-typography-grey text-sm tracking-wide focus:text-white border border-transparent delay-75 duration-150 focus:border-brand-purple' />
+                                        </div>
+                                        <div className='bg-black-v3 rounded-full post-box flex items-center px-4 py-2'>
+                                            <i className=''>
+                                                <FaPhotoVideo />
+                                            </i>
+                                        </div>
+                                        <div className='bg-black-v3 rounded-full post-box flex items-center px-4 py-2'>
+                                            <i className=''>
+                                                <FaSmile />
+                                            </i>
+                                        </div>
+                                    </div>
+
                                 </>
                             )
                         })
