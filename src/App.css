@@ -1,3 +1,24 @@
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+  cursor: pointer;
+}
+
 .card{
   height: calc(100vh/1.9);
   display: flex;
@@ -46,4 +67,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 .hello{
   height: 65vh;
+}
+.hello-v2{
+  height: 76vh;
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaSearch, FaUserFriends, FaHamburger, FaPaperPlane, FaPhotoVideo, FaSmile } from 'react-icons/fa'
+import {BiDotsVerticalRounded} from 'react-icons/bi'
 import image1 from '../images/friends/one.png'
 import image2 from '../images/friends/two.png'
 import image3 from '../images/friends/three.png'
@@ -136,6 +137,799 @@ function ChatPage(props) {
                     },
                 ]
             },
+            {
+                id: 2,
+                name: 'Artemis',
+                online: true,
+                imageUrl: image2,
+                chatHistory: [
+                    {
+                        id: 1,
+                        user: false,
+                        message: "Still down?"
+                    },
+                    {
+                        id: 2,
+                        user: true,
+                        message: "Sorry man, busy now"
+                    },
+                    {
+                        id: 3,
+                        user: false,
+                        message: "You're missing out. Text me when you're available!"
+                    },
+                    {
+                        id: 4,
+                        user: true,
+                        message: "Let's play!"
+                    },
+                    {
+                        id: 5,
+                        user: false,
+                        message: "That was a supernice game, man"
+                    },
+                    {
+                        id: 6,
+                        user: false,
+                        message: "Loved the last kill lol"
+                    }, {
+                        id: 7,
+                        user: true,
+                        message: "Lol Ggs!"
+                    }, {
+                        id: 9,
+                        user: false,
+                        message: "I bet they all think you're a cheater"
+                    },
+                    {
+                        id: 9,
+                        user: true,
+                        message: "Drop me a message when next you're available"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                ]
+            },{
+                id: 2,
+                name: 'Artemis',
+                online: true,
+                imageUrl: image2,
+                chatHistory: [
+                    {
+                        id: 1,
+                        user: false,
+                        message: "Still down?"
+                    },
+                    {
+                        id: 2,
+                        user: true,
+                        message: "Sorry man, busy now"
+                    },
+                    {
+                        id: 3,
+                        user: false,
+                        message: "You're missing out. Text me when you're available!"
+                    },
+                    {
+                        id: 4,
+                        user: true,
+                        message: "Let's play!"
+                    },
+                    {
+                        id: 5,
+                        user: false,
+                        message: "That was a supernice game, man"
+                    },
+                    {
+                        id: 6,
+                        user: false,
+                        message: "Loved the last kill lol"
+                    }, {
+                        id: 7,
+                        user: true,
+                        message: "Lol Ggs!"
+                    }, {
+                        id: 9,
+                        user: false,
+                        message: "I bet they all think you're a cheater"
+                    },
+                    {
+                        id: 9,
+                        user: true,
+                        message: "Drop me a message when next you're available"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                ]
+            },{
+                id: 2,
+                name: 'Artemis',
+                online: true,
+                imageUrl: image2,
+                chatHistory: [
+                    {
+                        id: 1,
+                        user: false,
+                        message: "Still down?"
+                    },
+                    {
+                        id: 2,
+                        user: true,
+                        message: "Sorry man, busy now"
+                    },
+                    {
+                        id: 3,
+                        user: false,
+                        message: "You're missing out. Text me when you're available!"
+                    },
+                    {
+                        id: 4,
+                        user: true,
+                        message: "Let's play!"
+                    },
+                    {
+                        id: 5,
+                        user: false,
+                        message: "That was a supernice game, man"
+                    },
+                    {
+                        id: 6,
+                        user: false,
+                        message: "Loved the last kill lol"
+                    }, {
+                        id: 7,
+                        user: true,
+                        message: "Lol Ggs!"
+                    }, {
+                        id: 9,
+                        user: false,
+                        message: "I bet they all think you're a cheater"
+                    },
+                    {
+                        id: 9,
+                        user: true,
+                        message: "Drop me a message when next you're available"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                ]
+            },{
+                id: 2,
+                name: 'Artemis',
+                online: true,
+                imageUrl: image2,
+                chatHistory: [
+                    {
+                        id: 1,
+                        user: false,
+                        message: "Still down?"
+                    },
+                    {
+                        id: 2,
+                        user: true,
+                        message: "Sorry man, busy now"
+                    },
+                    {
+                        id: 3,
+                        user: false,
+                        message: "You're missing out. Text me when you're available!"
+                    },
+                    {
+                        id: 4,
+                        user: true,
+                        message: "Let's play!"
+                    },
+                    {
+                        id: 5,
+                        user: false,
+                        message: "That was a supernice game, man"
+                    },
+                    {
+                        id: 6,
+                        user: false,
+                        message: "Loved the last kill lol"
+                    }, {
+                        id: 7,
+                        user: true,
+                        message: "Lol Ggs!"
+                    }, {
+                        id: 9,
+                        user: false,
+                        message: "I bet they all think you're a cheater"
+                    },
+                    {
+                        id: 9,
+                        user: true,
+                        message: "Drop me a message when next you're available"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                ]
+            },{
+                id: 2,
+                name: 'Artemis',
+                online: true,
+                imageUrl: image2,
+                chatHistory: [
+                    {
+                        id: 1,
+                        user: false,
+                        message: "Still down?"
+                    },
+                    {
+                        id: 2,
+                        user: true,
+                        message: "Sorry man, busy now"
+                    },
+                    {
+                        id: 3,
+                        user: false,
+                        message: "You're missing out. Text me when you're available!"
+                    },
+                    {
+                        id: 4,
+                        user: true,
+                        message: "Let's play!"
+                    },
+                    {
+                        id: 5,
+                        user: false,
+                        message: "That was a supernice game, man"
+                    },
+                    {
+                        id: 6,
+                        user: false,
+                        message: "Loved the last kill lol"
+                    }, {
+                        id: 7,
+                        user: true,
+                        message: "Lol Ggs!"
+                    }, {
+                        id: 9,
+                        user: false,
+                        message: "I bet they all think you're a cheater"
+                    },
+                    {
+                        id: 9,
+                        user: true,
+                        message: "Drop me a message when next you're available"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                ]
+            },{
+                id: 2,
+                name: 'Artemis',
+                online: true,
+                imageUrl: image2,
+                chatHistory: [
+                    {
+                        id: 1,
+                        user: false,
+                        message: "Still down?"
+                    },
+                    {
+                        id: 2,
+                        user: true,
+                        message: "Sorry man, busy now"
+                    },
+                    {
+                        id: 3,
+                        user: false,
+                        message: "You're missing out. Text me when you're available!"
+                    },
+                    {
+                        id: 4,
+                        user: true,
+                        message: "Let's play!"
+                    },
+                    {
+                        id: 5,
+                        user: false,
+                        message: "That was a supernice game, man"
+                    },
+                    {
+                        id: 6,
+                        user: false,
+                        message: "Loved the last kill lol"
+                    }, {
+                        id: 7,
+                        user: true,
+                        message: "Lol Ggs!"
+                    }, {
+                        id: 9,
+                        user: false,
+                        message: "I bet they all think you're a cheater"
+                    },
+                    {
+                        id: 9,
+                        user: true,
+                        message: "Drop me a message when next you're available"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                ]
+            },{
+                id: 2,
+                name: 'Artemis',
+                online: true,
+                imageUrl: image2,
+                chatHistory: [
+                    {
+                        id: 1,
+                        user: false,
+                        message: "Still down?"
+                    },
+                    {
+                        id: 2,
+                        user: true,
+                        message: "Sorry man, busy now"
+                    },
+                    {
+                        id: 3,
+                        user: false,
+                        message: "You're missing out. Text me when you're available!"
+                    },
+                    {
+                        id: 4,
+                        user: true,
+                        message: "Let's play!"
+                    },
+                    {
+                        id: 5,
+                        user: false,
+                        message: "That was a supernice game, man"
+                    },
+                    {
+                        id: 6,
+                        user: false,
+                        message: "Loved the last kill lol"
+                    }, {
+                        id: 7,
+                        user: true,
+                        message: "Lol Ggs!"
+                    }, {
+                        id: 9,
+                        user: false,
+                        message: "I bet they all think you're a cheater"
+                    },
+                    {
+                        id: 9,
+                        user: true,
+                        message: "Drop me a message when next you're available"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                ]
+            },{
+                id: 2,
+                name: 'Artemis',
+                online: true,
+                imageUrl: image2,
+                chatHistory: [
+                    {
+                        id: 1,
+                        user: false,
+                        message: "Still down?"
+                    },
+                    {
+                        id: 2,
+                        user: true,
+                        message: "Sorry man, busy now"
+                    },
+                    {
+                        id: 3,
+                        user: false,
+                        message: "You're missing out. Text me when you're available!"
+                    },
+                    {
+                        id: 4,
+                        user: true,
+                        message: "Let's play!"
+                    },
+                    {
+                        id: 5,
+                        user: false,
+                        message: "That was a supernice game, man"
+                    },
+                    {
+                        id: 6,
+                        user: false,
+                        message: "Loved the last kill lol"
+                    }, {
+                        id: 7,
+                        user: true,
+                        message: "Lol Ggs!"
+                    }, {
+                        id: 9,
+                        user: false,
+                        message: "I bet they all think you're a cheater"
+                    },
+                    {
+                        id: 9,
+                        user: true,
+                        message: "Drop me a message when next you're available"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                ]
+            },{
+                id: 2,
+                name: 'Artemis',
+                online: true,
+                imageUrl: image2,
+                chatHistory: [
+                    {
+                        id: 1,
+                        user: false,
+                        message: "Still down?"
+                    },
+                    {
+                        id: 2,
+                        user: true,
+                        message: "Sorry man, busy now"
+                    },
+                    {
+                        id: 3,
+                        user: false,
+                        message: "You're missing out. Text me when you're available!"
+                    },
+                    {
+                        id: 4,
+                        user: true,
+                        message: "Let's play!"
+                    },
+                    {
+                        id: 5,
+                        user: false,
+                        message: "That was a supernice game, man"
+                    },
+                    {
+                        id: 6,
+                        user: false,
+                        message: "Loved the last kill lol"
+                    }, {
+                        id: 7,
+                        user: true,
+                        message: "Lol Ggs!"
+                    }, {
+                        id: 9,
+                        user: false,
+                        message: "I bet they all think you're a cheater"
+                    },
+                    {
+                        id: 9,
+                        user: true,
+                        message: "Drop me a message when next you're available"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                ]
+            },{
+                id: 2,
+                name: 'Artemis',
+                online: true,
+                imageUrl: image2,
+                chatHistory: [
+                    {
+                        id: 1,
+                        user: false,
+                        message: "Still down?"
+                    },
+                    {
+                        id: 2,
+                        user: true,
+                        message: "Sorry man, busy now"
+                    },
+                    {
+                        id: 3,
+                        user: false,
+                        message: "You're missing out. Text me when you're available!"
+                    },
+                    {
+                        id: 4,
+                        user: true,
+                        message: "Let's play!"
+                    },
+                    {
+                        id: 5,
+                        user: false,
+                        message: "That was a supernice game, man"
+                    },
+                    {
+                        id: 6,
+                        user: false,
+                        message: "Loved the last kill lol"
+                    }, {
+                        id: 7,
+                        user: true,
+                        message: "Lol Ggs!"
+                    }, {
+                        id: 9,
+                        user: false,
+                        message: "I bet they all think you're a cheater"
+                    },
+                    {
+                        id: 10,
+                        user: true,
+                        message: "Drop me a message when next you're available"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                ]
+            },{
+                id: 2,
+                name: 'Artemis',
+                online: true,
+                imageUrl: image2,
+                chatHistory: [
+                    {
+                        id: 1,
+                        user: false,
+                        message: "Still down?"
+                    },
+                    {
+                        id: 2,
+                        user: true,
+                        message: "Sorry man, busy now"
+                    },
+                    {
+                        id: 3,
+                        user: false,
+                        message: "You're missing out. Text me when you're available!"
+                    },
+                    {
+                        id: 4,
+                        user: true,
+                        message: "Let's play!"
+                    },
+                    {
+                        id: 5,
+                        user: false,
+                        message: "That was a supernice game, man"
+                    },
+                    {
+                        id: 6,
+                        user: false,
+                        message: "Loved the last kill lol"
+                    }, {
+                        id: 7,
+                        user: true,
+                        message: "Lol Ggs!"
+                    }, {
+                        id: 9,
+                        user: false,
+                        message: "I bet they all think you're a cheater"
+                    },
+                    {
+                        id: 9,
+                        user: true,
+                        message: "Drop me a message when next you're available"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
+                ]
+            },
         ]
     )
     const [currentChat, setCurrentChat] = useState(0)
@@ -146,10 +940,10 @@ function ChatPage(props) {
             </div> */}
             <div className='grid grid-cols-3 gap-6'>
                 {/* friends box */}
-                <div className='col-span-1 bg-black-v3 rounded-xl lg:p-6 flex flex-col gap-6'>
+                <div className='col-span-1 bg-black-v3 rounded-xl lg:p-4 lg:pr-0 flex flex-col gap-6'>
 
                     {/* search bar and friend icon */}
-                    <div className='flex gap-4 justify-between'>
+                    <div className='flex gap-4 justify-between lg:pr-4'>
                         <div className='relative flex w-4/5'>
                             <i className='absolute self-center left-4 text-sm'><FaSearch /></i>
                             <input placeholder='Search' className='rounded-3xl post-box w-full p-2.5 px-10 outline-none text-typography-grey text-sm tracking-wide focus:text-white border border-transparent delay-75 duration-150 focus:border-brand-purple' />
@@ -162,11 +956,11 @@ function ChatPage(props) {
                     </div>
 
                     {/* friends list */}
-                    <div className='flex flex-col gap-4'>
+                    <div className='flex flex-col gap-4 hello-v2 overflow-y-auto'>
                         {chats.map(chat => {
                             const { id, name, imageUrl, chatHistory } = chat
                             return (
-                                <button className={`${currentChat === id ? 'border-brand-purple shadow-lg' : 'border-transparent'}  duration-300 border-l-4 flex flex-col lg:flex-row gap-4 post-box p-3 rounded-md`} onClick={() => setCurrentChat(id)} key={id}>
+                                <button className={`${currentChat === id ? 'border-brand-purple shadow-lg' : 'border-transparent'} mr-4 duration-300 border-l-4 flex flex-col lg:flex-row gap-4 post-box p-3 rounded-md`} onClick={() => setCurrentChat(id)} key={id}>
 
                                     <img src={imageUrl} className='rounded-full w-10 h-10' />
                                     <div className='flex flex-col gap-1'>
@@ -182,7 +976,7 @@ function ChatPage(props) {
 
 
                 {/* chat history box */}
-                <div className='col-span-2 bg-black-v3 rounded-xl lg:p-6 flex flex-col gap-6'>
+                <div className='col-span-2 bg-black-v3 rounded-xl lg:p-6 lg:pr-0 flex flex-col gap-4'>
 
                     {
                         chats.filter(chat => chat.id === currentChat).map(chat => {
@@ -190,7 +984,7 @@ function ChatPage(props) {
                             const chatItem = chatHistory.map(historyItem => {
                                 const { id, user, message } = historyItem
                                 return (
-                                    <div className={`${user ? 'bg-brand-purple self-end' : 'post-box self-start'} flex items-center gap-4 rounded-lg px-4 py-3`} key={id}>
+                                    <div className={`${user ? 'bg-brand-purple self-end lg:mr-4' : 'post-box self-start'} flex items-center gap-4 rounded-lg px-4 py-3`} key={id}>
                                         <p>{message}</p>
                                         <span className={`${user ? 'text-typography-white' : 'text-typography-grey'} text-xs font-light`}>22:02</span>
                                     </div>
@@ -199,7 +993,7 @@ function ChatPage(props) {
                             return (
                                 <>
                                     {/* header */}
-                                    <div className='flex justify-between items-center'>
+                                    <div className='flex justify-between items-center lg:pr-4'>
 
                                         <div className={`flex flex-col lg:flex-row gap-4 p-3 rounded-md`} key={id}>
 
@@ -211,9 +1005,9 @@ function ChatPage(props) {
 
                                         </div>
 
-                                        <div className='bg-black-v3 rounded-full post-box flex items-center px-4 py-3'>
+                                        <div className='bg-black-v3 rounded-full post-box flex items-center px-3 py-3'>
                                             <i className='text-white'>
-                                                <FaHamburger />
+                                                <BiDotsVerticalRounded />
                                             </i>
                                         </div>
 
@@ -221,13 +1015,18 @@ function ChatPage(props) {
                                     </div>
 
                                     {/* chat */}
-                                    <div className='flex flex-col gap-4 hello overflow-y-scroll'>
+                                    <div className='hello overflow-y-auto flex flex-col gap-6'>
                                         {chatItem}
+                                    {/* <div className='p-2 px-4 text-sm text-brand-purple self-center rounded-lg bg-gray-500'>Today</div> */}
+                                   {/* <div className='flex flex-col gap-6'>
+                                    {chatItem}
+                                   </div> */}
                                     </div>
+                                    
 
 
-                                {/* chat imput field */}
-                                    <div className='flex justify-between pt-4'>
+                                    {/* chat imput field */}
+                                    <div className='flex justify-between pt-4 lg:pr-4'>
                                         <div className='relative flex w-5/6'>
                                             <i className='absolute self-center right-4 text-sm'><FaPaperPlane /></i>
                                             <input placeholder='Type your message' className='rounded-3xl post-box w-full py-3 px-4 outline-none text-typography-grey text-sm tracking-wide focus:text-white border border-transparent delay-75 duration-150 focus:border-brand-purple' />
