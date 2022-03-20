@@ -117,6 +117,23 @@ function ChatPage(props) {
                         user: false,
                         message: "Yo, you available now? Let's go play Dota"
                     },
+                    {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    }, {
+                        id: 10,
+                        user: false,
+                        message: "Yo, you available now? Let's go play Dota"
+                    },
                 ]
             },
         ]
@@ -124,9 +141,12 @@ function ChatPage(props) {
     const [currentChat, setCurrentChat] = useState(0)
     return (
         <div className='outlet-layout'>
+            {/* <div className='bg-black-v3'>
+
+            </div> */}
             <div className='grid grid-cols-3 gap-6'>
                 {/* friends box */}
-                <div className='col-span-1 bg-black-v3 h-screen rounded-xl lg:p-6 flex flex-col gap-6'>
+                <div className='col-span-1 bg-black-v3 rounded-xl lg:p-6 flex flex-col gap-6'>
 
                     {/* search bar and friend icon */}
                     <div className='flex gap-4 justify-between'>
@@ -146,7 +166,7 @@ function ChatPage(props) {
                         {chats.map(chat => {
                             const { id, name, imageUrl, chatHistory } = chat
                             return (
-                                <button className={`${currentChat === id ? 'border-brand-purple shadow-2xl' : 'border-transparent'}  duration-300 border-l-4 flex flex-col lg:flex-row gap-4 post-box p-3 rounded-md`} onClick={() => setCurrentChat(id)} key={id}>
+                                <button className={`${currentChat === id ? 'border-brand-purple shadow-lg' : 'border-transparent'}  duration-300 border-l-4 flex flex-col lg:flex-row gap-4 post-box p-3 rounded-md`} onClick={() => setCurrentChat(id)} key={id}>
 
                                     <img src={imageUrl} className='rounded-full w-10 h-10' />
                                     <div className='flex flex-col gap-1'>
@@ -201,12 +221,13 @@ function ChatPage(props) {
                                     </div>
 
                                     {/* chat */}
-                                    <div className='flex flex-col gap-4'>
+                                    <div className='flex flex-col gap-4 hello overflow-y-scroll'>
                                         {chatItem}
                                     </div>
 
 
-                                    <div className='flex justify-between'>
+                                {/* chat imput field */}
+                                    <div className='flex justify-between pt-4'>
                                         <div className='relative flex w-5/6'>
                                             <i className='absolute self-center right-4 text-sm'><FaPaperPlane /></i>
                                             <input placeholder='Type your message' className='rounded-3xl post-box w-full py-3 px-4 outline-none text-typography-grey text-sm tracking-wide focus:text-white border border-transparent delay-75 duration-150 focus:border-brand-purple' />

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FaAndroid, FaApple, FaAppStoreIos, FaLinux, FaPlaystation, FaWindows, FaXbox, FaSteam, FaGooglePlay } from 'react-icons/fa';
+import { FaAndroid, FaApple, FaAppStoreIos, FaLinux, FaPlaystation, FaWindows, FaXbox, FaSteam, FaGooglePlay, FaGlobe } from 'react-icons/fa';
 import { SiEpicgames, SiGogdotcom, SiNintendoswitch } from 'react-icons/si'
 import {GrAppleAppStore} from 'react-icons/gr'
 
@@ -76,6 +76,8 @@ const GameProvider = ({ children }) => {
             return <FaXbox />
         }else if(platform==='Nintendo'){
             return <SiNintendoswitch/>
+        }else if(platform==='Web'){
+            return <FaGlobe/>
         }
     }
     function parseStore(storeSlug) {

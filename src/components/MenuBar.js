@@ -33,6 +33,7 @@ function MenuBar(props) {
                 <NavLink to='/platforms' className={`menubar-link ${({isActive})=>(isActive?'active':'')}`}><i><CgGames /></i><h1>Platforms</h1></NavLink>
                 <NavLink to='/stores' className={`menubar-link ${({isActive})=>(isActive?'active':'')}`}><i><FaDownload /></i><h1>Stores</h1></NavLink>
 
+
                 <hr className="mx-8 border-black-v3"></hr>
 
                 <div className="menubar-link"><i><FaSignOutAlt /></i><h1>Logout</h1></div>
