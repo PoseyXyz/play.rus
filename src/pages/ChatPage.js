@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaSearch, FaUserFriends } from 'react-icons/fa'
+import { FaSearch, FaUserFriends, FaHamburger } from 'react-icons/fa'
 import image1 from '../images/friends/one.png'
 import image2 from '../images/friends/two.png'
 import image3 from '../images/friends/three.png'
@@ -135,23 +135,23 @@ function ChatPage(props) {
                             <input placeholder='Search' className='rounded-3xl post-box w-full p-2.5 px-10 outline-none text-typography-grey text-sm tracking-wide focus:text-white border border-transparent delay-75 duration-150 focus:border-brand-purple' />
                         </div>
                         <div className='bg-black-v3 rounded-full post-box flex items-center px-4 py-2'>
-                        <i className=''>
-                            <FaUserFriends/>
-                        </i>
+                            <i className=''>
+                                <FaUserFriends />
+                            </i>
                         </div>
                     </div>
 
                     {/* friends list */}
                     <div className='flex flex-col gap-4'>
-                        {chats.map(chat=>{
-                            const {id, name, imageUrl, chatHistory} = chat
-                            return(
-                                <button className={`${currentChat===id ? 'border-brand-purple':'border-transparent'}  duration-300 border-l-4 flex flex-col lg:flex-row gap-4 post-box p-3 rounded-md`} onClick={()=>setCurrentChat(id)} key={id}>
-                                   
+                        {chats.map(chat => {
+                            const { id, name, imageUrl, chatHistory } = chat
+                            return (
+                                <button className={`${currentChat === id ? 'border-brand-purple' : 'border-transparent'}  duration-300 border-l-4 flex flex-col lg:flex-row gap-4 post-box p-3 rounded-md`} onClick={() => setCurrentChat(id)} key={id}>
+
                                     <img src={imageUrl} className='rounded-full w-10 h-10' />
                                     <div className='flex flex-col gap-1'>
                                         <span className='flex gap-2 justify-between items-center'><span className='text-sm'>{name}</span><span className='flex text-xs text-typography-grey font-medium'>22:30</span></span>
-                                        <p className='text-typography-grey text-sm text-left tracking-wide leading-6'>{chatHistory[chatHistory.length-1].message}</p>
+                                        <p className='text-typography-grey text-sm text-left tracking-wide leading-6'>{chatHistory[chatHistory.length - 1].message}</p>
                                     </div>
 
                                 </button>
@@ -162,7 +162,44 @@ function ChatPage(props) {
 
 
                 {/* chat history box */}
-                <div className='col-span-2 bg-black-v3 rounded-xl lg:p-8'>
+                <div className='col-span-2 bg-black-v3 rounded-xl lg:p-6 flex flex-col gap-6'>
+
+                    {
+                        chats.filter(chat => chat.id === currentChat).map(chat => {
+                            const { id, name, online, imageUrl } = chat
+                            return (
+                                <>
+                                    {/* header */}
+                                    <div className='flex justify-between items-center'>
+
+                                        <div className={`flex flex-col lg:flex-row gap-4 p-3 rounded-md`} key={id}>
+
+                                            <img src={imageUrl} className='rounded-full w-10 h-10' />
+                                            <div className='flex flex-col gap-1'>
+                                                <span className='flex gap-2 justify-between items-center'><span className='text-sm'>{name}</span></span>
+                                                <p className='text-typography-grey text-xs text-left tracking-wide leading-6'>{online ? 'Online' : 'Offline'}</p>
+                                            </div>
+
+                                        </div>
+
+                                        <div className='bg-black-v3 rounded-full post-box flex items-center px-4 py-3'>
+                                            <i className='text-white'>
+                                                <FaHamburger />
+                                            </i>
+                                        </div>
+
+
+                                    </div>
+
+                                    {/* chat */}
+                                    <div>
+
+                                    </div>
+                                </>
+                            )
+                        })
+                    }
+
 
                 </div>
             </div>
