@@ -72,7 +72,7 @@ function ChatPage(props) {
                     {
                         id: 1,
                         user: false,
-                        message: "Let's go play!"
+                        message: "Still down?"
                     },
                     {
                         id: 2,
@@ -146,7 +146,7 @@ function ChatPage(props) {
                         {chats.map(chat => {
                             const { id, name, imageUrl, chatHistory } = chat
                             return (
-                                <button className={`${currentChat === id ? 'border-brand-purple' : 'border-transparent'}  duration-300 border-l-4 flex flex-col lg:flex-row gap-4 post-box p-3 rounded-md`} onClick={() => setCurrentChat(id)} key={id}>
+                                <button className={`${currentChat === id ? 'border-brand-purple shadow-2xl' : 'border-transparent'}  duration-300 border-l-4 flex flex-col lg:flex-row gap-4 post-box p-3 rounded-md`} onClick={() => setCurrentChat(id)} key={id}>
 
                                     <img src={imageUrl} className='rounded-full w-10 h-10' />
                                     <div className='flex flex-col gap-1'>
@@ -166,7 +166,16 @@ function ChatPage(props) {
 
                     {
                         chats.filter(chat => chat.id === currentChat).map(chat => {
-                            const { id, name, online, imageUrl } = chat
+                            const { id, name, online, imageUrl, chatHistory } = chat
+                            const chatItem = chatHistory.map(historyItem=>{
+                                const {id, user, message} = historyItem
+                                return(
+                                    <div className={`${user?'bg-brand-purple self-end':'post-box self-start'} flex items-center gap-4 rounded-full px-4 py-3`} key={id}>
+                                        <p>{message}</p>
+                                        <span className={`${user?'text-typography-white':'text-typography-grey'} text-xs font-light`}>22:02</span>
+                                    </div>
+                                )
+                            })
                             return (
                                 <>
                                     {/* header */}
@@ -192,8 +201,8 @@ function ChatPage(props) {
                                     </div>
 
                                     {/* chat */}
-                                    <div>
-
+                                    <div className='flex flex-col gap-4'>
+                                       {chatItem}
                                     </div>
                                 </>
                             )
