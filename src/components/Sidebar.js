@@ -4,6 +4,7 @@ import { FaCode, FaDownload, FaHistory, FaHome, FaSignOutAlt } from 'react-icons
 import { ImBooks } from 'react-icons/im'
 import { CgGames } from 'react-icons/cg'
 import { GiCrossedPistols } from 'react-icons/gi'
+import { NavLink } from 'react-router-dom';
 
 
 function Sidebar({ sideBarOpen, setSideBarOpen }) {
@@ -28,24 +29,24 @@ function Sidebar({ sideBarOpen, setSideBarOpen }) {
                 </div>
 
                 <div className="my-8 flex flex-col gap-8">
-                    <div className="sidebar-link"><i><FaHome /></i><h1>Explore</h1></div>
+                    <NavLink to='/' onClick={() => setSideBarOpen(false)} className="sidebar-link"><i><FaHome /></i><h1>Explore</h1></NavLink>
 
-                    <div className="sidebar-link text-white"><i><FaHistory /></i><h1>Recents</h1></div>
+                    <NavLink to='/recents' onClick={() => setSideBarOpen(false)} className="sidebar-link text-white"><i><FaHistory /></i><h1>Recents</h1></NavLink>
                     <div className="sidebar-link text-white"><i><FaUserFriends /></i><h1>Friends</h1></div>
                     <div className="sidebar-link text-white"><i><FaBell /></i><h1>Notifications</h1></div>
 
 
                     <div className="flex flex-col gap-8">
-                        <div className="sidebar-link"><i><ImBooks /></i><h1>My Library</h1></div>
+                        <NavLink to='/library' onClick={() => setSideBarOpen(false)} className="sidebar-link"><i><ImBooks /></i><h1>My Library</h1></NavLink>
 
                     </div>
 
 
 
-                    <div className="sidebar-link"><i><GiCrossedPistols /></i><h1>Genres</h1></div>
-                    <div className="sidebar-link"><i><FaCode /></i><h1>Developers</h1></div>
-                    <div className="sidebar-link"><i><CgGames /></i><h1>Platforms</h1></div>
-                    <div className="sidebar-link"><i><FaDownload /></i><h1>Stores</h1></div>
+                    <NavLink to='/genres' onClick={() => setSideBarOpen(false)} className="sidebar-link"><i><GiCrossedPistols /></i><h1>Genres</h1></NavLink>
+                    <NavLink to='/developers' onClick={() => setSideBarOpen(false)} className="sidebar-link"><i><FaCode /></i><h1>Developers</h1></NavLink>
+                    <NavLink to='/platforms' onClick={() => setSideBarOpen(false)} className="sidebar-link"><i><CgGames /></i><h1>Platforms</h1></NavLink>
+                    <NavLink to='/stores' onClick={() => setSideBarOpen(false)} className="sidebar-link"><i><FaDownload /></i><h1>Stores</h1></NavLink>
 
 
 
