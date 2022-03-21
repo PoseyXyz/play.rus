@@ -1,128 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaSearch, FaUserFriends, FaHamburger, FaPaperPlane, FaPhotoVideo, FaSmile } from 'react-icons/fa'
 import {BiDotsVerticalRounded} from 'react-icons/bi'
-import image1 from '../images/friends/one.png'
-import image2 from '../images/friends/two.png'
+import chatData from '../data/chatData'
 import image3 from '../images/friends/three.png'
 
 function ChatPage(props) {
-    const [chats, setChats] = useState(
-        [
-            {
-                id: 1,
-                name: 'Carlos',
-                online: true,
-                imageUrl: image1,
-                chatHistory: [
-                    {
-                        id: 1,
-                        user: false,
-                        message: "Let's go play!"
-                    },
-                    {
-                        id: 2,
-                        user: true,
-                        message: "Sorry man, busy now"
-                    },
-                    {
-                        id: 3,
-                        user: false,
-                        message: "You're missing out. Text me when you're available!"
-                    },
-                    {
-                        id: 4,
-                        user: true,
-                        message: "Let's play!"
-                    },
-                    {
-                        id: 5,
-                        user: false,
-                        message: "That was a supernice game, man"
-                    },
-                    {
-                        id: 6,
-                        user: false,
-                        message: "Loved the last kill lol"
-                    }, {
-                        id: 7,
-                        user: true,
-                        message: "Lol Ggs!"
-                    }, {
-                        id: 9,
-                        user: false,
-                        message: "I bet they all think you're a cheater"
-                    },
-                    {
-                        id: 9,
-                        user: true,
-                        message: "Drop me a message when next you're available"
-                    },
-                    {
-                        id: 10,
-                        user: false,
-                        message: "Yo, you available now? Let's go play Dota"
-                    },
-                ]
-            },
-            {
-                id: 2,
-                name: 'Artemis',
-                online: true,
-                imageUrl: image2,
-                chatHistory: [
-                    {
-                        id: 1,
-                        user: false,
-                        message: "Still down?"
-                    },
-                    {
-                        id: 2,
-                        user: true,
-                        message: "Sorry man, busy now"
-                    },
-                    {
-                        id: 3,
-                        user: false,
-                        message: "You're missing out. Text me when you're available!"
-                    },
-                    {
-                        id: 4,
-                        user: true,
-                        message: "Let's play!"
-                    },
-                    {
-                        id: 5,
-                        user: false,
-                        message: "That was a supernice game, man"
-                    },
-                    {
-                        id: 6,
-                        user: false,
-                        message: "Loved the last kill lol"
-                    }, {
-                        id: 7,
-                        user: true,
-                        message: "Lol Ggs!"
-                    }, {
-                        id: 9,
-                        user: false,
-                        message: "I bet they all think you're a cheater"
-                    },
-                    {
-                        id: 9,
-                        user: true,
-                        message: "Drop me a message when next you're available"
-                    },
-                    {
-                        id: 10,
-                        user: false,
-                        message: "Yo, you available now? Let's go play Dota"
-                    },
-                ]
-            
-            }
-        ]
-    )
+    const [chats, setChats] = useState([...chatData])
+
+   
+
     const [currentChat, setCurrentChat] = useState(0)
     return (
         <div className='outlet-layout'>
@@ -157,7 +43,7 @@ function ChatPage(props) {
                                 <button className={`${currentChat === id ? 'border-brand-purple shadow-lg' : 'border-transparent'} mr-4 duration-300 border-l-4 flex flex-col lg:flex-row gap-4 post-box p-3 rounded-md`} onClick={() => setCurrentChat(id)} key={id}>
 
                                     <img src={imageUrl} className='rounded-full w-10 h-10' />
-                                    <div className='flex flex-col gap-1'>
+                                    <div className='flex flex-col gap-1 w-full'>
                                         <span className='flex gap-2 justify-between items-center'><span className='text-sm'>{name}</span><span className='flex text-xs text-typography-grey font-medium'>22:30</span></span>
                                         <p className='text-typography-grey text-sm text-left tracking-wide leading-6'>{chatHistory[chatHistory.length - 1].message}</p>
                                     </div>
