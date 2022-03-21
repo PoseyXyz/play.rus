@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { FaSearch, FaUserFriends, FaHamburger, FaPaperPlane, FaPhotoVideo, FaSmile } from 'react-icons/fa'
 import {BiDotsVerticalRounded} from 'react-icons/bi'
 import chatData from '../data/chatData'
-import image3 from '../images/friends/three.png'
+
 
 function ChatPage(props) {
-    const [chats, setChats] = useState([...chatData])
-
-   
+    const [chats, setChats] = useState([...chatData])  
 
     const [currentChat, setCurrentChat] = useState(0)
+    
     return (
         <div className='outlet-layout'>
             {/* <div className='bg-black-v3'>
