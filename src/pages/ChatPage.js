@@ -8,7 +8,7 @@ function ChatPage(props) {
     const [chats, setChats] = useState([...chatData])  
 
     const [currentChat, setCurrentChat] = useState(0)
-    
+
     return (
         <div className='outlet-layout'>
             {/* <div className='bg-black-v3'>
@@ -19,7 +19,7 @@ function ChatPage(props) {
             </div>
             <div className='hidden xl:grid grid-cols-3 gap-6'>
                 {/* friends box */}
-                <div className='col-span-1 bg-black-v3 rounded-xl lg:p-4 lg:pr-0 flex flex-col gap-6'>
+                <div className={`${currentChat===0? 'col-span-3':'col-span-1'} bg-black-v3 rounded-xl lg:p-4 lg:pr-0 flex flex-col gap-6`}>
 
                     {/* search bar and friend icon */}
                     <div className='flex gap-4 justify-between lg:pr-4'>
@@ -35,16 +35,17 @@ function ChatPage(props) {
                     </div>
 
                     {/* friends list */}
+                    <p className={`${currentChat===0? 'block':'hidden'} text-typography-grey text-center text-xs`}>Select a chat to send a direct message</p>
                     <div className='flex flex-col gap-4 chat-list overflow-y-auto'>
                         {chats.map(chat => {
                             const { id, name, imageUrl, chatHistory } = chat
                             return (
-                                <button className={`${currentChat === id ? 'border-brand-purple shadow-lg' : 'border-transparent'} mr-4 duration-300 border-l-4 flex flex-col lg:flex-row gap-4 post-box p-3 rounded-md`} onClick={() => setCurrentChat(id)} key={id}>
+                                <button className={`${currentChat === id ? 'border-brand-purple shadow-lg' : 'border-transparent'} hover:bg-brand-purple group mr-4 duration-300 border-l-4 flex flex-col lg:flex-row gap-4 post-box p-3 rounded-md`} onClick={() => setCurrentChat(id)} key={id}>
 
                                     <img src={imageUrl} className='rounded-full w-10 h-10' />
                                     <div className='flex flex-col gap-1 w-full'>
-                                        <span className='flex gap-2 justify-between items-center'><span className='text-sm'>{name}</span><span className='flex text-xs text-typography-grey font-medium'>22:30</span></span>
-                                        <p className='text-typography-grey text-sm text-left tracking-wide leading-6'>{chatHistory[chatHistory.length - 1].message}</p>
+                                        <span className='flex gap-2 justify-between items-center'><span className='text-sm'>{name}</span><span className='flex text-xs text-typography-grey group-hover:text-white font-medium'>22:30</span></span>
+                                        <p className='text-typography-grey group-hover:text-white text-sm text-left tracking-wide leading-6'>{chatHistory[chatHistory.length - 1].message}</p>
                                     </div>
 
                                 </button>
@@ -54,8 +55,8 @@ function ChatPage(props) {
                 </div>
 
 
-                {/* chat history box */}
-                <div className='col-span-2 bg-black-v3 rounded-xl lg:p-6 lg:pr-0 flex flex-col gap-4'>
+                {/* chat history pane */}
+                <div className={`${currentChat===0? 'hidden':'flex'} col-span-2 bg-black-v3 rounded-xl lg:p-6 lg:pr-0 flex-col gap-4`}>
 
                     {
                         chats.filter(chat => chat.id === currentChat).map(chat => {
