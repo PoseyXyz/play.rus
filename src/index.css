@@ -29,7 +29,8 @@ body {
 }
 
 .outlet-layout{
-  @apply col-span-10 md:col-span-7 bg-black-v2 rounded-3xl mt-20 p-4 text-typography-white
+  @apply col-span-10 md:col-span-7 bg-black-v2 rounded-3xl mt-20 p-4 text-typography-white;
+  min-height: 90vh;
 }
 
 .details_section-div{
