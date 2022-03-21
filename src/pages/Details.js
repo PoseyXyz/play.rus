@@ -82,7 +82,7 @@ function Details(props) {
 
     useEffect(() => {
         fetchDetails()
-    }, [])
+    }, [slug])
     const { name, released, reddit_description, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores, ratings, tags, publishers, developers } = result
     const { parsePlatform, parseStore, onChange, formData, parseRatingColour } = useContext(GameContext)
 
@@ -113,6 +113,7 @@ function Details(props) {
                 <div className='absolute top-0 right-0 overlay-lighter w-full h-full roounded-t-xl'></div>
                 <div className='absolute items-center justify-center z-10 w-full '>
                 <h1 className='text-white font-bold text-3xl my-3 text-center tracking-wide underline'>{name}</h1>
+                
                 </div>
                 {/* <div className='rounded-md overlay-lighter flex gap-3 absolute bottom-8 z-10 w-5/6 h-1/5 px-12 '>
                     <div className='flex flex-col gap-2 justify-center'>
@@ -231,6 +232,7 @@ function Details(props) {
                 <div className='details_section-div'>
                     <h2 className='text-2xl font-bold'>About</h2>
                     <div className='flex gap-4 my-6 flex-wrap'>
+                   
                         {genres && genres.map(genre => (
                             <div className='rounded-lg text-white text-sm border border-brand-purple py-2.5 px-6'>{genre.name}</div>
                         ))}
@@ -300,7 +302,13 @@ function Details(props) {
                 {/* Additional information             */}
                 <div className='details_section-div flex flex-col gap-4'>
                     <h2 className='text-2xl font-bold'>Additional Information</h2>
-                   
+                    <div>
+                        <h4 className='text-typography-grey text-sm'>Release date</h4>
+                        <div className='flex gap-4 flex-wrap'>
+                            <p>{released}</p>
+                        </div>
+                    </div>
+
                     <div>
                         <h4 className='text-typography-grey text-sm'>Publishers</h4>
                         <div className='flex gap-4 flex-wrap'>
