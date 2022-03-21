@@ -83,8 +83,8 @@ function Details(props) {
     useEffect(() => {
         fetchDetails()
     }, [slug])
-    const { name, released, reddit_description, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores, ratings, tags, publishers, developers } = result
-    const { parsePlatform, parseStore, onChange, formData, parseRatingColour } = useContext(GameContext)
+    const { name, released, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores, ratings, tags, publishers, developers } = result
+    const { parsePlatform, parseStore, onChange, formData } = useContext(GameContext)
 
     const postReview = (reviewPost) => {
         let tempReviews = [...reviews]

@@ -18850,7 +18850,15 @@ const [test, setTest] = useState({
 
 
 const [recents, setRecents] = useState([])
-const parseRecents = (num) => {
+const parseRecents = (gameObject) => {
+
+    //checking if game already exists in recents section
+    let tempRecents = [...recents]
+    if(tempRecents.some(recentGame=>recentGame.id===gameObject.id)){
+        return null
+    }else{
+
+    //checking if limit for recents is not reached then adding game to recents (in the event that the limit is reached, the oldest game item is eliminated before the latest is added)
     if (recents.length < 10) {
         let tempArray = [...recents]
         const insert = (arr, index, newItem) => [
@@ -18858,7 +18866,7 @@ const parseRecents = (num) => {
             newItem,
             ...arr.slice(index)
         ]
-        tempArray = insert(tempArray, 0, num)
+        tempArray = insert(tempArray, 0, gameObject)
         setRecents(tempArray)
         console.log(recents);
     } else if (recents.length === 10) {
@@ -18869,10 +18877,11 @@ const parseRecents = (num) => {
             newItem,
             ...arr.slice(index)
         ]
-        tempArray = insert(tempArray, 0, num)
+        tempArray = insert(tempArray, 0, gameObject)
         setRecents(tempArray)
         console.log(recents);
     }
+}
 }
 
 
