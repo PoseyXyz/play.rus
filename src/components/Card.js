@@ -11,7 +11,7 @@ function Card({ result, parsePlatform, parseRatingColour }) {
     const { parseRecents, addToLibrary, librarySections, toggleLibraryOptions, removeFromLibrary } = useContext(GameContext)
 
     return (
-        <div className="card bg-black-v3 rounded-xl relative">
+        <div className="card bg-black-v3 h-[calc(100vh_/_1.55)] md:h-[calc(100vh_/_1.9)] rounded-xl relative">
             
             <div className="overflow-hidden h-2/4">
                 <LazyLoadImage
@@ -29,14 +29,14 @@ function Card({ result, parsePlatform, parseRatingColour }) {
                     </div>
 
 
-                    <div className="flex gap-3 text-lg">
+                    <div className="flex flex-wrap gap-3 text-lg">
                         {parent_platforms.map(platform => <div className="text-typography-white">
                             <i>{parsePlatform(platform.platform.name)}</i>
                         </div>)}
                     </div>
                 </div>
 
-                <div className="flex justify-between border-y border-typography-grey py-4">
+                <div className="flex flex-wrap gap-2 justify-between border-y border-typography-grey py-4">
                     <div className="">
                         <div className="flex gap-2 items-center text-sm"><i className="text-brand-purple text-lg"><FaCalendar /></i>
                             <div className="flex flex-col">
