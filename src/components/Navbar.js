@@ -43,7 +43,7 @@ function Nav(props) {
                 </div>
             </div>
 
-            <div className="col-span-2 md:col-span-1 flex justify-center items-center gap-6"><img src={require('../images/profilehead.png')} className="w-2/5 md:w-1/3 border-4 border-t-0 border-r-0 border-brand-purple rounded-full p-1" />
+            <div className="col-span-2 md:col-span-1 flex justify-center items-center gap-6"><img src={require('../images/profilehead.png')} className="w-2/5 hidden sm:block md:w-1/3 border-4 border-t-0 border-r-0 border-brand-purple rounded-full p-1" />
                 <button onClick={() => setSideBarOpen(!sideBarOpen)} className="block md:hidden text-xl cursor-pointer"><FaBars /></button>
             </div>
 

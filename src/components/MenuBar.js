@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaCode, FaDownload, FaHistory, FaHome, FaSignOutAlt } from 'react-icons/fa'
+import {TiMessages} from 'react-icons/ti'
 import { ImBooks } from 'react-icons/im'
 import { CgGames } from 'react-icons/cg'
 import { GiCrossedPistols } from 'react-icons/gi'
@@ -17,6 +18,8 @@ function MenuBar(props) {
                 <NavLink to='/' className={`menubar-link ${({isActive})=>(isActive?'active':'')}`}><i><FaHome /></i><h1>Explore</h1></NavLink>
 
                 <NavLink to='/recents' className={`menubar-link ${({isActive})=>(isActive ? 'active':'')}`}><i><FaHistory /></i><h1>Recents</h1></NavLink>
+
+                <NavLink to='/chat' className={`menubar-link ${({isActive})=>(isActive ? 'active':'')}`}><i><TiMessages /></i><h1>Chat</h1></NavLink>
 
 
                 <hr className="mx-8 border-black-v3"></hr>

@@ -154,7 +154,7 @@ function Details(props) {
             <div className='details_section-div'>
                 <div className='flex flex-wrap items-center gap-4 justify-around'>
                     <span className='flex flex-col items-center gap-2 text-center'>
-                        <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-t-0 border-l-0 border-brand-purple">
+                        <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
                             {rating}
                         </span>
                         <span className='max-w-prose'>
