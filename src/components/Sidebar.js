@@ -4,7 +4,7 @@ import { FaCode, FaDownload, FaHistory, FaHome, FaSignOutAlt } from 'react-icons
 import { ImBooks } from 'react-icons/im'
 import { CgGames } from 'react-icons/cg'
 import { GiCrossedPistols } from 'react-icons/gi'
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 function Sidebar({ sideBarOpen, setSideBarOpen }) {
@@ -37,7 +37,7 @@ function Sidebar({ sideBarOpen, setSideBarOpen }) {
 
 
                     <div className="flex flex-col gap-8">
-                        <NavLink to='/library' onClick={() => setSideBarOpen(false)} className="sidebar-link"><i><ImBooks /></i><h1>My Library</h1></NavLink>
+                        <Link to='/library' onClick={() => setSideBarOpen(false)} className="sidebar-link"><i><ImBooks /></i><h1>My Library</h1></Link>
 
                     </div>
 
