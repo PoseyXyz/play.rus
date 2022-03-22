@@ -32,7 +32,12 @@ function Explore(props) {
     return (
         <div className="outlet-layout">
            {/* ternary operator displaying spinner component on page load while api data is being fetched and displaying results after results are fully fecthed  */}
-            {spinner ? <p className="text-white text-7xl">Please wait...</p> :
+            {spinner ? 
+                <div className="spinner">
+    <div className="double-bounce1"></div>
+    <div className="double-bounce2"></div>
+  
+            </div> :
                 <>                   
                     <Sort/>                   
                     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">

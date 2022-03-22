@@ -19,7 +19,10 @@ const ChatPage = lazy(()=>import('./pages/ChatPage'))
 function App() {
   return (
     //React suspense to display fallback component on page load
-    <Suspense fallback={<h1 className="text-green-700 text-7xl">Loading...</h1>}>
+    <Suspense fallback={<div class="spinner">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+  </div>}>
       {/* declaration of all route paths */}
       <Routes>
         <Route path='/' element={<Layout />}>
