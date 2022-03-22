@@ -109,6 +109,7 @@ const GameProvider = ({ children }) => {
 
     }
 
+    //function to return appropriate icons for each game platform
     function parsePlatformIcons(platform) {
 
         if (platform === "PC") {
@@ -131,6 +132,8 @@ const GameProvider = ({ children }) => {
             return <FaGlobe />
         }
     }
+
+    //function to return appropriate icons for each game store
     function parseStoreIcons(storeSlug) {
         if (storeSlug === 'playstation-store') {
             return <FaPlaystation />
@@ -153,6 +156,7 @@ const GameProvider = ({ children }) => {
         }
     }
 
+    //function to return color class based on game average rating
     function parseRatingColour(color) {
         if (color < 3) {
             return 'border-red-500 text-red-500'
@@ -163,6 +167,7 @@ const GameProvider = ({ children }) => {
         }
     }
     
+    //function to store games user clicks to recently viewed section
     const parseRecents = (gameObject) => {
 
         //checking if game already exists in recents section
@@ -171,7 +176,7 @@ const GameProvider = ({ children }) => {
             return null
         } else {
 
-            //checking if limit for recents is not reached then adding game to recents (in the event that the limit is reached, the oldest game item is eliminated before the latest is added)
+            //checking if limit for recents is not reached before adding game to recents (in the event that the limit is reached, the oldest game item is eliminated before the latest is added)
             if (recents.length < 10) {
                 let tempArray = [...recents]
                 const insert = (arr, index, newItem) => [
@@ -197,30 +202,36 @@ const GameProvider = ({ children }) => {
         }
     }
 
-
+    //async api call to fetch games for explore page
     const getData = async () => {
+        //setting loading spinner to true while games are being fetched
         setSpinner(true)
+
+        //calling fetch API and storing fetched games to state hook
         const searchFetch = await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&page=${currentPage}&page_size=40`)
 
         let searchResult = await searchFetch.json()
         let tempResults = searchResult.results
         tempResults = tempResults.map(result => {
+            //adding extra field to all fetched API results before storing them into the state (libraryOptionsOpen controls the open and closes status of the tab which displays library folders)
             return { ...result, libraryOptionsOpen: false }
         })
         searchResult.results = tempResults
 
         setTest(searchResult)
+
+        //setting loading spinner back to false to allow API response to be displayed
         setSpinner(false)
-        console.log(searchResult);
+        
     }
-
     
-
+    // function to return a selected game which a user has clicked
     const getItem = (id) => {
         const item = test.results.find(result => result.id === id)
         return item
     }
 
+    //function to add a game to a library folder/section
     const addToLibrary = (id, section) => {
         const tempArray = { ...test }
         const index = tempArray.results.indexOf(getItem(id))
@@ -236,6 +247,7 @@ const GameProvider = ({ children }) => {
         setLibrarySections(tempSections)
     }
 
+    //function to toggle tab which displays all library sections/folders when "Add to library" button is clicked
     const toggleLibraryOptions = (id) => {
         const tempResults = { ...test }
         const index = tempResults.results.indexOf(getItem(id))
@@ -245,6 +257,7 @@ const GameProvider = ({ children }) => {
         setTest(tempResults)
     }
 
+    //function to remove single game from the library
     const removeFromLibrary = (id, section) => {
         let tempSections = { ...librarySections }
         let sectionWhereGameExists = tempSections[section]
@@ -259,8 +272,7 @@ const GameProvider = ({ children }) => {
         setLibrarySections(tempSections)
     }
 
-
-    //Sort logic 
+    //Sort logic for games on the explore page (selected paramenter determines the sort criteria) 
     const sortGames = (selected) => {
         const tempArray = { ...test }
         let tempResults = tempArray.results
@@ -276,8 +288,8 @@ const GameProvider = ({ children }) => {
         setTest(tempArray)
     }
 
-    //search logic
- 
+    
+    //Search logic (returns API data asynchronously based on values entered by user) 
     const getSearchData = async () => {
         setSearchSpinner(true)
         const data = await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&search=${formData.searchString}`)
@@ -287,8 +299,7 @@ const GameProvider = ({ children }) => {
         console.log(searchResults);
     }
 
-   
-
+    //function to fetch list of game genres from API
     const fetchGenres = async () => {
 
         const data = await fetch(`https://api.rawg.io/api/genres?key=9df1bae5b88947458cc8431730fbfd9f`)
@@ -299,6 +310,7 @@ const GameProvider = ({ children }) => {
         })
     }
 
+    //function to fetch list of game developers from API
     const fetchDevelopers = async () => {
 
         const data = await fetch(`https://api.rawg.io/api/developers?key=9df1bae5b88947458cc8431730fbfd9f`)
@@ -309,6 +321,7 @@ const GameProvider = ({ children }) => {
         })
     }
 
+    //function to fetch list of game storess from API
     const fetchStores = async () => {
 
         const data = await fetch(`https://api.rawg.io/api/stores?key=9df1bae5b88947458cc8431730fbfd9f`)
@@ -319,6 +332,7 @@ const GameProvider = ({ children }) => {
         })
     }
 
+    //function to fetch list of game platforms from API
     const fetchPlatforms = async () => {
 
         const data = await fetch(`https://api.rawg.io/api/platforms?key=9df1bae5b88947458cc8431730fbfd9f`)
@@ -329,6 +343,7 @@ const GameProvider = ({ children }) => {
         })
     }
 
+    //function to fetch list of game under each category (e.g. genres, developers, platforms or stores) from API
     const fetchGamesList = async (type, category) => {
         let data = await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&${type}=${category}&page=${currentPage}`)
         let res = await data.json()
@@ -339,41 +354,49 @@ const GameProvider = ({ children }) => {
     
     return (
         <GameContext.Provider value={{
+            //exporting all state and functions from context
             test,
-            sideBarOpen,
-            setSideBarOpen,
-            currentPage, setCurrentPage,
-            paginationRange,
-            spinner, recents, parseRecents, parsePlatformIcons, parseRatingColour,
-            addToLibrary, librarySections,
-            toggleLibraryOptions, removeFromLibrary,
 
+            //hooks to handle sidebar state
+            sideBarOpen, setSideBarOpen,
+
+            //hooks to handle route page number and pagination range
+            currentPage, setCurrentPage, paginationRange,
+
+            //hook for loading spinner
+            spinner, 
+            
+            //hooks and state value for recents page
+            recents, parseRecents, 
+
+            //hooks and functions for library component
+            addToLibrary, librarySections, toggleLibraryOptions, removeFromLibrary,
+
+            //function handling sort logic
             sortGames,
+
             //search states
-            onChange, formData, searchResults, searchSpinner,
+            onChange, searchResults, searchSpinner,
+
+            //hooks for handling form data
+            formData, setFormData,
 
             //genres
-            categoryList, setCategoryList, fetchGenres,
+            categoryList, setCategoryList, 
 
-            //developers
-            fetchDevelopers,
+            //functions to fetch respective categories
+            fetchGenres, fetchDevelopers, fetchStores, fetchPlatforms,
 
-            //stores
-            fetchStores,
-
-            //platforms
-            fetchPlatforms,
-
-            //obtain gamesList
+            //hook and function for gamesList component
             gamesList, fetchGamesList,
 
             //
             pageType, setPageType,
 
-            //parseStoreIcon
-            parseStoreIcons,
+            //functions to parse styles and icons
+            parseStoreIcons, parsePlatformIcons, parseRatingColour,
 
-            setFormData
+            
         }}>
             {children}
         </GameContext.Provider>
