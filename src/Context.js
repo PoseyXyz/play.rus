@@ -103,11 +103,8 @@ const GameProvider = ({ children }) => {
 
         range.unshift(1);
         if (lastPage !== 1) range.push(lastPage);
-
-        console.log(range);
+        
         setPaginationRange(range)
-        return range;
-
     }
 
     //function to return appropriate icons for each game platform
@@ -187,7 +184,6 @@ const GameProvider = ({ children }) => {
                 ]
                 tempArray = insert(tempArray, 0, gameObject)
                 setRecents(tempArray)
-                console.log(recents);
             } else if (recents.length === 10) {
                 let tempArray = [...recents]
                 tempArray = tempArray.filter((number, i) => number !== tempArray[tempArray.length - 1])
@@ -198,7 +194,6 @@ const GameProvider = ({ children }) => {
                 ]
                 tempArray = insert(tempArray, 0, gameObject)
                 setRecents(tempArray)
-                console.log(recents);
             }
         }
     }
@@ -297,7 +292,6 @@ const GameProvider = ({ children }) => {
         let res = await data.json()
         setSearchResults(res)
         setSearchSpinner(false)
-        console.log(searchResults);
     }
 
     //function to fetch list of game genres from API
@@ -349,7 +343,6 @@ const GameProvider = ({ children }) => {
         let data = await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&${type}=${category}&page=${currentPage}`)
         let res = await data.json()
         setGamesList(res.results)
-        console.log(gamesList);
     }
 
     

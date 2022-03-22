@@ -82,7 +82,6 @@ function Details(props) {
         const data = await fetch(`https://api.rawg.io/api/games/${slug}?key=9df1bae5b88947458cc8431730fbfd9f`)
         const res = await data.json()
         setResult(res)
-        console.log(result);
         setLoading(false)
     }
 
