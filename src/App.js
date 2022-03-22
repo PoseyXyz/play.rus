@@ -4,7 +4,7 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom'
 import Layout from './pages/Layout';
 import NotFound from './pages/404';
-//lazy loading imports
+//lazy loading page routes
 const Explore = lazy(() => import('./pages/Explore'));
 const Recents = lazy(() => import('./pages/Recents'));
 const Library = lazy(() => import('./pages/Library'))

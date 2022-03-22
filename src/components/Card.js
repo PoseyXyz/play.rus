@@ -75,5 +75,3 @@ function Card({ result, parsePlatformIcons, parseRatingColour }) {
 
 export default Card;
 
-// onClick={()=>parseRecents(result)}
-//clean and maintainable code

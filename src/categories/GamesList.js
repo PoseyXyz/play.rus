@@ -11,11 +11,16 @@ function GamesList(props) {
     
 
     useEffect(() => {
+        //cleanup function to set pagination value back to 1 when page is unmounted
         return () => { setCurrentPage(1) }
     }, [])
+
+    //fetching games based on category and page number selected by users
     useEffect(() => {
         fetchGamesList(pageType, category)
     }, [currentPage])
+
+    //effect lifecycle to set current page/pagination value based on user selected page number (page number is being automatically obtained from route link through react router 6's useParams hook)
     useEffect(()=>{
         if (pageNumber){
             setCurrentPage(parseInt(pageNumber))
