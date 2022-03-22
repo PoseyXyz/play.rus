@@ -131,7 +131,7 @@ const GameProvider = ({ children }) => {
             return <FaGlobe />
         }
     }
-    function parseStore(storeSlug) {
+    function parseStoreIcons(storeSlug) {
         if (storeSlug === 'playstation-store') {
             return <FaPlaystation />
         } else if (storeSlug === 'steam') {
@@ -371,7 +371,7 @@ const GameProvider = ({ children }) => {
             pageType, setPageType,
 
             //parseStoreIcon
-            parseStore,
+            parseStoreIcons,
 
             setFormData
         }}>

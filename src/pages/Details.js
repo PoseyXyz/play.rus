@@ -87,7 +87,7 @@ function Details(props) {
         fetchDetails()
     }, [slug])
     const { name, released, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores, ratings, tags, publishers, developers } = result
-    const { parsePlatformIcons, parseStore, onChange, formData } = useContext(GameContext)
+    const { parsePlatformIcons, parseStoreIcons, onChange, formData } = useContext(GameContext)
 
     const postReview = (reviewPost) => {
         let tempReviews = [...reviews]
@@ -270,7 +270,7 @@ function Details(props) {
                             {stores && stores.map(store => (
                                 <>
                                     <div key={store.store.slug} className='rounded-lg text-white text-sm md:text-base border border-brand-purple  overlay-lighter py-2.5 px-6 flex gap-4 items-center'>
-                                        <i className='text-brand-purple'>{parseStore(store.store.slug)}</i>
+                                        <i className='text-brand-purple'>{parseStoreIcons(store.store.slug)}</i>
                                         <p>{store.store.name}</p>
                                     </div>
 
