@@ -4,12 +4,17 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Link } from 'react-router-dom';
 import { GameContext } from '../Context';
+import completedIcon from '../images/miniIcons/completed.png'
+import currently_playingIcon from '../images/miniIcons/currently_playing.png'
+import not_playedIcon from '../images/miniIcons/not_played.png'
+import playedIcon from '../images/miniIcons/played.png'
+import uncategorizedIcon from '../images/miniIcons/uncategorized.png'
 
 
 function Card({ result, parsePlatformIcons, parseRatingColour }) {
     const { id, slug, background_image, name, parent_platforms, rating, released, playtime, libraryOptionsOpen, section, inLibrary } = result
     const { parseRecents, addToLibrary, librarySections, toggleLibraryOptions, removeFromLibrary } = useContext(GameContext)
-
+    const popupIcons = [uncategorizedIcon, currently_playingIcon, completedIcon, playedIcon, not_playedIcon]
     return (
         <div className="card bg-black-v3 h-[calc(100vh_/_1.55)] md:h-[calc(100vh_/_1.9)] rounded-xl relative">
             
@@ -64,8 +69,8 @@ function Card({ result, parsePlatformIcons, parseRatingColour }) {
             </div>
             <div className={`${libraryOptionsOpen ? 'flex' : 'hidden'} absolute bg-white z-20 text-black flex-col w-full rounded-lg -bottom-24`}>
                 <button onClick={() => toggleLibraryOptions(id)} className="text-left text-red-500 font-semibold py-3 px-6 text-base justify-self-end self-end border-b rounded-lg border-gray-200"><FaTimesCircle /></button>
-                {Object.keys(librarySections).map((key, index) => (<button key={index} onClick={() => { addToLibrary(id, key); toggleLibraryOptions(id) }} className={`${inLibrary ? 'hidden' : 'block'} capitalize text-left py-3.5 px-6 text-sm w-full border-b rounded-lg duration-300 delay-75 hover:bg-gray-100 border-gray-200`}>{key}</button>))}
-                <button onClick={() => {removeFromLibrary(id, section); toggleLibraryOptions(id)}} className="text-left text-red-500 font-semibold py-4 px-6 text-sm w-full border-b rounded-lg border-gray-200">Remove from Library {section}</button>
+                {Object.keys(librarySections).map((key, index) => (<button key={index} onClick={() => { addToLibrary(id, key); toggleLibraryOptions(id) }} className={`${inLibrary ? 'hidden' : 'block'} capitalize flex gap-2 items-center text-left py-3.5 px-6 text-sm w-full border-b rounded-lg duration-300 delay-75 hover:bg-gray-100 border-gray-200`}><img src={popupIcons[index]} alt='popup_icon' className='w-6 h-6'/>{key.split('_').join(" ")}</button>))}
+                <button onClick={() => {removeFromLibrary(id, section); toggleLibraryOptions(id)}} className="text-left text-red-500 font-semibold py-4 px-6 text-sm w-full border-b rounded-lg border-gray-200">Remove from Library</button>
             </div>
 
         </div>

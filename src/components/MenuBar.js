@@ -4,9 +4,7 @@ import {TiMessages} from 'react-icons/ti'
 import { ImBooks } from 'react-icons/im'
 import { CgGames } from 'react-icons/cg'
 import { GiCrossedPistols } from 'react-icons/gi'
-import { Link, NavLink } from 'react-router-dom';
-
-
+import { NavLink } from 'react-router-dom';
 
 function MenuBar(props) {
    
