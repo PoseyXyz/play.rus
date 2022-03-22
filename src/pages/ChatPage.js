@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { FaSearch, FaUserFriends, FaPaperPlane, FaPhotoVideo, FaSmile } from 'react-icons/fa'
 import chatData from '../data/chatData'
 import ChatListPane from '../components/ChatListPane';
 import ChatHistoryPane from '../components/ChatHistoryPane';

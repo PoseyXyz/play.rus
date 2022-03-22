@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaSearch, FaUserFriends, FaPaperPlane, FaPhotoVideo, FaSmile } from 'react-icons/fa'
+import { FaSearch, FaUserFriends } from 'react-icons/fa'
 
 function ChatListPane({currentChat, setCurrentChat, chats}) {
     return (

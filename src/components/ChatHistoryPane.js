@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaSearch, FaUserFriends, FaPaperPlane, FaPhotoVideo, FaSmile } from 'react-icons/fa'
+import { FaPaperPlane, FaPhotoVideo, FaSmile } from 'react-icons/fa'
 import {BiDotsVerticalRounded} from 'react-icons/bi'
 
 function ChatHistoryPane({currentChat, chats}) {
