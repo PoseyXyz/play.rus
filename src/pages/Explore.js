@@ -10,38 +10,32 @@ function Explore(props) {
     let params = useParams()
     let navigate = useNavigate()
 
+    //effect lifecycle to set current page/pagination value on page mount/dismount
     useEffect(()=>{
         setCurrentPage(1)
 
+        //cleanup function to set pagination value back to 1 when page is unmounted
         return ()=>{
             setCurrentPage(1)
         }
     }, [])
 
+    //effect lifecycle to set current page/pagination value based on user selected page number (page number is being automatically obtained from route link through react router 6's useParams hook)
     useEffect(()=>{
         if (params.pageNumber){
             setCurrentPage(parseInt(params.pageNumber))
         }else{
             setCurrentPage(1)
         }
-    }, [params.pageNumber])
-
-   
-
-
+    }, [params.pageNumber]) 
 
     return (
         <div className="outlet-layout">
-
+           {/* ternary operator displaying spinner component on page load while api data is being fetched and displaying results after results are fully fecthed  */}
             {spinner ? <p className="text-white text-7xl">Please wait...</p> :
-                <>
-                   
-                    
-                    <Sort/>
-
-                    
+                <>                   
+                    <Sort/>                   
                     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-
                         {test && test.results.map(result => {
                            
                             return (
@@ -52,6 +46,7 @@ function Explore(props) {
                     </div>
                     <div className="w-full flex items-center justify-center my-4 px-4">
                         <div className="flex gap-4">
+                            {/* displaying pagination range value and navigating to new route based on user's selected page number */}
                             {paginationRange.map(range => {
                                 return range === "..." ? <p key={range} className="text-white text-lg self-center">...</p>
                                     :

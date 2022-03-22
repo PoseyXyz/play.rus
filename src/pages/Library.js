@@ -4,8 +4,6 @@ import SectionEmpty from '../components/SectionEmpty';
 import { GameContext } from '../Context';
 
 
-
-
 function Library() {
     const { librarySections, parseRatingColour, parsePlatform } = useContext(GameContext)
     const [currentKey, setCurrentKey] = useState('uncategorized')

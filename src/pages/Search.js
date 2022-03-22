@@ -3,20 +3,7 @@ import { FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
 import { GameContext } from '../Context';
 
-
-
-function Search(props) {
-    // const [data, setData] = useState({
-    //     searchString:''
-    // })
-    // const onChange=(e)=>{
-    //     const name = e.currentTarget.name
-    //     const value = e.currentTarget.value
-    //     setData({
-    //         ...data,
-    //         [name]:value
-    //     })
-    // }
+function Search() {
     const { formData, setFormData, onChange, searchResults, parsePlatformIcons, searchSpinner } = useContext(GameContext)
 
     return (
@@ -48,13 +35,6 @@ function Search(props) {
                 }) : <p>Could not find any games that match</p>}
 
             </div>
-
-            {/* {
-                data.searchString.length===0? <div className='flex justify-center flex-col my-4 items-center lg:text-lg'>
-                <img src={svg} className="h-1/3 w-1/3" alt="Not found in library emoji" />
-                <p>Seems like there are no games here</p>
-            </div>:<p>{data.searchString}</p>
-            } */}
         </div>
     );
 }

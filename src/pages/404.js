@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
-function NotFound(props) {
+function NotFound() {
     return (
         <div className="h-screen w-screen relative">
             <img src={require('../images/notfound/404.png')} className="absolute z-10 h-screen w-screen object-cover" alt="404_image"/>

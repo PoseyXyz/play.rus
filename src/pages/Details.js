@@ -7,8 +7,9 @@ import { FaStar } from 'react-icons/fa'
 import image1 from '../images/friends/one.png'
 import image2 from '../images/friends/two.png'
 import image3 from '../images/friends/three.png'
+import userImage from '../images/profilehead.jpg'
 
-
+//function to set width of each rectangle in the reactions section based on the percentage value provided by api
 function parseReactions(reactionTitle, reactionPercentage) {
     if (reactionTitle === 'recommended') {
         return `${reactionPercentage}%`
@@ -21,6 +22,7 @@ function parseReactions(reactionTitle, reactionPercentage) {
     }
 }
 
+//function to set the colour for each reaction rectangle in the reactions bar
 function parseReactionsColor(reactionTitle) {
     if (reactionTitle === 'recommended') {
         return `bg-blue-500`
@@ -33,15 +35,15 @@ function parseReactionsColor(reactionTitle) {
     }
 }
 
-function parseMetacriticRating(rating) {
-    if (rating < 50) {
-        return 'text-red-500 border-red-500'
-    } else if (rating >= 50 && rating < 70) {
-        return 'text-orange-500 border-orange-500'
-    } else if (rating >= 70) {
-        return 'text-green-500 border-green-500'
-    }
-}
+// function parseMetacriticRatingColor(rating) {
+//     if (rating < 50) {
+//         return 'text-red-500 border-red-500'
+//     } else if (rating >= 50 && rating < 70) {
+//         return 'text-orange-500 border-orange-500'
+//     } else if (rating >= 70) {
+//         return 'text-green-500 border-green-500'
+//     }
+// }
 
 
 function Details(props) {
@@ -73,6 +75,8 @@ function Details(props) {
     const [loading, setLoading] = useState(false)
 
     let { slug } = useParams()
+
+    //fetch API call to retrive game data based on slug parameter in route link
     const fetchDetails = async () => {
         setLoading(true)
         const data = await fetch(`https://api.rawg.io/api/games/${slug}?key=9df1bae5b88947458cc8431730fbfd9f`)
@@ -86,15 +90,17 @@ function Details(props) {
     useEffect(() => {
         fetchDetails()
     }, [slug])
+
     const { name, released, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores, ratings, tags, publishers, developers } = result
     const { parsePlatformIcons, parseStoreIcons, onChange, formData } = useContext(GameContext)
 
+    //function to handle new review post
     const postReview = (reviewPost) => {
         let tempReviews = [...reviews]
         let newReview = {
             id: tempReviews.length + 1,
             name: 'You',
-            imageUrl: image2,
+            imageUrl: userImage,
             no_of_stars: parseInt(reviewPost.sliderValue),
             comment: reviewPost.review
 
@@ -119,42 +125,14 @@ function Details(props) {
                     <h1 className='text-white font-bold text-3xl my-3 text-center tracking-wide underline'>{name}</h1>
 
                 </div>
-                {/* <div className='rounded-md overlay-lighter flex gap-3 absolute bottom-8 z-10 w-5/6 h-1/5 px-12 '>
-                    <div className='flex flex-col gap-2 justify-center'>
-                        <h3 className='text-white font-bold text-2xl'>{name}</h3>
-                        <div className='flex gap-6'>
-                <div className='flex flex-col gap-2'>
-                    <span className='text-typography-grey text-sm'>Metacritic:</span>
-                    <p className={`${parseMetacriticRating(metacritic)} self-center border-2 py-2 px-4 rounded-lg`}>{metacritic}</p>
-                </div>
-                <div className='flex flex-col gap-2'>
-                    <span className='text-typography-grey text-sm'>Release date:</span>
-                    <p>{released}</p>
-                </div>
-                <div className='flex flex-col gap-2'>
-                    <span className='text-typography-grey text-sm'>Average Rating:</span>
-                    <p className={`${parseRatingColour(rating)} border-2 self-start py-2 px-4 rounded-lg`}>{rating}</p>
-                </div>
-                <div className='flex flex-col gap-2'>
-                    <span className='text-typography-grey text-sm'>Playtime:</span>
-                    <p>{playtime} hrs</p>
-                </div>
-                
+               
             </div>
-                
-            <div className='flex'>
-                        <a href={website} className="bg-brand-purple rounded-xl px-4 py-3">Visit website</a>
-                    </div>
-                    </div>
-                   
-                </div> */}
-            </div>
-            {/* <button onClick={() => console.log(result)}>Click</button> */}
+          
 
 
             <section className='lg:px-8 flex gap-4 flex-col'>
 
-                {/* minor info */}
+                {/* summary */}
                 <div className='details_section-div'>
                     <div className='flex flex-wrap items-center text-xs sm:text-base gap-4 justify-around'>
                         <span className='flex flex-col items-center gap-2 text-center'>
@@ -232,7 +210,7 @@ function Details(props) {
                 </div>
 
 
-                {/* //description */}
+                {/* //description section */}
                 <div className='details_section-div'>
                     <h2 className='text-2xl font-bold'>About</h2>
                     <div className='flex gap-4 my-6 flex-wrap'>
@@ -303,7 +281,7 @@ function Details(props) {
 
                 </div>
 
-                {/* Additional information             */}
+                {/* Additional information */}
                 <div className='details_section-div flex flex-col gap-4'>
                     <h2 className='text-2xl font-bold'>Additional Information</h2>
                     <div>
@@ -410,15 +388,3 @@ function Details(props) {
 
 export default Details;
 
-// name
-// metacritic
-// released
-// website
-// rating
-// playtime
-// platforms
-// reddit description
-// esrb rating
-// description(genres)
-// similar games
-// requirements

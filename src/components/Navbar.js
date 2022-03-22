@@ -1,26 +1,25 @@
 import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaBars, FaBell, FaHamburger } from 'react-icons/fa'
+import { FaBars, FaBell } from 'react-icons/fa'
 import { GameContext } from '../Context';
-import Sidebar from './Sidebar';
 import Search from '../pages/Search';
 
-function ChangeTitle() {
-    const location = useLocation()
-    switch (location.pathname) {
-        case '/recents':
-            return 'Recents';
-        case '/alt':
-            return 'Admin';
-        default:
-            return 'Explore';
-    }
+// function ChangeTitle() {
+//     const location = useLocation()
+//     switch (location.pathname) {
+//         case '/recents':
+//             return 'Recents';
+//         case '/alt':
+//             return 'Admin';
+//         default:
+//             return 'Explore';
+//     }
 
-}
+// }
 
 function Nav(props) {
     const { sideBarOpen, setSideBarOpen } = useContext(GameContext)
-    let title = ChangeTitle()
+    // let title = ChangeTitle()
     
     return (
         <nav className="grid grid-cols-10 bg-black-v1 px-4 text-white py-3 gap-4 items-center fixed z-20 mb-4 top-0 box-border rounded-r-lg">

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import FriendsBar from '../components/FriendsBar';
 import MenuBar from '../components/MenuBar';
 import Navbar from '../components/Navbar';

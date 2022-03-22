@@ -4,6 +4,7 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom'
 import Layout from './pages/Layout';
 import NotFound from './pages/404';
+//lazy loading imports
 const Explore = lazy(() => import('./pages/Explore'));
 const Recents = lazy(() => import('./pages/Recents'));
 const Library = lazy(() => import('./pages/Library'))
@@ -15,11 +16,11 @@ const GamesList = lazy(() => import('./categories/GamesList'))
 const Details = lazy(()=>import('./pages/Details'))
 const ChatPage = lazy(()=>import('./pages/ChatPage'))
 
-
 function App() {
-
   return (
+    //React suspense to display fallback component on page load
     <Suspense fallback={<h1 className="text-green-700 text-7xl">Loading...</h1>}>
+      {/* declaration of all route paths */}
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Explore />} />
@@ -36,9 +37,6 @@ function App() {
           <Route path='/details/:slug' element={<Details/>}/>
         </Route>
         <Route path="*" element={<NotFound />} />
-
-        {/* loading
-     error page */}
       </Routes>
     </Suspense>
   );
