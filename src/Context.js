@@ -54,7 +54,8 @@ const GameProvider = ({ children }) => {
     const [formData, setFormData] = useState({
         searchString: '',
         review: '',
-        sliderValue: 1
+        sliderValue: 1,
+        sortValue:''
     })
 
     //hook to determine if game search results are fully populated or not
