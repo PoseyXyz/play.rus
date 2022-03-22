@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { FaBell, FaTimesCircle, FaUserFriends } from 'react-icons/fa';
 import { FaCode, FaDownload, FaHistory, FaHome, FaSignOutAlt } from 'react-icons/fa'
 import { ImBooks } from 'react-icons/im'

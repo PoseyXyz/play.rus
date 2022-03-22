@@ -11,8 +11,8 @@ function Platforms(props) {
     return (
         <div className='outlet-layout'>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
-                {platforms && platforms.map(genre => (
-                    <MiniCard key={genre.id} result={genre} fetchGamesList={fetchGamesList} type={'platforms'} />
+                {platforms && platforms.map(platform => (
+                    <MiniCard key={platform.id} result={platform} fetchGamesList={fetchGamesList} type={'platforms'} />
                 ))}
             </div>
         </div>

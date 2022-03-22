@@ -73,7 +73,7 @@ function ChatPage(props) {
                             return (
                                 <>
                                     {/* header */}
-                                    <div className='flex justify-between items-center lg:pr-4'>
+                                    <div className='flex justify-between items-center lg:pr-4' key={id}>
 
                                         <div className={`flex flex-col lg:flex-row gap-4 p-3 rounded-md`} key={id}>
 

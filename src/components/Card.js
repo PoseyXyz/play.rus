@@ -30,7 +30,7 @@ function Card({ result, parsePlatform, parseRatingColour }) {
 
 
                     <div className="flex flex-wrap gap-3 text-lg">
-                        {parent_platforms.map(platform => <div className="text-typography-white">
+                        {parent_platforms.map(platform => <div key={platform.platform.name} className="text-typography-white">
                             <i>{parsePlatform(platform.platform.name)}</i>
                         </div>)}
                     </div>

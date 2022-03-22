@@ -70,13 +70,16 @@ function Details(props) {
             comment: 'Eiusmod aliqua ipsum ut magna duis amet exercitation labore. Cupidatat magna enim do quis proident Lorem. Esse et sunt ut esse incididunt mollit cupidatat. Irure ex fugiat nisi id laborum dolore deserunt aute minim excepteur reprehenderit. Consequat minim magna laboris tempor proident magna dolor et officia non amet cillum eiusmod. Nisi reprehenderit incididunt ea eiusmod minim excepteur nisi aliqua elit ex. Velit id ullamco aliqua tempor excepteur nostrud nulla dolore laborum excepteur non cillum consectetur.'
         }
     ])
+    const [loading, setLoading] = useState(false)
 
     let { slug } = useParams()
     const fetchDetails = async () => {
+        setLoading(true)
         const data = await fetch(`https://api.rawg.io/api/games/${slug}?key=9df1bae5b88947458cc8431730fbfd9f`)
         const res = await data.json()
         setResult(res)
         console.log(result);
+        setLoading(false)
     }
 
 
@@ -102,9 +105,10 @@ function Details(props) {
 
     return (
         <section className='outlet-layout px-12 flex gap-4 flex-col'>
-          
-            
-            <div className='flex flex-col justify-center relative items-center'>
+
+            {
+                loading ? <h1 className='text-7xl'>Loading, please wait...</h1>:<>
+                       <div className='flex flex-col justify-center relative items-center'>
                 {/* <p>{result.genres[0].name}</p> */}
                 <LazyLoadImage
                     className="rounded-xl object-cover self-center"
@@ -112,8 +116,8 @@ function Details(props) {
                     src={background_image} />
                 <div className='absolute top-0 right-0 overlay-lighter w-full h-full roounded-t-xl'></div>
                 <div className='absolute items-center justify-center z-10 w-full '>
-                <h1 className='text-white font-bold text-3xl my-3 text-center tracking-wide underline'>{name}</h1>
-                
+                    <h1 className='text-white font-bold text-3xl my-3 text-center tracking-wide underline'>{name}</h1>
+
                 </div>
                 {/* <div className='rounded-md overlay-lighter flex gap-3 absolute bottom-8 z-10 w-5/6 h-1/5 px-12 '>
                     <div className='flex flex-col gap-2 justify-center'>
@@ -146,74 +150,74 @@ function Details(props) {
                 </div> */}
             </div>
             {/* <button onClick={() => console.log(result)}>Click</button> */}
-           
+
 
             <section className='lg:px-8 flex gap-4 flex-col'>
 
                 {/* minor info */}
-            <div className='details_section-div'>
-                <div className='flex flex-wrap items-center gap-4 justify-around'>
-                    <span className='flex flex-col items-center gap-2 text-center'>
-                        <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
-                            {rating}
+                <div className='details_section-div'>
+                    <div className='flex flex-wrap items-center gap-4 justify-around'>
+                        <span className='flex flex-col items-center gap-2 text-center'>
+                            <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
+                                {rating}
+                            </span>
+                            <span className='max-w-prose'>
+                                Avg Rating
+                            </span>
                         </span>
-                        <span className='max-w-prose'>
-                            Avg Rating
+                        <span className='flex flex-col items-center gap-2'>
+                            <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
+                                {metacritic}
+                            </span>
+                            <span>
+                                Metacritic
+                            </span>
                         </span>
-                    </span>
-                    <span className='flex flex-col items-center gap-2'>
-                        <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
-                            {metacritic}
+                        <span className='flex flex-col items-center gap-2'>
+                            <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
+                                {playtime} hrs
+                            </span>
+                            <span>
+                                Playtime
+                            </span>
                         </span>
-                        <span>
-                            Metacritic
-                        </span>
-                    </span>
-                    <span className='flex flex-col items-center gap-2'>
-                        <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
-                            {playtime} hrs
-                        </span>
-                        <span>
-                            Playtime
-                        </span>
-                    </span>
 
-                    <span className='flex flex-col items-center gap-2'>
-                        <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
-                            {parent_platforms && parent_platforms.length}
+                        <span className='flex flex-col items-center gap-2'>
+                            <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
+                                {parent_platforms && parent_platforms.length}
+                            </span>
+                            <span>
+                                Platforms
+                            </span>
                         </span>
-                        <span>
-                            Platforms
-                        </span>
-                    </span>
 
-                    <span className='flex flex-col items-center gap-2'>
-                        <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
-                            {stores && stores.length}
+                        <span className='flex flex-col items-center gap-2'>
+                            <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
+                                {stores && stores.length}
+                            </span>
+                            <span>
+                                Stores
+                            </span>
                         </span>
-                        <span>
-                            Stores
-                        </span>
-                    </span>
 
-                    <span className='flex flex-col items-center gap-2'>
-                        <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
-                            {publishers && publishers.length}
+                        <span className='flex flex-col items-center gap-2'>
+                            <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
+                                {publishers && publishers.length}
+                            </span>
+                            <span>
+                                Publishers
+                            </span>
                         </span>
-                        <span>
-                            Publishers
-                        </span>
-                    </span>
 
-                    <span className='flex flex-col items-center gap-2'>
-                        <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
-                            {developers && developers.length}
+                        <span className='flex flex-col items-center gap-2'>
+                            <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
+                                {developers && developers.length}
+                            </span>
+                            <span>
+                                Developers
+                            </span>
                         </span>
-                        <span>
-                            Developers
-                        </span>
-                    </span>
-                    {/* {parent_platforms && result.parent_platforms.map(platform => <span className='flex flex-col items-center gap-2 text-center'>
+                        {/* {parent_platforms && result.parent_platforms.map(platform => <span className='flex flex-col items-center gap-2 text-center'>
 
                         <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
                             {parsePlatform(platform.platform.name)}
@@ -224,17 +228,17 @@ function Details(props) {
                     </span>)} */}
 
 
+                    </div>
                 </div>
-            </div>
 
 
                 {/* //description */}
                 <div className='details_section-div'>
                     <h2 className='text-2xl font-bold'>About</h2>
                     <div className='flex gap-4 my-6 flex-wrap'>
-                   
+
                         {genres && genres.map(genre => (
-                            <div className='rounded-lg text-white text-sm border border-brand-purple py-2.5 px-6'>{genre.name}</div>
+                            <div key={genre.name} className='rounded-lg text-white text-sm border border-brand-purple py-2.5 px-6'>{genre.name}</div>
                         ))}
                     </div>
                     <p className='leading-relaxed text-typography-grey tracking-wide'>{description_raw}</p>
@@ -249,7 +253,7 @@ function Details(props) {
                         <div className='flex gap-4 my-6 flex-wrap'>
                             {parent_platforms && parent_platforms.map(platform => (
                                 <>
-                                    <div className='rounded-lg text-white text-sm md:text-base border border-brand-purple  overlay-lighter py-2.5 px-6 flex gap-4 items-center'>
+                                    <div key={platform.platform.name} className='rounded-lg text-white text-sm md:text-base border border-brand-purple  overlay-lighter py-2.5 px-6 flex gap-4 items-center'>
                                         <i className='text-brand-purple'>{parsePlatform(platform.platform.name)}</i>
                                         <p>{platform.platform.name}</p>
                                     </div>
@@ -265,7 +269,7 @@ function Details(props) {
                         <div className='flex gap-4 my-6 flex-wrap'>
                             {stores && stores.map(store => (
                                 <>
-                                    <div className='rounded-lg text-white text-sm md:text-base border border-brand-purple  overlay-lighter py-2.5 px-6 flex gap-4 items-center'>
+                                    <div key={store.store.slug} className='rounded-lg text-white text-sm md:text-base border border-brand-purple  overlay-lighter py-2.5 px-6 flex gap-4 items-center'>
                                         <i className='text-brand-purple'>{parseStore(store.store.slug)}</i>
                                         <p>{store.store.name}</p>
                                     </div>
@@ -283,11 +287,11 @@ function Details(props) {
                 <div className='details_section-div'>
                     <h2 className='text-2xl font-bold'>Reactions</h2>
                     <div className='bg-red-500 my-6 h-12 w-full flex '>
-                        {ratings && ratings.map(rating => <div style={{ width: parseReactions(rating.title, rating.percent) }} className={`${parseReactionsColor(rating.title)} p-4`}></div>)}
+                        {ratings && ratings.map((rating, index) => <div key={index} style={{ width: parseReactions(rating.title, rating.percent) }} className={`${parseReactionsColor(rating.title)} p-4`}></div>)}
 
                     </div>
                     <div className='flex flex-col md:flex-row justify-around'>
-                        {ratings && ratings.map(rating => <div className={`p-4 flex flex-col md:items-center gap-2 capitalize`}>
+                        {ratings && ratings.map((rating, index) => <div key={index} className={`p-4 flex flex-col md:items-center gap-2 capitalize`}>
 
                             <p className='text-sm text-typography-grey'>{rating.count} ({rating.percent}%)</p>
                             <div className='flex items-center gap-2'>
@@ -312,14 +316,14 @@ function Details(props) {
                     <div>
                         <h4 className='text-typography-grey text-sm'>Publishers</h4>
                         <div className='flex gap-4 flex-wrap'>
-                            {publishers && publishers.map(publisher => <p>{publisher.name}</p>)}
+                            {publishers && publishers.map(publisher => <p key={publisher.name}>{publisher.name}</p>)}
                         </div>
                     </div>
-                    
+
                     <div>
                         <h4 className='text-typography-grey text-sm'>Developers</h4>
                         <div className='flex gap-2 flex-wrap'>
-                            {developers && developers.map(developer => <p>{developer.name}</p>)}
+                            {developers && developers.map(developer => <p key={developer.name}>{developer.name}</p>)}
                         </div>
                     </div>
                     <div>
@@ -331,7 +335,7 @@ function Details(props) {
                     <div>
                         <h4 className='text-typography-grey text-sm'>Tags</h4>
                         <div className='flex gap-2 flex-wrap'>
-                            {tags && tags.map(tag => <p className='underline'>{tag.name},</p>)}
+                            {tags && tags.map(tag => <p key={tag.name} className='underline'>{tag.name},</p>)}
                         </div>
                     </div>
                 </div>
@@ -393,6 +397,10 @@ function Details(props) {
             <button onClick={fetchDetails}>Click me</button> */}
 
             </section>
+                </>
+            }
+
+         
 
 
 

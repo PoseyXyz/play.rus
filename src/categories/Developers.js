@@ -11,8 +11,8 @@ function Developers(props) {
     return (
         <div className='outlet-layout'>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
-                {developers && developers.map(genre => (
-                    <MiniCard key={genre.id} result={genre} fetchGamesList={fetchGamesList} type={'developers'}/>
+                {developers && developers.map(developer => (
+                    <MiniCard key={developer.id} result={developer} fetchGamesList={fetchGamesList} type={'developers'}/>
                 ))}
             </div>
         </div>

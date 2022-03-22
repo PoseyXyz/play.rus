@@ -31,14 +31,14 @@ function GamesList(props) {
                     <>
 
                         <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6'>
-                            {gamesList && gamesList.map(result => <Card result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour} />)}
+                            {gamesList && gamesList.map(result => <Card key={result.slug} result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour} />)}
                         </div>
                         <div className="w-full flex items-center justify-center my-4 px-4">
                             <div className="flex gap-4">
                                 {paginationRange.map(range => {
-                                    return range === "..." ? <p className="text-white text-lg self-center">...</p>
+                                    return range === "..." ? <p key={range} className="text-white text-lg self-center">...</p>
                                         :
-                                        <button onClick={() => { setCurrentPage(range); navigate(`/games/${category}/${range}`) }} className={`${currentPage === range ? 'text-white bg-brand-purple' : 'text-white'} text-lg py-2 px-4 rounded-lg hover:text-brand-purple duration-100`}>{range}</button>
+                                        <button key={range} onClick={() => { setCurrentPage(range); navigate(`/games/${category}/${range}`) }} className={`${currentPage === range ? 'text-white bg-brand-purple' : 'text-white'} text-lg py-2 px-4 rounded-lg hover:text-brand-purple duration-100`}>{range}</button>
                                 })}
                             </div>
                         </div></>

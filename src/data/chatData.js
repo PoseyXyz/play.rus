@@ -46,11 +46,6 @@ const chatData =    [
                 user: false,
                 message: "I bet they all think you're a cheater"
             },
-            {
-                id: 9,
-                user: true,
-                message: "Drop me a message when next you're available"
-            },
            
         ]
     },
@@ -94,7 +89,7 @@ const chatData =    [
                 user: true,
                 message: "Lol Ggs!"
             }, {
-                id: 9,
+                id: 8,
                 user: false,
                 message: "I bet they all think you're a cheater"
             },
