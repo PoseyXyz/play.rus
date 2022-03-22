@@ -3,18 +3,9 @@ import { GameContext } from '../Context';
 
 
 function Sort(props) {
-    const [data, setData] = useState({
-        sortValue: '',
-    });
+   
     const {sortGames, onChange, formData} = useContext(GameContext)
-    // const onChange = (e) => {
-    //     const value = e.currentTarget.value
-    //     const name = e.currentTarget.name
-    //     setData({
-    //         ...data,
-    //         [name]: value
-    //     })
-    // }
+   
 
     const sortOptions = [{
         title: 'Name',
