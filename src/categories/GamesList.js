@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Card from '../components/Card';
+import Loader from '../components/Loader';
 import { GameContext } from '../Context';
 
 function GamesList(props) {
@@ -31,7 +32,7 @@ function GamesList(props) {
     return (
         <div className='outlet-layout'>
             {
-                spinner ? <p>Please wait</p>
+                spinner ? <Loader/>
                     :
                     <>
 

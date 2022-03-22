@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { GameContext } from '../Context';
 import Card from '../components/Card';
 import Sort from '../components/Sort';
+import Loader from '../components/Loader';
 
 
 function Explore(props) {
@@ -33,11 +34,7 @@ function Explore(props) {
         <div className="outlet-layout">
            {/* ternary operator displaying spinner component on page load while api data is being fetched and displaying results after results are fully fecthed  */}
             {spinner ? 
-                <div className="spinner">
-    <div className="double-bounce1"></div>
-    <div className="double-bounce2"></div>
-  
-            </div> :
+                <Loader/> :
                 <>                   
                     <Sort/>                   
                     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">

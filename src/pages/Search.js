@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
+import Loader from '../components/Loader';
 import { GameContext } from '../Context';
 
 function Search() {
@@ -21,7 +22,7 @@ function Search() {
 
             </div>
             <div className={`${formData.searchString.length === 0 ? 'hidden' : 'flex'} bg-black-v3 w-full absolute my-2 chat-history overflow-y-auto rounded-xl p-4 flex-col gap-2`}>
-                {searchSpinner ? <p className="text-white text-lg">Please wait...</p> : searchResults ? searchResults.results.map(result => {
+                {searchSpinner ? <Loader/> : searchResults ? searchResults.results.map(result => {
                     const { id, slug, background_image, name, parent_platforms } = result
                     return <Link to={`/details/${slug}`} key={id} onClick={()=>setFormData({...formData, searchString:''})} className='flex gap-3 py-2 items-center border-b-2 hover:border-brand-purple delay-75 duration-200'>
                         <div className=''><img className='rounded-md w-16 h-16' src={background_image}/></div>

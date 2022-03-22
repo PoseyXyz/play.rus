@@ -8,6 +8,7 @@ import image1 from '../images/friends/one.png'
 import image2 from '../images/friends/two.png'
 import image3 from '../images/friends/three.png'
 import userImage from '../images/profilehead.jpg'
+import Loader from '../components/Loader';
 
 //function to set width of each rectangle in the reactions section based on the percentage value provided by api
 function parseReactions(reactionTitle, reactionPercentage) {
@@ -112,7 +113,7 @@ function Details(props) {
         <section className='outlet-layout px-12 flex gap-4 flex-col'>
 
             {
-                loading ? <h1 className='text-7xl'>Loading, please wait...</h1>:<>
+                loading ? <Loader/>:<>
                        <div className='flex flex-col justify-center relative items-center'>
                 {/* <p>{result.genres[0].name}</p> */}
                 <LazyLoadImage

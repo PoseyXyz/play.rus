@@ -72,6 +72,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   height: 76vh;
 }
 
+/*loading spinner*/
 .spinner {
   width: 100px;
   height: 100px;

@@ -4,6 +4,7 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom'
 import Layout from './pages/Layout';
 import NotFound from './pages/404';
+import Loader from './components/Loader';
 //lazy loading page routes
 const Explore = lazy(() => import('./pages/Explore'));
 const Recents = lazy(() => import('./pages/Recents'));
@@ -19,10 +20,7 @@ const ChatPage = lazy(()=>import('./pages/ChatPage'))
 function App() {
   return (
     //React suspense to display fallback component on page load
-    <Suspense fallback={<div class="spinner">
-    <div class="double-bounce1"></div>
-    <div class="double-bounce2"></div>
-  </div>}>
+    <Suspense fallback={<Loader/>}>
       {/* declaration of all route paths */}
       <Routes>
         <Route path='/' element={<Layout />}>
