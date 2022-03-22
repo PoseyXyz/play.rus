@@ -6,15 +6,15 @@ function Sort(props) {
     const [data, setData] = useState({
         sortValue: '',
     });
-    const {sortGames} = useContext(GameContext)
-    const onChange = (e) => {
-        const value = e.currentTarget.value
-        const name = e.currentTarget.name
-        setData({
-            ...data,
-            [name]: value
-        })
-    }
+    const {sortGames, onChange, formData} = useContext(GameContext)
+    // const onChange = (e) => {
+    //     const value = e.currentTarget.value
+    //     const name = e.currentTarget.name
+    //     setData({
+    //         ...data,
+    //         [name]: value
+    //     })
+    // }
 
     const sortOptions = [{
         title: 'Name',
@@ -29,8 +29,8 @@ function Sort(props) {
         value: 'rating'
     }]
     useEffect(()=>{
-        sortGames(data.sortValue)
-    }, [data])
+        sortGames(formData.sortValue)
+    }, [formData.sortValue])
     return (
         <div className='flex items-center my-4 text-lg'>
            <div className='form-group flex gap-3 items-center'>
