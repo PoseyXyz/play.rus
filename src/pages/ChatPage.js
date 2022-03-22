@@ -42,7 +42,7 @@ function ChatPage(props) {
                             return (
                                 <button className={`${currentChat === id ? 'border-brand-purple shadow-lg' : 'border-transparent'} hover:bg-brand-purple group mr-4 duration-300 border-l-4 flex flex-col lg:flex-row gap-4 post-box p-3 rounded-md`} onClick={() => setCurrentChat(id)} key={id}>
 
-                                    <img src={imageUrl} className='rounded-full w-10 h-10' />
+                                    <img src={imageUrl} className='rounded-full w-10 h-10' alt="friend_avatar" />
                                     <div className='flex flex-col gap-1 w-full'>
                                         <span className='flex gap-2 justify-between items-center'><span className='text-sm'>{name}</span><span className='flex text-xs text-typography-grey group-hover:text-white font-medium'>22:30</span></span>
                                         <p className='text-typography-grey group-hover:text-white text-sm text-left tracking-wide leading-6'>{chatHistory[chatHistory.length - 1].message}</p>

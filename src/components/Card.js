@@ -17,6 +17,7 @@ function Card({ result, parsePlatform, parseRatingColour }) {
                 <LazyLoadImage
                     className="rounded-t-xl h-full w-screen object-cover"
                     height={'100%'}
+                    alt='gameCard_image'
                     effect="blur"
                     src={background_image} />
                 {/* <img src={background_image} /> */}
