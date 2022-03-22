@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FriendsPane(props) {
+function ChatListPane(props) {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function FriendsPane(props) {
     );
 }
 
-export default FriendsPane;
+export default ChatListPane;
