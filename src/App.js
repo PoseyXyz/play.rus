@@ -3,7 +3,7 @@ import './App.css';
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom'
 import Layout from './pages/Layout';
-import NotFound from './components/NotFound';
+import NotFound from './components/404';
 const Explore = lazy(() => import('./pages/Explore'));
 const Recents = lazy(() => import('./pages/Recents'));
 const Library = lazy(() => import('./pages/Library'))
