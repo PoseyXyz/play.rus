@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { FaBars, FaBell } from 'react-icons/fa'
 import { GameContext } from '../Context';
 import Search from '../pages/Search';
@@ -23,7 +22,7 @@ function Nav(props) {
     
     return (
         <nav className="grid grid-cols-10 bg-black-v1 px-4 text-white py-3 gap-4 items-center fixed z-20 mb-4 top-0 box-border rounded-r-lg">
-            <div className="col-span-2 flex items-center justify-center"><img src={require('../images/logo.png')} className="w-2/5 md:w-1/4" /></div>
+            <div className="col-span-2 flex items-center justify-center"><img src={require('../images/logo.png')} alt='logo' className="w-2/5 md:w-1/4" /></div>
             <div className="col-span-6 pr-2 md:col-span-7 gap-4 md:pr-12 flex justify-center md:justify-between items-center border-r border-typography-grey">
                 {/* <h3 className="text-typography-grey text-xl font-bold">{title}</h3> */}
                 <Search />
@@ -42,7 +41,7 @@ function Nav(props) {
                 </div>
             </div>
 
-            <div className="col-span-2 md:col-span-1 flex justify-center items-center gap-6"><img src={require('../images/profilehead.png')} className="w-2/5 hidden sm:block md:w-1/3 border-4 border-t-0 border-r-0 border-brand-purple rounded-full p-1" />
+            <div className="col-span-2 md:col-span-1 flex justify-center items-center gap-6"><img src={require('../images/profilehead.png')} alt='profile head' className="w-2/5 hidden sm:block md:w-1/3 border-4 border-t-0 border-r-0 border-brand-purple rounded-full p-1" />
                 <button onClick={() => setSideBarOpen(!sideBarOpen)} className="block md:hidden text-xl cursor-pointer"><FaBars /></button>
             </div>
 

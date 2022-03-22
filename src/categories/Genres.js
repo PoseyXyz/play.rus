@@ -1,8 +1,8 @@
-import React, { useEffect, useContext, setState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { GameContext } from '../Context';
 import MiniCard from './MiniCard';
 
-function Genres(props) {
+function Genres() {
     const { fetchGenres, categoryList: { genres }, fetchGamesList, setPageType } = useContext(GameContext)
     useEffect(() => {
         fetchGenres()

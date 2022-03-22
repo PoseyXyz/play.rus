@@ -25,7 +25,7 @@ function ChatHistoryPane({currentChat, chats}) {
 
                                         <div className={`flex flex-col lg:flex-row gap-4 p-3 rounded-md`} key={id}>
 
-                                            <img src={imageUrl} className='rounded-full w-10 h-10' />
+                                            <img src={imageUrl} className='rounded-full w-10 h-10' alt='chat avatar' />
                                             <div className='flex flex-col gap-1'>
                                                 <span className='flex gap-2 justify-between items-center'><span className='text-sm'>{name}</span></span>
                                                 <p className='text-typography-grey text-xs text-left tracking-wide leading-6'>{online ? 'Online' : 'Offline'}</p>

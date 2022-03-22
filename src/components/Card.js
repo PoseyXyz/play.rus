@@ -1,6 +1,6 @@
 import React, { useContext, } from 'react';
 import { FaCalendar, FaClock, FaPlus, FaTimesCircle, FaCheck } from 'react-icons/fa';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { Link } from 'react-router-dom';
 import { GameContext } from '../Context';
@@ -11,7 +11,7 @@ import playedIcon from '../images/miniIcons/played.png'
 import uncategorizedIcon from '../images/miniIcons/uncategorized.png'
 
 
-function Card({ result, parsePlatformIcons, parseRatingColour }) {
+function Card({ result, parsePlatformIcons, parseRatingColour, scrollPosition }) {
     const { id, slug, background_image, name, parent_platforms, rating, released, playtime, libraryOptionsOpen, section, inLibrary } = result
     const { parseRecents, addToLibrary, librarySections, toggleLibraryOptions, removeFromLibrary } = useContext(GameContext)
     const popupIcons = [uncategorizedIcon, currently_playingIcon, completedIcon, playedIcon, not_playedIcon]
@@ -24,6 +24,7 @@ function Card({ result, parsePlatformIcons, parseRatingColour }) {
                     height={'100%'}
                     alt='gameCard_image'
                     effect="blur"
+                    scrollPosition={scrollPosition}
                     src={background_image} />
                 {/* <img src={background_image} /> */}
             </div>
@@ -78,5 +79,5 @@ function Card({ result, parsePlatformIcons, parseRatingColour }) {
     );
 }
 
-export default Card;
+export default trackWindowScroll(Card);
 

@@ -25,7 +25,7 @@ function Search() {
                 {searchSpinner ? <Loader/> : searchResults ? searchResults.results.map(result => {
                     const { id, slug, background_image, name, parent_platforms } = result
                     return <Link to={`/details/${slug}`} key={id} onClick={()=>setFormData({...formData, searchString:''})} className='flex gap-3 py-2 items-center border-b-2 hover:border-brand-purple delay-75 duration-200'>
-                        <div className=''><img className='rounded-md w-16 h-16' src={background_image}/></div>
+                        <div className=''><img className='rounded-md w-16 h-16' src={background_image} alt='search result'/></div>
                         <div className='flex flex-col gap-2'>
                             <p className="">{name}</p>
                             <div className="flex gap-3">
