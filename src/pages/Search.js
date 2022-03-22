@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
-import Card from '../components/Card';
 import { GameContext } from '../Context';
-import svg from '../images/notfound/emoji.svg'
+
 
 
 function Search(props) {
@@ -18,7 +17,7 @@ function Search(props) {
     //         [name]:value
     //     })
     // }
-    const { formData, setFormData, onChange, searchResults, parsePlatform, parseRatingColour, searchSpinner } = useContext(GameContext)
+    const { formData, setFormData, onChange, searchResults, parsePlatformIcons, searchSpinner } = useContext(GameContext)
 
     return (
         <div className={`${formData.searchString.length===0?'relative':' absolute left-0 lg:relative z-20'} w-full`}>
@@ -42,7 +41,7 @@ function Search(props) {
                         <div className='flex flex-col gap-2'>
                             <p className="">{name}</p>
                             <div className="flex gap-3">
-                                {parent_platforms.map(platform => <i key={platform.platform.name} className='text-typography-white'>{parsePlatform(platform.platform.name)}</i>)}
+                                {parent_platforms.map(platform => <i key={platform.platform.name} className='text-typography-white'>{parsePlatformIcons(platform.platform.name)}</i>)}
                             </div>
                         </div>
                     </Link>

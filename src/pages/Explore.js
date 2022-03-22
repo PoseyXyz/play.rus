@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { GameContext } from '../Context';
 import Card from '../components/Card';
@@ -6,7 +6,7 @@ import Sort from '../components/Sort';
 
 
 function Explore(props) {
-    const { test, currentPage, setCurrentPage, paginationRange, spinner, parsePlatform, parseRatingColour } = useContext(GameContext)
+    const { test, currentPage, setCurrentPage, paginationRange, spinner, parsePlatformIcons, parseRatingColour } = useContext(GameContext)
     let params = useParams()
     let navigate = useNavigate()
 
@@ -45,7 +45,7 @@ function Explore(props) {
                         {test && test.results.map(result => {
                            
                             return (
-                                    <Card key={result.slug} result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour}/>
+                                    <Card key={result.slug} result={result} parsePlatformIcons={parsePlatformIcons} parseRatingColour={parseRatingColour}/>
                                 )
                         })}
 

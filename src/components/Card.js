@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { GameContext } from '../Context';
 
 
-function Card({ result, parsePlatform, parseRatingColour }) {
+function Card({ result, parsePlatformIcons, parseRatingColour }) {
     const { id, slug, background_image, name, parent_platforms, rating, released, playtime, libraryOptionsOpen, section, inLibrary } = result
     const { parseRecents, addToLibrary, librarySections, toggleLibraryOptions, removeFromLibrary } = useContext(GameContext)
 
@@ -32,7 +32,7 @@ function Card({ result, parsePlatform, parseRatingColour }) {
 
                     <div className="flex flex-wrap gap-3 text-lg">
                         {parent_platforms.map(platform => <div key={platform.platform.name} className="text-typography-white">
-                            <i>{parsePlatform(platform.platform.name)}</i>
+                            <i>{parsePlatformIcons(platform.platform.name)}</i>
                         </div>)}
                     </div>
                 </div>

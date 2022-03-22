@@ -4,7 +4,7 @@ import Card from '../components/Card';
 import { GameContext } from '../Context';
 
 function GamesList(props) {
-    const { gamesList, parsePlatform, parseRatingColour, currentPage, setCurrentPage, paginationRange, spinner, fetchGamesList, pageType } = useContext(GameContext)
+    const { gamesList, parsePlatformIcons, parseRatingColour, currentPage, setCurrentPage, paginationRange, spinner, fetchGamesList, pageType } = useContext(GameContext)
     let navigate = useNavigate()
     let params = useParams()
     let { category, pageNumber } = params
@@ -31,7 +31,7 @@ function GamesList(props) {
                     <>
 
                         <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6'>
-                            {gamesList && gamesList.map(result => <Card key={result.slug} result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour} />)}
+                            {gamesList && gamesList.map(result => <Card key={result.slug} result={result} parsePlatformIcons={parsePlatformIcons} parseRatingColour={parseRatingColour} />)}
                         </div>
                         <div className="w-full flex items-center justify-center my-4 px-4">
                             <div className="flex gap-4">

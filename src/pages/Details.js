@@ -87,7 +87,7 @@ function Details(props) {
         fetchDetails()
     }, [slug])
     const { name, released, rating, background_image, website, metacritic, description_raw, playtime, parent_platforms, genres, stores, ratings, tags, publishers, developers } = result
-    const { parsePlatform, parseStore, onChange, formData } = useContext(GameContext)
+    const { parsePlatformIcons, parseStore, onChange, formData } = useContext(GameContext)
 
     const postReview = (reviewPost) => {
         let tempReviews = [...reviews]
@@ -156,7 +156,7 @@ function Details(props) {
 
                 {/* minor info */}
                 <div className='details_section-div'>
-                    <div className='flex flex-wrap items-center gap-4 justify-around'>
+                    <div className='flex flex-wrap items-center text-xs sm:text-base gap-4 justify-around'>
                         <span className='flex flex-col items-center gap-2 text-center'>
                             <span className="bg-black-v2 font-semibold flex items-center justify-center w-16 h-16 rounded-full border-2 border-brand-purple">
                                 {rating}
@@ -254,7 +254,7 @@ function Details(props) {
                             {parent_platforms && parent_platforms.map(platform => (
                                 <>
                                     <div key={platform.platform.name} className='rounded-lg text-white text-sm md:text-base border border-brand-purple  overlay-lighter py-2.5 px-6 flex gap-4 items-center'>
-                                        <i className='text-brand-purple'>{parsePlatform(platform.platform.name)}</i>
+                                        <i className='text-brand-purple'>{parsePlatformIcons(platform.platform.name)}</i>
                                         <p>{platform.platform.name}</p>
                                     </div>
 
