@@ -4,9 +4,9 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { GameContext } from '../Context';
 import { FaStar } from 'react-icons/fa'
-import image1 from '../images/friends/one.png'
-import image2 from '../images/friends/two.png'
-import image3 from '../images/friends/three.png'
+import image1 from '../images/friends/one.webp'
+import image2 from '../images/friends/two.webp'
+import image3 from '../images/friends/three.webp'
 import userImage from '../images/profilehead.jpg'
 import Loader from '../components/Loader';
 
@@ -47,7 +47,7 @@ function parseReactionsColor(reactionTitle) {
 // }
 
 
-function Details(props) {
+function Details() {
     const [result, setResult] = useState({})
     const [reviews, setReviews] = useState([
         {

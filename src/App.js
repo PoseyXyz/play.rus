@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import Layout from './pages/Layout';
 import NotFound from './pages/404';
 import Loader from './components/Loader';
+// import Explore from './pages/Explore';
 //lazy loading page routes
 const Explore = lazy(() => import('./pages/Explore'));
 const Recents = lazy(() => import('./pages/Recents'));

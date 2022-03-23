@@ -1,6 +1,6 @@
-import image1 from '../images/friends/one.png'
-import image2 from '../images/friends/two.png'
-import image3 from '../images/friends/three.png'
+import image1 from '../images/friends/one.webp'
+import image2 from '../images/friends/two.webp'
+import image3 from '../images/friends/three.webp'
 const chatData =    [
     {
         id: 1,
