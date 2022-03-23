@@ -3,8 +3,8 @@ import Card from '../components/Card';
 import SectionEmpty from '../components/SectionEmpty';
 import { GameContext } from '../Context';
 
-function Recents(props) {
-    const { recents, parseRatingColour, parsePlatform } = useContext(GameContext)
+function Recents() {
+    const { recents, parseRatingColour, parsePlatformIcons } = useContext(GameContext)
   
     return (
         <div className="outlet-layout">
@@ -14,7 +14,7 @@ function Recents(props) {
            {recents.map(result => {
 
                return (
-                   <Card result={result} parsePlatform={parsePlatform} parseRatingColour={parseRatingColour} />
+                   <Card result={result} parsePlatformIcons={parsePlatformIcons} parseRatingColour={parseRatingColour} />
                )
            })}
        </div>}
