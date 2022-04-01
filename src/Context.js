@@ -274,6 +274,7 @@ const GameProvider = ({ children }) => {
         let tempResults = tempArray.results
         if (selected === 'relevance') {
             // getData()
+            return null
         } else if (selected === "name") {
             tempResults = tempResults.sort((a, b) => (a[selected] > b[selected] ? 1 : -1))
             tempArray.results = tempResults
