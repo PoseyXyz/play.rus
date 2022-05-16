@@ -18,7 +18,7 @@ function Card({ result, parsePlatformIcons, parseRatingColour, scrollPosition })
     return (
         <div className="card flex flex-col bg-black-v3 rounded-xl relative">
 
-            <div className="h-[250px]">
+            <div className="h-[250px] grow">
                 <LazyLoadImage
                     className="rounded-t-xl h-full w-screen object-cover"
                     height={'250px'}
