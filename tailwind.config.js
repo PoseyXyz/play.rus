@@ -21,7 +21,7 @@ module.exports = {
         'garamond': ['Garamond']
     },
     screens:{
-      'zoom':'160em'
+      
     }
     },
   },

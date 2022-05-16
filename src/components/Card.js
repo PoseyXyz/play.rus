@@ -20,7 +20,7 @@ function Card({ result, parsePlatformIcons, parseRatingColour, scrollPosition })
 
             <div className="h-[250px] grow">
                 <LazyLoadImage
-                    className="rounded-t-xl h-full w-screen object-cover"
+                    className="rounded-t-xl h-full object-cover"
                     height={'100%'}
                     width={'100%'}
                     alt='gameCard_image'

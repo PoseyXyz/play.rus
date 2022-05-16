@@ -16,13 +16,13 @@ import Search from '../pages/Search';
 
 // }
 
-function Nav(props) {
+function Nav() {
     const { sideBarOpen, setSideBarOpen } = useContext(GameContext)
-    // let title = ChangeTitle()
+    // let title = ChangeTitle()<img src={require('../images/logo.png')} alt='logo' className="w-2/5 md:w-1/4" />
     
     return (
-        <nav className="grid grid-cols-10 bg-black-v1 px-4 text-white py-3 gap-4 items-center fixed z-20 mb-4 top-0 box-border rounded-r-lg">
-            <div className="col-span-2 flex items-center justify-center"><img src={require('../images/logo.png')} alt='logo' className="w-2/5 md:w-1/4" /></div>
+        <nav className="grid grid-cols-10 bg-black-v1 px-4 text-white py-3 gap-2 items-center fixed z-20 mb-4 top-0 box-border rounded-r-lg">
+            <div className="col-span-2 flex items-center justify-center text-sm md:text-base lg:text-lg text-brand-purple font-extrabold"><img src={require('../images/logo.png')} alt='logo' className="w-[37%] md:w-[20%]" /><div>Play.rus</div></div>
             <div className="col-span-6 md:col-span-7 gap-4 md:pr-12 flex justify-center md:justify-between items-center">
                 {/* <h3 className="text-typography-grey text-xl font-bold">{title}</h3> */}
                 <Search />
