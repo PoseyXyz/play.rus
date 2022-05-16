@@ -20,8 +20,8 @@ function Card({ result, parsePlatformIcons, parseRatingColour, scrollPosition })
 
             <div className="h-[250px] grow">
                 <LazyLoadImage
-                    className="rounded-t-xl h-full w-screen object-cover"
-                    height={'250px'}
+                    className="rounded-t-xl h-full object-cover"
+                    height={'100%'}
                     width={'100%'}
                     alt='gameCard_image'
                     effect="blur"
@@ -33,7 +33,7 @@ function Card({ result, parsePlatformIcons, parseRatingColour, scrollPosition })
             <div className="flex flex-col gap-5 px-6 py-4">
                 <div className="flex flex-col gap-4">
                     <div className="flex justify-between items-center">
-                        <Link to={`/details/${slug}`} onClick={() => parseRecents(result)} className="text-base 2xl:text-lg hover:text-typography-grey duration-100">{name}</Link>
+                        <Link to={`/details/${slug}`} onClick={() => parseRecents(result)} className="text-base 2xl:text[1.1rem] hover:text-typography-grey duration-100">{name}</Link>
                         <div className={`${parseRatingColour(rating)} border-2 py-1 px-2 rounded-md text-sm`}><p className="font-semibold">{rating}</p></div>
                     </div>
 
