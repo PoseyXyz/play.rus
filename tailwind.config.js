@@ -19,6 +19,9 @@ module.exports = {
         'montserrat': ['Montserrat'],
         'lato': ['Lato'],
         'garamond': ['Garamond']
+    },
+    screens:{
+      'zoom':'160em'
     }
     },
   },

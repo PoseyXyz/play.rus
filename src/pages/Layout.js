@@ -11,7 +11,7 @@ function Layout(props) {
     return (
         <main className="bg-pure-black relative">
            <header> <Navbar/></header>
-            <section className="grid grid-cols-10 gap-6 mt-4">
+            <section className="grid grid-cols-10 gap-4 mt-4 top-24">
                 <MenuBar/>
                 <Outlet/>
                 <FriendsBar/>

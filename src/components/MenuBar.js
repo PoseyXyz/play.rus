@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 function MenuBar(props) {
    
     return (
-        <aside className="bg-black-v1 hidden md:block col-span-2 text-white sticky top-24 menubar box-border rounded-r-lg">
+        <aside className="bg-black-v1 hidden h-screen md:block col-span-2 text-white sticky top-24 menubar box-border overflow-y-auto rounded-r-lg">
             <div className="flex flex-col gap-4 py-12">
 
                 

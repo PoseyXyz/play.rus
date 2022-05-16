@@ -23,7 +23,7 @@ function ChatHistoryPane({currentChat, chats}) {
                                     {/* header */}
                                     <div className='flex justify-between items-center lg:pr-4' key={id}>
 
-                                        <div className={`flex flex-col lg:flex-row gap-4 p-3 rounded-md`} key={id}>
+                                        <div className={`flex flex-col lg:flex-row gap-4 p-3 rounded-md`}>
 
                                             <img src={imageUrl} className='rounded-full w-10 h-10' alt='chat avatar' />
                                             <div className='flex flex-col gap-1'>
