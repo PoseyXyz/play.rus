@@ -6,6 +6,8 @@ import { GrAppleAppStore } from 'react-icons/gr'
 //initialization of Context API
 const GameContext = React.createContext()
 
+let API_KEY = '9df1bae5b88947458cc8431730fbfd9f'
+
 const GameProvider = ({ children }) => {
 
     //all state data in context API
@@ -204,7 +206,7 @@ const GameProvider = ({ children }) => {
         setSpinner(true)
 
         //calling fetch API and storing fetched games to state hook
-        const searchFetch = await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&page=${currentPage}&page_size=40`)
+        const searchFetch = await fetch(`https://api.rawg.io/api/games?key=${API_KEY}&page=${currentPage}&page_size=40`)
 
         let searchResult = await searchFetch.json()
         let tempResults = searchResult.results
@@ -289,7 +291,7 @@ const GameProvider = ({ children }) => {
     //Search logic (returns API data asynchronously based on values entered by user) 
     const getSearchData = async () => {
         setSearchSpinner(true)
-        const data = await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&search=${formData.searchString}`)
+        const data = await fetch(`https://api.rawg.io/api/games?key=${API_KEY}&search=${formData.searchString}`)
         let res = await data.json()
         setSearchResults(res)
         setSearchSpinner(false)
@@ -298,7 +300,7 @@ const GameProvider = ({ children }) => {
     //function to fetch list of game genres from API
     const fetchGenres = async () => {
 
-        const data = await fetch(`https://api.rawg.io/api/genres?key=9df1bae5b88947458cc8431730fbfd9f`)
+        const data = await fetch(`https://api.rawg.io/api/genres?key=${API_KEY}`)
         let res = await data.json()
         setCategoryList({
             ...categoryList,
@@ -309,7 +311,7 @@ const GameProvider = ({ children }) => {
     //function to fetch list of game developers from API
     const fetchDevelopers = async () => {
 
-        const data = await fetch(`https://api.rawg.io/api/developers?key=9df1bae5b88947458cc8431730fbfd9f`)
+        const data = await fetch(`https://api.rawg.io/api/developers?key=${API_KEY}`)
         let res = await data.json()
         setCategoryList({
             ...categoryList,
@@ -320,7 +322,7 @@ const GameProvider = ({ children }) => {
     //function to fetch list of game storess from API
     const fetchStores = async () => {
 
-        const data = await fetch(`https://api.rawg.io/api/stores?key=9df1bae5b88947458cc8431730fbfd9f`)
+        const data = await fetch(`https://api.rawg.io/api/stores?key=${API_KEY}`)
         let res = await data.json()
         setCategoryList({
             ...categoryList,
@@ -331,7 +333,7 @@ const GameProvider = ({ children }) => {
     //function to fetch list of game platforms from API
     const fetchPlatforms = async () => {
 
-        const data = await fetch(`https://api.rawg.io/api/platforms?key=9df1bae5b88947458cc8431730fbfd9f`)
+        const data = await fetch(`https://api.rawg.io/api/platforms?key=${API_KEY}`)
         let res = await data.json()
         setCategoryList({
             ...categoryList,
@@ -341,7 +343,7 @@ const GameProvider = ({ children }) => {
 
     //function to fetch list of game under each category (e.g. genres, developers, platforms or stores) from API
     const fetchGamesList = async (type, category) => {
-        let data = await fetch(`https://api.rawg.io/api/games?key=9df1bae5b88947458cc8431730fbfd9f&${type}=${category}&page=${currentPage}`)
+        let data = await fetch(`https://api.rawg.io/api/games?key=${API_KEY}&${type}=${category}&page=${currentPage}`)
         let res = await data.json()
         setGamesList(res.results)
     }
