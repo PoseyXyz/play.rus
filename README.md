@@ -10,10 +10,11 @@ You can view the project live [here](http://playrus.netlify.app/)
 
 To get started with the project
  1. Clone the repo
- 2. Get an Api key from [RAWG](https://rawg.io/apidocs)
- 3. Insert your API key in the Context file 
- 4. Run `npm start` in the project directory
- 5. Open http://localhost:3000 to view the build results on your browser
+ 2. Install all package dependencies using the `npm install` command on your terminal
+ 3. Get an Api key from [RAWG](https://rawg.io/apidocs)
+ 4. Insert your API key in the Context file 
+ 5. Run `npm start` in the project directory
+ 6. Open http://localhost:3000 to view the build results on your browser
 
 ## Author
 
